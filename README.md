@@ -2,9 +2,8 @@
 
 ## symlink
 
-cd ~/dotfiles
-
 ```
+cd ~/dotfiles
 ./setup.sh
 ```
 
