@@ -1,6 +1,6 @@
 """"""""""""""""""""""""""""""""""""""
 " NeoBundle
-" """"""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""
 
 set nocompatible
 if has('vim_starting')
@@ -15,6 +15,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " === Show tree of directory ===
 NeoBundle 'scrooloose/nerdtree'
+
 " === auto-save  ===
 NeoBundle "vim-scripts/vim-auto-save"
 
@@ -71,7 +72,7 @@ inoremap <C-h> <C-g>u<C-h>
 noremap  <C-d> <Del>
 inoremap <C-d> <Del>
 " 行頭からカーソルまで削除
-noremap  <C-u> d0 
+noremap  <C-u> d0
 inoremap <C-u> <C-o>d0
 " カーソルから行末まで削除
 noremap  <C-k> D
@@ -82,10 +83,37 @@ noremap <C-y> :q<CR>
 noremap sh :split
 " 垂直分割
 noremap sv :vsplit
+
+
+
+" 検索設定
+""----------------------------------------------------
+" コマンド、検索パターンの履歴
 set history=50		" keep 50 lines of command line history
+" 検索の時に大文字と小文字を区別しない
+set ignorecase
+" インクリメントリサーチを使う 
+set incsearch
 set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
+
+"----------------------------------------------------
+" 表示設定
+""----------------------------------------------------
+" タイトルをウィンドウ枠に表示する
+set title
+" 行番号を表示
+set number
+"入力中のコマンドをステータスに表示する
+set showcmd
+" インデントをスペース２つ分にする
+set tabstop=2
+" tabを半角スペースで挿入する
+set expandtab
+" 新しいウィンドウを下に開く
+set splitbelow
+" 新しいウィンドウを右に開く
+set splitright
+
 
 " === nerdtree ===
 
@@ -103,6 +131,10 @@ let NERDTreeShowHidden = 1
 let g:auto_save = 1
 " インサートモード時は保存しない
 let g:auto_save_in_insert_mode = 0
+
+
+
+" prompt
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
 
