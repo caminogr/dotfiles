@@ -4,9 +4,10 @@
 
 set nocompatible
 if has('vim_starting')
-"初回起動時のみruntimepathにneobundleのパスを指定する
-set runtimepath+=~/.vim/bundle/neobundle.vim/
+  "初回起動時のみruntimepathにneobundleのパスを指定する
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
+
 " === Init Neobundle ===
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
