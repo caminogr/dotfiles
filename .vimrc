@@ -51,6 +51,36 @@ if has("vms")
 else
   set backup		" keep a backup file
 endif
+
+""""""""""""""""""""""""""""""""""""""
+" マッピング
+""""""""""""""""""""""""""""""""""""""
+" ;を:にマッピング
+noremap ; :
+" 行頭に移動
+noremap  <C-a> 0
+noremap! <C-a> <C-o>0
+" 行末に移動
+noremap  <C-e> $
+noremap! <C-e> <C-o>$
+" カーソル前の文字削除
+noremap  <C-h> <S-x>
+inoremap <C-h> <C-g>u<C-h>
+" カーソル後の文字削除
+noremap  <C-d> <Del>
+inoremap <C-d> <Del>
+" 行頭からカーソルまで削除
+noremap  <C-u> d0 
+inoremap <C-u> <C-o>d0
+" カーソルから行末まで削除
+noremap  <C-k> D
+inoremap <C-k> <C-o>D
+" ファイルの変更を保存しないで終了する
+noremap <C-y> :q<CR>
+" 水平分割
+noremap sh :split
+" 垂直分割
+noremap sv :vsplit
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
