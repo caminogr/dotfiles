@@ -1,3 +1,27 @@
+""""""""""""""""""""""""""""""""""""""
+" NeoBundle
+" """"""""""""""""""""""""""""""""""""""
+
+set nocompatible
+if has('vim_starting')
+"初回起動時のみruntimepathにneobundleのパスを指定する
+set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+" === Init Neobundle ===
+call neobundle#begin(expand('~/.vim/bundle/'))
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+
+" === Show tree of directory ===
+NeoBundle 'scrooloose/nerdtree'
+" === auto-save  ===
+NeoBundle "vim-scripts/vim-auto-save"
+
+call neobundle#end()
+
+
+
+
 
 " An example for a vimrc file.
 "
@@ -32,6 +56,22 @@ set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 
+" === nerdtree ===
+
+nnoremap <silent><C-n> :NERDTreeToggle<CR>
+" 右側のウィンドウに移動する
+nnoremap <silent><C-w>  <C-w>w 
+" ファイルを指定せずにvimを起動した時にnerdtreeを開く
+autocmd vimenter * if !argc() | NERDTree | endif
+" 隠しファイルをデフォルトで表示させる
+let NERDTreeShowHidden = 1
+
+" === auto-save ===
+
+" デフォルトで有効にする
+let g:auto_save = 1
+" インサートモード時は保存しない
+let g:auto_save_in_insert_mode = 0
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
 
