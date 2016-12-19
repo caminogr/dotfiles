@@ -79,15 +79,32 @@ noremap  <C-k> D
 inoremap <C-k> <C-o>D
 " ファイルの変更を保存しないで終了する
 noremap <C-y> :q<CR>
+" sキーを無効化
+nnoremap s <Nop>
 " 水平分割
-noremap sh :split
+noremap ss :split<CR>
 " 垂直分割
-noremap sv :vsplit
+noremap sv :vsplit<CR>
+" 左に移動
+noremap sh <C-w>h
+" 右に移動
+noremap sl <C-w>l
+" 上に移動
+noremap sk <C-w>k
+" 下に移動
+noremap sj <C-w>j
+"高さを増やす
+noremap s; <C-w>+
+"高さを減らす
+noremap s- <C-w>-
+" 幅を増やす
+noremap s. <C-w>>
+" 幅を減らす
+noremap s, <C-w><
 
-
-
+"----------------------------------------------------
 " 検索設定
-""----------------------------------------------------
+"----------------------------------------------------
 " コマンド、検索パターンの履歴
 set history=50		" keep 50 lines of command line history
 " 検索の時に大文字と小文字を区別しない
@@ -98,7 +115,7 @@ set ruler		" show the cursor position all the time
 
 "----------------------------------------------------
 " 表示設定
-""----------------------------------------------------
+"----------------------------------------------------
 " タイトルをウィンドウ枠に表示する
 set title
 " 行番号を表示
@@ -118,8 +135,6 @@ set splitright
 " === nerdtree ===
 
 nnoremap <silent><C-n> :NERDTreeToggle<CR>
-" 右側のウィンドウに移動する
-nnoremap <silent><C-w>  <C-w>w 
 " ファイルを指定せずにvimを起動した時にnerdtreeを開く
 autocmd vimenter * if !argc() | NERDTree | endif
 " 隠しファイルをデフォルトで表示させる
