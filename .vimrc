@@ -147,8 +147,16 @@ autocmd vimenter * if !argc() | NERDTree | endif
 " Neo Bundle Plugin
 """"""""""""""""""""""""""""""""""""""
 
+" === nerdtree ===
 " 隠しファイルをデフォルトで表示させる
 let NERDTreeShowHidden = 1
+" デフォルトでツリーを表示させる
+autocmd vimenter * if !argc() | NERDTree | endif
+" ブックマークを初期表示
+let g:NERDTreeShowBookmarks=1
+" nerdtreeを開くためのキーマッピング
+nnoremap <silent><C-n> :NERDTreeToggle<cr>
+
 
 " === auto-save ===
 
