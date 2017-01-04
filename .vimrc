@@ -11,16 +11,22 @@ endif
 " === Init Neobundle ===
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
-
-
-" === Show tree of directory ===
 NeoBundle 'scrooloose/nerdtree'
-
-" === auto-save  ===
 NeoBundle "vim-scripts/vim-auto-save"
+NeoBundle 'rking/ag.vim'
+NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'tyru/caw.vim.git'
+NeoBundle 'nathanaelkane/vim-indent-guides'
+
+" highlight
+NeoBundle 'taichouchou2/html5.vim'
+NeoBundle 'tpope/vim-haml'
+NeoBundle 'slim-template/vim-slim'
+ 
+ 
 
 call neobundle#end()
-
+NeoBundleCheck
 
 
 
@@ -137,6 +143,10 @@ set splitright
 nnoremap <silent><C-n> :NERDTreeToggle<CR>
 " ファイルを指定せずにvimを起動した時にnerdtreeを開く
 autocmd vimenter * if !argc() | NERDTree | endif
+""""""""""""""""""""""""""""""""""""""
+" Neo Bundle Plugin
+""""""""""""""""""""""""""""""""""""""
+
 " 隠しファイルをデフォルトで表示させる
 let NERDTreeShowHidden = 1
 
@@ -146,6 +156,18 @@ let NERDTreeShowHidden = 1
 let g:auto_save = 1
 " インサートモード時は保存しない
 let g:auto_save_in_insert_mode = 0
+
+" === caw.vim ===
+" コメントアウト機能
+nmap <leader>c <plug>(caw:i:toggle)
+vmap <leader>c <plug>(caw:i:toggle)
+
+" === vim-indent-guides ===
+let g:indent_guides_enable_on_vim_startup = 1
+set tabstop=2 shiftwidth=2 expandtab
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=#444433 ctermbg=black 
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#3c3c3c ctermbg=darkgray 
 
 
 
