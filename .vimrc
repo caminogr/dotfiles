@@ -111,9 +111,11 @@ noremap s. <C-w>>
 " 幅を減らす
 noremap s, <C-w><
 
-"----------------------------------------------------
+
+""""""""""""""""""""""""""""""""""""""
 " 検索設定
-"----------------------------------------------------
+""""""""""""""""""""""""""""""""""""""
+
 " コマンド、検索パターンの履歴
 set history=50		" keep 50 lines of command line history
 " 検索の時に大文字と小文字を区別しない
@@ -122,15 +124,15 @@ set ignorecase
 set incsearch
 set ruler		" show the cursor position all the time
 
-"----------------------------------------------------
+
+""""""""""""""""""""""""""""""""""""""
 " 表示設定
-"----------------------------------------------------
+""""""""""""""""""""""""""""""""""""""
+
 " タイトルをウィンドウ枠に表示する
 set title
 " 行番号を表示
 set number
-"入力中のコマンドをステータスに表示する
-set showcmd
 " インデントをスペース２つ分にする
 set tabstop=2
 " tabを半角スペースで挿入する
@@ -140,6 +142,14 @@ set splitbelow
 " 新しいウィンドウを右に開く
 set splitright
 
+" === status line ===
+"ステータス行を表示
+set laststatus=2
+" ステータスラインの色
+" highlight statusline   term=NONE cterm=NONE guifg=red ctermfg=yellow ctermbg=red
+"入力中のコマンドをステータスに表示する
+set showcmd
+set statusline=%f%r%h%w\%=[FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%04v,%04l][%p%%]\ [LEN=%L]
 
 
 """"""""""""""""""""""""""""""""""""""
