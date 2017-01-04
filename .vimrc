@@ -90,8 +90,6 @@ noremap  <C-k> D
 inoremap <C-k> <C-o>D
 " ファイルの変更を保存しないで終了する
 noremap <C-y> :q<CR>
-" sキーを無効化
-nnoremap s <Nop>
 " 水平分割
 noremap ss :split<CR>
 " 垂直分割
