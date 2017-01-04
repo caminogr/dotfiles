@@ -83,6 +83,8 @@ alias hc='hub clone'
 alias rm='gmv -f --backup=numbered --target-directory ~/.Trash'
 alias cleartrash='\rm ~/.Trash/*'
 
+alias t='tmux'
+alias tname='tmux new -s'
 
 function op() {
   if [ -z "$1" ]; then
