@@ -1,0 +1,46 @@
+########################
+# 設定
+########################
+
+# 水平分割したウィンドウの下画面サイズを % で指定
+set split-view-height = 80%
+
+
+########################
+# キーバインド
+########################
+
+
+
+#### 無効化 ###
+
+bind generic G none
+bind generic g none 
+bind generic p none
+bind generic N none
+bind generic <Ctrl-N> none
+bind generic <Ctrl-P> none
+
+#### view switching ####
+
+bind generic <Ctrl-g> view-grep 
+bind generic <Ctrl-p> view-pager
+bind generic B view-blame
+
+
+#### 検索 ####
+
+bind generic p find-prev
+
+
+#### 移動 ####
+
+# 最初の行に移動
+bind generic gg move-first-line
+# 最後の行に移動
+bind generic G move-last-line
+
+
+#### view-refs ####
+# カーソル行のブランチを親にして入力した名前のブランチを作成
+bind refs n !git checkout -b %(prompt) %(branch)
