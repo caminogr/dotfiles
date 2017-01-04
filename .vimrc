@@ -152,6 +152,12 @@ set showcmd
 set statusline=%f%r%h%w\%=[FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%04v,%04l][%p%%]\ [LEN=%L]
 
 
+" === ファイルに関する設定 ===
+
+" swapをファイル作らない
+set noswapfile
+
+
 """"""""""""""""""""""""""""""""""""""
 " Neo Bundle Plugin
 """"""""""""""""""""""""""""""""""""""
