@@ -90,6 +90,8 @@ noremap  <C-k> D
 inoremap <C-k> <C-o>D
 " ファイルの変更を保存しないで終了する
 noremap <C-y> :q<CR>
+" control + i で下の行でinsert
+nnoremap <C-i> o
 " 水平分割
 noremap ss :split<CR>
 " 垂直分割
