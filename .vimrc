@@ -188,6 +188,21 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#3c3c3c ctermbg=darkgr
 
 
 
+
+""""""""""""""""""""""""""""""""""""""
+" Register filetype or syntax
+""""""""""""""""""""""""""""""""""""""
+autocmd BufNewFile,BufRead *.html setf html
+autocmd BufNewFile,BufRead *.erb setf eruby.html
+autocmd BufNewFile,BufRead *.haml setf haml
+autocmd BufNewFile,BufRead *.slim setf slim
+autocmd BufNewFile,BufRead *.scss setf scss
+autocmd BufNewFile,BufRead *.js setf javascript
+autocmd BufNewFile,BufRead *.coffee setf coffee
+autocmd BufNewFile,BufRead *.md setf markdown
+autocmd BufNewFile,BufRead *.yml setf yaml
+
+
 """"""""""""""""""""""""""""""""""""""
 " バックアップ
 """"""""""""""""""""""""""""""""""""""
