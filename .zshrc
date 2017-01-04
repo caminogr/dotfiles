@@ -83,6 +83,7 @@ alias hc='hub clone'
 alias rm='gmv -f --backup=numbered --target-directory ~/.Trash'
 alias cleartrash='\rm ~/.Trash/*'
 
+# tmux
 alias t='tmux'
 alias tname='tmux new -s'
 
@@ -98,6 +99,8 @@ function op() {
 ## config
 
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+## rubyコマンドパス設定
+export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init -)"
 
 if [ -f ~/enhancd/enhancd.sh ]; then
