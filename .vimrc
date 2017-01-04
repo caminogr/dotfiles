@@ -63,6 +63,9 @@ set backspace=indent,eol,start
 
 "リーダーキーをスペースにマッピング
 let mapleader = "\<space>" 
+" キーを無効化
+nnoremap s <nop>
+nnoremap o <nop>
 " ;を:にマッピング
 noremap ; :
 " 行頭に移動
