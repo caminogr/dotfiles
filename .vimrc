@@ -66,6 +66,8 @@ let mapleader = "\<space>"
 " キーを無効化
 nnoremap s <nop>
 nnoremap o <nop>
+" neobundleinstall
+cnoremap NBI NeoBundleInstall
 " ;を:にマッピング
 noremap ; :
 " 行頭に移動
