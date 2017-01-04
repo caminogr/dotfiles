@@ -141,11 +141,7 @@ set splitbelow
 set splitright
 
 
-" === nerdtree ===
 
-nnoremap <silent><C-n> :NERDTreeToggle<CR>
-" ファイルを指定せずにvimを起動した時にnerdtreeを開く
-autocmd vimenter * if !argc() | NERDTree | endif
 """"""""""""""""""""""""""""""""""""""
 " Neo Bundle Plugin
 """"""""""""""""""""""""""""""""""""""
