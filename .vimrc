@@ -142,6 +142,13 @@ set splitbelow
 " 新しいウィンドウを右に開く
 set splitright
 
+" 全角スペースを可視化
+augroup highlightidegraphicspace
+  autocmd!
+  autocmd colorscheme * highlight ideographicspace term=underline ctermbg=darkgreen guibg=darkn
+  autocmd vimenter,winenter * match ideographicspace /　/
+augroup end
+
 " === status line ===
 "ステータス行を表示
 set laststatus=2
