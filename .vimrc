@@ -54,11 +54,8 @@ set nocompatible
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
-else
-  set backup		" keep a backup file
-endif
+
+
 
 """"""""""""""""""""""""""""""""""""""
 " マッピング
@@ -176,6 +173,20 @@ set tabstop=2 shiftwidth=2 expandtab
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=#444433 ctermbg=black 
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#3c3c3c ctermbg=darkgray 
+
+
+
+""""""""""""""""""""""""""""""""""""""
+" バックアップ
+""""""""""""""""""""""""""""""""""""""
+
+" ファイルのバックアップを有効にする
+set backup
+" 取得するバックアップを編集前のファイルとする(無効化する場合は「nowritebackup」)
+set writebackup
+" バックアップ先のディレクトリ指定
+set backupdir=$HOME/.vimbackup
+
 
 
 
