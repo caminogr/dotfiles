@@ -29,18 +29,14 @@ bind generic <Ctrl-p> view-pager
 bind generic B view-blame
 
 
-#### 検索 ####
-
-bind generic p find-prev
-
-
 #### 移動 ####
 
 # 最初の行に移動
 bind generic gg move-first-line
 # 最後の行に移動
 bind generic G move-last-line
-
+# 前の検索結果に移動
+bind generic p find-prev
 
 ### view-status
 
