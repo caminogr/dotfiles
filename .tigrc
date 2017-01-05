@@ -18,6 +18,7 @@ bind generic G none
 bind generic g none 
 bind generic p none
 bind generic N none
+bind generic S none
 bind generic <Ctrl-N> none
 bind generic <Ctrl-P> none
 
@@ -41,8 +42,16 @@ bind generic gg move-first-line
 bind generic G move-last-line
 
 
+### view-status
+
+# ファイルを全てstash
+bind status S !git stash -u
+
+
 #### view-refs ####
+
 # カーソル行のブランチを親にして入力した名前のブランチを作成
 bind refs n !git checkout -b %(prompt) %(branch)
 # ブランチをチェックアウト
 bind refs C !git checkout %(branch)
+
