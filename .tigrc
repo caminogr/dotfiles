@@ -44,3 +44,5 @@ bind generic G move-last-line
 #### view-refs ####
 # カーソル行のブランチを親にして入力した名前のブランチを作成
 bind refs n !git checkout -b %(prompt) %(branch)
+# ブランチをチェックアウト
+bind refs C !git checkout %(branch)
