@@ -5,7 +5,6 @@
 # 水平分割したウィンドウの下画面サイズを % で指定
 set split-view-height = 80%
 
-
 ########################
 # キーバインド
 ########################
@@ -16,17 +15,25 @@ set split-view-height = 80%
 
 bind generic G none
 bind generic g none 
+bind generic h none
+bind generic l none
 bind generic p none
 bind generic N none
 bind generic S none
 bind generic <Ctrl-N> none
 bind generic <Ctrl-P> none
 
+
+
+
+
 #### view switching ####
 
 bind generic <Ctrl-g> view-grep 
 bind generic <Ctrl-p> view-pager
 bind generic B view-blame
+bind generic H view-help
+bind generic L view-log
 
 
 #### 移動 ####
@@ -37,6 +44,10 @@ bind generic gg move-first-line
 bind generic G move-last-line
 # 前の検索結果に移動
 bind generic p find-prev
+# 左に移動
+bind generic h scroll-left 
+# 右に移動
+bind generic l scroll-right
 
 ### view-status
 
