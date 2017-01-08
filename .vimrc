@@ -68,6 +68,10 @@ nnoremap s <nop>
 nnoremap o <nop>
 " neobundleinstall
 cnoremap NBI NeoBundleInstall
+" binding.pry
+inoremap <C-@> binding.pry
+" console.log();
+inoremap <C-^> console.log();
 " ;を:にマッピング
 noremap ; :
 " 行頭に移動
