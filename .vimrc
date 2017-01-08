@@ -205,7 +205,9 @@ let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=#444433 ctermbg=black 
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#3c3c3c ctermbg=darkgray 
 
-
+" === ctrlp-vim ===
+" これまで開いたファイル履歴から絞り込む
+nnoremap sm :<C-u>CtrlPMRUFiles<CR>
 
 
 """"""""""""""""""""""""""""""""""""""
