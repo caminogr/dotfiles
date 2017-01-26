@@ -100,11 +100,11 @@ function op() {
 ## config
 
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+
+
 ## rubyコマンドパス設定
+
 export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init -)"
 
-if [ -f ~/enhancd/enhancd.sh ]; then
-  source ~/enhancd/enhancd.sh
-fi
 

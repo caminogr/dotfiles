@@ -17,6 +17,3 @@ function op() {
         open "$@"
     fi
 }
-if [ -f ~/enhancd/enhancd.sh ]; then
-    source ~/enhancd/enhancd.sh
-fi
