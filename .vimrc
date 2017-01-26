@@ -116,6 +116,13 @@ inoremap <C-a> <C-o>0
 " 行末に移動
 noremap  <C-e> $
 inoremap <C-e> <C-o>$
+" 半画面下にスクロール
+noremap m <C-d>
+" 半画面上にスクロール
+noremap <S-m> <C-u>
+noremap <S-m> <C-u>
+" 次の単語の前に移動
+noremap f w
 
 """"""""""""""""""""""""""""""""""""""
 " 検索設定
