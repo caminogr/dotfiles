@@ -1,7 +1,6 @@
 """"""""""""""""""""""""""""""""""""""
 " NeoBundle
 """""""""""""""""""""""""""""""""""""""
-
 set nocompatible
 if has('vim_starting')
   "初回起動時のみruntimepathにneobundleのパスを指定する
@@ -17,6 +16,7 @@ NeoBundle 'rking/ag.vim'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'tyru/caw.vim.git'
 NeoBundle 'nathanaelkane/vim-indent-guides'
+
 
 " highlight
 NeoBundle 'taichouchou2/html5.vim'
@@ -74,9 +74,6 @@ inoremap <C-@> binding.pry
 inoremap <C-^> console.log();
 " ;を:にマッピング
 noremap ; :
-" カーソル前の文字削除
-noremap  <C-h> <S-x>
-inoremap <C-h> <C-g>u<C-h>
 " カーソル後の文字削除
 noremap  <C-d> <Del>
 inoremap <C-d> <Del>
