@@ -124,6 +124,18 @@ noremap <S-m> <C-u>
 " 次の単語の前に移動
 noremap f w
 
+" === tab関連 ===
+
+" tc 新しいタブを作る
+noremap <silent> tt :tablast <bar> tabnew<CR>
+" tx タブを閉じる
+noremap <silent> <D-w> :tabclose<CR>
+" tn 次のタブ
+noremap <silent> tn :tabnext<CR>
+" tp 前のタブ
+noremap <silent> tp :tabprevious<CR>
+
+
 """"""""""""""""""""""""""""""""""""""
 " 検索設定
 """"""""""""""""""""""""""""""""""""""
