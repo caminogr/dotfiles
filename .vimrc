@@ -223,6 +223,13 @@ autocmd BufNewFile,BufRead *.coffee setf coffee
 autocmd BufNewFile,BufRead *.md setf markdown
 autocmd BufNewFile,BufRead *.yml setf yaml
 
+"""""""""""""""""""""""""""""""""""""
+" コピペ
+"""""""""""""""""""""""""""""""""""""
+
+" クリップボード連携
+set clipboard=unnamed,autoselect
+
 
 """"""""""""""""""""""""""""""""""""""
 " バックアップ
