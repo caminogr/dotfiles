@@ -58,7 +58,7 @@ set backspace=indent,eol,start
 
 
 """"""""""""""""""""""""""""""""""""""
-" マッピング
+" mapping 
 """""""""""""""""""""""""""""""""""""""
 
 "リーダーキーをスペースにマッピング
@@ -74,12 +74,6 @@ inoremap <C-@> binding.pry
 inoremap <C-^> console.log();
 " ;を:にマッピング
 noremap ; :
-" 行頭に移動
-noremap  <C-a> 0
-noremap! <C-a> <C-o>0
-" 行末に移動
-noremap  <C-e> $
-noremap! <C-e> <C-o>$
 " カーソル前の文字削除
 noremap  <C-h> <S-x>
 inoremap <C-h> <C-g>u<C-h>
@@ -117,6 +111,14 @@ noremap s. <C-w>>
 " 幅を減らす
 noremap s, <C-w><
 
+" === カーソル移動 ===
+ 
+ " 行頭に移動
+noremap  <C-a> 0
+inoremap <C-a> <C-o>0
+" 行末に移動
+noremap  <C-e> $
+inoremap <C-e> <C-o>$
 
 """"""""""""""""""""""""""""""""""""""
 " 検索設定
