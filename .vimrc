@@ -151,7 +151,7 @@ set splitright
 " 全角スペースを可視化
 augroup highlightidegraphicspace
   autocmd!
-  autocmd colorscheme * highlight ideographicspace term=underline ctermbg=darkgreen guibg=darkn
+  autocmd colorscheme * highlight ideographicspace term=underline ctermbg=darkgreen guibg=darkgreen
   autocmd vimenter,winenter * match ideographicspace /　/
 augroup end
 
