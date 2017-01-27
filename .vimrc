@@ -180,7 +180,7 @@ set laststatus=2
 " highlight statusline   term=NONE cterm=NONE guifg=red ctermfg=yellow ctermbg=red
 "入力中のコマンドをステータスに表示する
 set showcmd
-set statusline=%f%r%h%w\%=[FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%04v,%04l][%p%%]\ [LEN=%L]
+set statusline=%f%r%h%w\%=[POS=%04v,%04l][%p%%]\ [LEN=%L]
 
 
 " === ファイルに関する設定 ===
