@@ -279,6 +279,9 @@ if has('mouse')
   set mouse=a
 endif
 
+" 行数の色設定
+autocmd ColorScheme * highlight LineNr guifg=#767676
+
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
