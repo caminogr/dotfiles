@@ -187,6 +187,10 @@ set statusline=%f%r%h%w\%=[FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%04v,%04l][%p%%]\ [LE
 
 " swapをファイル作らない
 set noswapfile
+" current pathを表示
+noremap <D-1> :echo expand("%:p") <CR>
+" current pathをコピー
+noremap <D-2> :let @+ = expand("%:p") <CR>
 
 
 """"""""""""""""""""""""""""""""""""""
