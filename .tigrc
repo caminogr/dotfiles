@@ -75,5 +75,5 @@ bind refs C !git checkout %(branch)
 
 #### view-stash ####
 
-# keybind about git apply
+# keybind about git stash apply
 bind stash a ?git stash apply %(stash)
