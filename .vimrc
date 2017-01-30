@@ -147,6 +147,8 @@ set ignorecase
 " インクリメントリサーチを使う 
 set incsearch
 set ruler		" show the cursor position all the time
+" Esc でハイライトOFF
+nnoremap <Esc> :<C-u>set nohlsearch<Return>
 
 
 """"""""""""""""""""""""""""""""""""""
