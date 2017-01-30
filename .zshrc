@@ -84,7 +84,10 @@ alias hc='hub clone'
 alias rm='gmv -f --backup=numbered --target-directory ~/.Trash'
 alias cleartrash='\rm ~/.Trash/*'
 
-# tmux
+## less
+export LESS="-N"
+
+## tmux
 alias t='tmux'
 alias tname='tmux new -s'
 
