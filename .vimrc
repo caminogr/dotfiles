@@ -140,6 +140,8 @@ noremap <silent> tp :tabprevious<CR>
 " 検索設定
 """"""""""""""""""""""""""""""""""""""
 
+" 外部grepにhighwayを指定
+set grepprg=hw
 " コマンド、検索パターンの履歴
 set history=50		" keep 50 lines of command line history
 " 検索の時に大文字と小文字を区別しない
@@ -147,6 +149,7 @@ set ignorecase
 " インクリメントリサーチを使う 
 set incsearch
 set ruler		" show the cursor position all the time
+autocmd QuickFixCmdPost *grep* cwindow
 " Esc でハイライトOFF
 nnoremap <Esc> :<C-u>set nohlsearch<Return>
 
@@ -176,6 +179,7 @@ augroup highlightidegraphicspace
 augroup end
 
 " === status line ===
+
 "ステータス行を表示
 set laststatus=2
 " ステータスラインの色
@@ -217,10 +221,12 @@ let g:auto_save = 1
 " インサートモード時は保存しない
 let g:auto_save_in_insert_mode = 0
 
+
 " === caw.vim ===
 " コメントアウト機能
 nmap <leader>c <plug>(caw:i:toggle)
 vmap <leader>c <plug>(caw:i:toggle)
+
 
 " === vim-indent-guides ===
 let g:indent_guides_enable_on_vim_startup = 1
@@ -229,9 +235,12 @@ let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=#444433 ctermbg=black 
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#3c3c3c ctermbg=darkgray 
 
+
 " === ctrlp-vim ===
+
 " これまで開いたファイル履歴から絞り込む
 nnoremap sm :<C-u>CtrlPMRUFiles<CR>
+let g:ctrlp_user_command = 'hw -l'
 
 
 """"""""""""""""""""""""""""""""""""""
