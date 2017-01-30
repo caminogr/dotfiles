@@ -49,10 +49,17 @@ bind generic h scroll-left
 # 右に移動
 bind generic l scroll-right
 
+
+
+
+
 ### view-status
 
 # ファイルを全てstash
 bind status S !git stash -u
+
+
+
 
 
 #### view-refs ####
@@ -62,3 +69,11 @@ bind refs n !git checkout -b %(prompt) %(branch)
 # ブランチをチェックアウト
 bind refs C !git checkout %(branch)
 
+
+
+
+
+#### view-stash ####
+
+# keybind about git apply
+bind stash a ?git stash apply %(stash)
