@@ -57,6 +57,8 @@ bind generic l scroll-right
 
 # ファイルを全てstash
 bind status S !git stash -u
+# D でトラッキングされていないファイルを削除 (status-view)
+bind status  D      ?git clean -d -f -- %(file)
 
 
 
@@ -68,7 +70,8 @@ bind status S !git stash -u
 bind refs n !git checkout -b %(prompt) %(branch)
 # ブランチをチェックアウト
 bind refs C !git checkout %(branch)
-
+# D でブランチを削除 (マージ済みブランチのみ. 強制削除(branch -D) は `!`) (refs-view)
+bind refs D ?git branch -d %(branch)
 
 
 
