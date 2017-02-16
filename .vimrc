@@ -311,6 +311,12 @@ endif
 " 行数の色設定
 autocmd ColorScheme * highlight LineNr guifg=#767676
 
+" fontの指定
+if has('mac') && has('gui_running')
+  set macligatures
+  set guifont=Fira\ Code:h12
+endif
+
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
