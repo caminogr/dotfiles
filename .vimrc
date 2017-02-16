@@ -26,6 +26,8 @@ NeoBundle 'tpope/vim-haml'
 NeoBundle 'slim-template/vim-slim'
  
  
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'digitaltoad/vim-pug'
 
 call neobundle#end()
 NeoBundleCheck
@@ -260,6 +262,7 @@ autocmd BufNewFile,BufRead *.slim setf slim
 autocmd BufNewFile,BufRead *.scss setf scss
 autocmd BufNewFile,BufRead *.js setf javascript
 autocmd BufNewFile,BufRead *.coffee setf coffee
+autocmd BufNewFile,BufRead *.jade setf jade
 autocmd BufNewFile,BufRead *.md setf markdown
 autocmd BufNewFile,BufRead *.yml setf yaml
 
