@@ -83,6 +83,7 @@ alias gp='git pull'
 alias hc='hub clone'
 alias rm='gmv -f --backup=numbered --target-directory ~/.Trash'
 alias cleartrash='\rm ~/.Trash/*'
+alias ctags='/usr/local/Cellar/ctags/5.8_1/bin/ctags'
 
 ## less
 export LESS="-N"
