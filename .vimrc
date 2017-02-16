@@ -246,7 +246,9 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#3c3c3c ctermbg=darkgr
 
 " これまで開いたファイル履歴から絞り込む
 nnoremap sm :<C-u>CtrlPMRUFiles<CR>
-let g:ctrlp_user_command = 'hw -l'
+let g:ctrlp_user_command = 'ag %s -gl'
+
+
 " === vim-fugitive === 
 autocmd BufWritePost *
   \ if exists('b:git_dir') && executable(b:git_dir.'/hooks/ctags') |
