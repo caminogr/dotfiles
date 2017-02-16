@@ -154,8 +154,10 @@ set ignorecase
 set incsearch
 set ruler		" show the cursor position all the time
 autocmd QuickFixCmdPost *grep* cwindow
+" ハイライトON
+set hlsearch
 " Esc でハイライトOFF
-nnoremap <Esc> :<C-u>set nohlsearch<Return>
+nnoremap <silent><Esc> :noh<Return>
 
 
 """"""""""""""""""""""""""""""""""""""
