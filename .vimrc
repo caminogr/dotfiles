@@ -11,7 +11,7 @@ endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle "vim-scripts/vim-auto-save"
+NeoBundle 'vim-scripts/vim-auto-save'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'tyru/caw.vim.git'
