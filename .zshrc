@@ -49,7 +49,7 @@ function chpwd() { ls }
 
 ## alias
 
-alias cdh='cd ~'
+alias re='exec $SHELL -l'
 alias la='ls -a'
 alias ll='ls -l'
 alias rg='rails g'
