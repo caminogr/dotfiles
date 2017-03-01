@@ -309,7 +309,12 @@ if has('mouse')
 endif
 
 " 行数の色設定
-autocmd ColorScheme * highlight LineNr guifg=#767676
+autocmd ColorScheme * highlight LineNr guifg=#767676 ctermfg=244
+
+
+" visualモードの背景の設定
+autocmd ColorScheme * highlight Visual guifg=#4D5056 guibg=#C5C4BD
+
 
 " fontの指定
 if has('mac') && has('gui_running')
