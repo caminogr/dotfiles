@@ -20,6 +20,7 @@ bind generic N none
 bind generic S none
 bind generic <Ctrl-N> none
 bind generic <Ctrl-P> none
+bind generic R refresh
 
 
 
