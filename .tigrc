@@ -2,8 +2,6 @@
 # 設定
 ########################
 
-# 水平分割したウィンドウの下画面サイズを % で指定
-set split-view-height = 80%
 
 ########################
 # キーバインド
@@ -11,7 +9,7 @@ set split-view-height = 80%
 
 
 
-#### 無効化 ###
+#### 無効化 ####
 
 bind generic G none
 bind generic g none 
@@ -25,6 +23,12 @@ bind generic <Ctrl-P> none
 
 
 
+#### 基本設定 ####
+
+# 水平分割したウィンドウの下画面サイズ
+set split-view-height = 80%
+# 更新
+bind generic <Ctrl-r> refresh
 
 
 #### view switching ####
@@ -52,8 +56,7 @@ bind generic l scroll-right
 
 
 
-
-### view-status
+#### view-status ####
 
 # ファイルを全てstash
 bind status S !git stash -u
