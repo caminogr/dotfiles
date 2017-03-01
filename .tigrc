@@ -53,6 +53,10 @@ bind generic p find-prev
 bind generic h scroll-left 
 # 右に移動
 bind generic l scroll-right
+# 1page分下に移動
+bind generic <Ctrl-f> move-page-down
+# 1page分上に移動
+bind generic <Ctrl-b> move-page-up
 
 
 
