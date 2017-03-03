@@ -73,9 +73,9 @@ nnoremap o <nop>
 " neobundleinstall
 cnoremap NBI NeoBundleInstall
 " binding.pry
-inoremap <C-@> binding.pry
+inoremap <C-b> binding.pry
 " console.log();
-inoremap <C-^> console.log();
+inoremap <C-c> console.log();
 " ;を:にマッピング
 noremap ; :
 " カーソル後の文字削除
