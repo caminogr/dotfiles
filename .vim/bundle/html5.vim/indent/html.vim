@@ -1,7 +1,13 @@
+" Description:      HTML5 and inline SVG indenter
+" Changed By: HT de Beer <H.T.de.Beer@gmail.com>
+" Last Change: 20121013
+"   Added the SVG elements to the list of indenting element. SVG elements
+"   taken from http://www.w3.org/TR/SVG/eltindex.html
+"   
 " Description:        html5 (and html4) indenter
 " Changed By:        Brian Gershon <brian.five@gmail.com>
 " Last Change:        30 Jan 2011
-"
+" 
 "   1. Started with vim72 html indent file authored by Johannes Zellner (below)
 "   2. Added html5 list as described here:
 "      http://stackoverflow.com/questions/3232518/how-to-update-vim-to-color-code-new-html-elements
@@ -13,22 +19,28 @@
 " Last Change:        Mo, 05 Jun 2006 22:32:41 CEST
 "                 Restoring 'cpo' and 'ic' added by Bram 2006 May 5
 " Globals:
-" let g:html_indent_tags = ['testag']
+" let g:html_indent_tags = 'html\|p\|time'
 " let g:html_exclude_tags = ['html', 'style', 'script', 'body']
 
 
 " Only load this indent file when no other was loaded.
-" if exists("b:did_indent")
-"     finish
-" endif
+if exists("b:did_indent")
+    finish
+endif
+runtime! indent/javascript.vim
+let s:jsindent = &indentexpr
+unlet b:did_indent
+runtime! indent/css.vim
+let s:cssindent = &indentexpr
 let b:did_indent = 1
 
 " [-- local settings (must come before aborting the script) --]
 setlocal indentexpr=HtmlIndentGet(v:lnum)
-setlocal indentkeys=o,O,*<Return>,<>>,{,}
+setlocal indentkeys=o,O,*<Return>,<>>,{,},!^F
 
 
 let s:tags = []
+let s:no_tags = []
 
 " [-- <ELEMENT ? - - ...> --]
 call add(s:tags, 'a')
@@ -50,6 +62,8 @@ call add(s:tags, 'dfn')
 call add(s:tags, 'dir')
 call add(s:tags, 'div')
 call add(s:tags, 'dl')
+call add(s:tags, 'dt')
+call add(s:tags, 'dd')
 call add(s:tags, 'em')
 call add(s:tags, 'fieldset')
 call add(s:tags, 'font')
@@ -101,23 +115,24 @@ call add(s:tags, 'article')
 call add(s:tags, 'aside')
 call add(s:tags, 'audio')
 call add(s:tags, 'canvas')
-call add(s:tags, 'command')
 call add(s:tags, 'datalist')
 call add(s:tags, 'details')
-call add(s:tags, 'embed')
 call add(s:tags, 'figcaption')
 call add(s:tags, 'figure')
 call add(s:tags, 'footer')
 call add(s:tags, 'header')
 call add(s:tags, 'hgroup')
-call add(s:tags, 'keygen')
+call add(s:tags, 'main')
 call add(s:tags, 'mark')
 call add(s:tags, 'meter')
 call add(s:tags, 'nav')
 call add(s:tags, 'output')
 call add(s:tags, 'progress')
+call add(s:tags, 'picture')
+call add(s:tags, 'rb')
 call add(s:tags, 'rp')
 call add(s:tags, 'rt')
+call add(s:tags, 'rtc')
 call add(s:tags, 'ruby')
 call add(s:tags, 'section')
 call add(s:tags, 'source')
@@ -125,6 +140,68 @@ call add(s:tags, 'summary')
 call add(s:tags, 'time')
 call add(s:tags, 'video')
 call add(s:tags, 'bdi')
+call add(s:tags, 'data')
+
+" Web Component
+call add(s:tags, 'template')
+
+" Common inline used SVG elements
+call add(s:tags, 'clipPath')
+call add(s:tags, 'defs')
+call add(s:tags, 'desc')
+call add(s:tags, 'filter')
+call add(s:tags, 'foreignObject')
+call add(s:tags, 'g')
+call add(s:tags, 'linearGradient')
+call add(s:tags, 'marker')
+call add(s:tags, 'mask')
+call add(s:tags, 'pattern')
+call add(s:tags, 'radialGradient')
+call add(s:tags, 'svg')
+call add(s:tags, 'switch')
+call add(s:tags, 'symbol')
+call add(s:tags, 'text')
+call add(s:tags, 'textPath')
+call add(s:tags, 'tref')
+call add(s:tags, 'tspan')
+" Common self closing SVG elements
+call add(s:no_tags, 'animate')
+call add(s:no_tags, 'animateTransform')
+call add(s:no_tags, 'circle')
+call add(s:no_tags, 'ellipse')
+call add(s:no_tags, 'feBlend')
+call add(s:no_tags, 'feColorMatrix')
+call add(s:no_tags, 'feComposite')
+call add(s:no_tags, 'feConvolveMatrix')
+call add(s:no_tags, 'feDisplacementMap')
+call add(s:no_tags, 'feFlood')
+call add(s:no_tags, 'feFuncR')
+call add(s:no_tags, 'feFuncG')
+call add(s:no_tags, 'feFuncB')
+call add(s:no_tags, 'feFuncA')
+call add(s:no_tags, 'feGaussianBlur')
+call add(s:no_tags, 'feImage')
+call add(s:no_tags, 'feMergeNode')
+call add(s:no_tags, 'feMorphology')
+call add(s:no_tags, 'feOffset')
+call add(s:no_tags, 'fePointLight')
+call add(s:no_tags, 'feSpotLight')
+call add(s:no_tags, 'feTile')
+call add(s:no_tags, 'feTurbulence')
+call add(s:no_tags, 'hatchpath')
+call add(s:no_tags, 'hkern')
+call add(s:no_tags, 'image')
+call add(s:no_tags, 'line')
+call add(s:no_tags, 'mpath')
+call add(s:no_tags, 'polygon')
+call add(s:no_tags, 'polyline')
+call add(s:no_tags, 'path')
+call add(s:no_tags, 'rect')
+call add(s:no_tags, 'solidColor')
+call add(s:no_tags, 'stop')
+call add(s:no_tags, 'use')
+call add(s:no_tags, 'view')
+call add(s:no_tags, 'vkern')
 
 call add(s:tags, 'html')
 call add(s:tags, 'head')
@@ -137,15 +214,46 @@ call add(s:tags, 'tr')
 call add(s:tags, 'th')
 call add(s:tags, 'td')
 
+call add(s:no_tags, 'base')
+call add(s:no_tags, 'link')
+call add(s:no_tags, 'meta')
+call add(s:no_tags, 'hr')
+call add(s:no_tags, 'br')
+call add(s:no_tags, 'wbr')
+call add(s:no_tags, 'img')
+call add(s:no_tags, 'embed')
+call add(s:no_tags, 'param')
+call add(s:no_tags, 'source')
+call add(s:no_tags, 'track')
+call add(s:no_tags, 'area')
+call add(s:no_tags, 'col')
+call add(s:no_tags, 'input')
+call add(s:no_tags, 'keygen')
+call add(s:no_tags, 'menuitem')
+
+let s:omittable = [ 
+  \  ['address', 'article', 'aside', 'blockquote', 'dir', 'div', 'dl', 'fieldset', 'footer', 'form', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'header', 'hr', 'menu', 'nav', 'ol', 'p', 'pre', 'section', 'table', 'ul'],
+  \  ['dt', 'dd'],
+  \  ['li'],
+  \  ['thead', 'tbody', 'tfoot'],
+  \  ['th', 'td'],
+  \]
+
+
+let s:html_noindent_tags = join(s:no_tags, '\|')
+
 if exists('g:html_exclude_tags')
     for tag in g:html_exclude_tags
         call remove(s:tags, index(s:tags, tag))
     endfor
+    let s:html_noindent_tags = s:html_noindent_tags.'\|'.join(g:html_exclude_tags, '\|')
 endif
-if exists('g:html_indent_tags')
-    call extend(s:tags, g:html_indent_tags)
-endif
-let s:html_indent_tags = join(s:tags, '\|')
+
+" let s:html_indent_tags = join(s:tags, '\|')
+let s:html_indent_tags = '[a-z_][a-z0-9_.-]*'
+" if exists('g:html_indent_tags')
+    " let s:html_indent_tags = s:html_indent_tags.'\|'.g:html_indent_tags
+" endif
 
 let s:cpo_save = &cpo
 set cpo-=C
@@ -180,13 +288,14 @@ endfun
 fun! <SID>HtmlIndentSum(lnum, style)
     if a:style == match(getline(a:lnum), '^\s*</')
         if a:style == match(getline(a:lnum), '^\s*</\<\('.s:html_indent_tags.'\)\>')
-            let open = <SID>HtmlIndentOpen(a:lnum, s:html_indent_tags)
-            let close = <SID>HtmlIndentClose(a:lnum, s:html_indent_tags)
+            let open = <SID>HtmlIndentOpen(a:lnum, s:html_indent_tags) - <SID>HtmlIndentOpen(a:lnum, s:html_noindent_tags)
+            let close = <SID>HtmlIndentClose(a:lnum, s:html_indent_tags) - <SID>HtmlIndentClose(a:lnum, s:html_noindent_tags)
             if 0 != open || 0 != close
                 return open - close
             endif
         endif
     endif
+
     if '' != &syntax &&
         \ synIDattr(synID(a:lnum, 1, 1), 'name') =~ '\(css\|java\).*' &&
         \ synIDattr(synID(a:lnum, strlen(getline(a:lnum)), 1), 'name')
@@ -223,6 +332,7 @@ fun! HtmlIndentGet(lnum)
 
     " [-- special handling for <javascript>: use cindent --]
     let js = '<script'
+    let jse = '</script>'
 
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     " by Tye Zdrojewski <zdro@yahoo.com>, 05 Jun 2006
@@ -232,14 +342,44 @@ fun! HtmlIndentGet(lnum)
     "      the pair will still match if we are before the beginning of the
     "      pair.
     "
-    if   0 < searchpair(js, '', '</script>', 'nWb')
-    \ && 0 < searchpair(js, '', '</script>', 'nW')
+    if   0 < searchpair(js, '', jse, 'nWb')
+    \ && 0 < searchpair(js, '', jse, 'nW')
         " we're inside javascript
-        if getline(lnum) !~ js && getline(a:lnum) != '</script>'
+        if getline(searchpair(js, '', '</script>', 'nWb')) !~ '<script [^>]*type=["'']\?text\/\(html\|\(ng-\)\?template\)'
+        \ && getline(lnum) !~ js && getline(a:lnum) !~ jse
             if restore_ic == 0
               setlocal noic
             endif
-            return cindent(a:lnum)
+            if s:jsindent == ''
+              return cindent(a:lnum)
+            else
+              execute 'let ind = ' . s:jsindent
+              return ind
+            endif
+        endif
+        if getline(a:lnum) =~ jse
+          return indent(searchpair(js, '', jse, 'nWb'))
+        endif
+    endif
+
+    let css = '<style'
+    let csse = '</style>'
+    if   0 < searchpair(css, '', csse, 'nWb')
+    \ && 0 < searchpair(css, '', csse, 'nW')
+        " we're inside style
+        if getline(lnum) !~ css && getline(a:lnum) !~ csse
+            if restore_ic == 0
+              setlocal noic
+            endif
+            if s:cssindent == ''
+              return cindent(a:lnum)
+            else
+              execute 'let ind = ' . s:cssindent
+              return ind
+            endif
+        endif
+        if getline(a:lnum) =~ csse
+          return indent(searchpair(css, '', csse, 'nWb'))
         endif
     endif
 
@@ -269,11 +409,35 @@ fun! HtmlIndentGet(lnum)
         let ind = ind - 1
     endif
 
+    let lind = indent(lnum)
+
+    " for tags in s:omittable
+      " let tags_exp = '<\(' . join(tags, '\|') . '\)>'
+      " let close_tags_exp = '</\(' . join(tags, '\|') . '\)>'
+      " if getline(a:lnum) =~ tags_exp
+        " let block_start = search('^'.repeat(' ', lind + (&sw * ind - 1)).'\S'  , 'bnW')
+        " let prev_tag = search(tags_exp, 'bW', block_start)
+        " let prev_closetag = search(close_tags_exp, 'W', a:lnum)
+        " if prev_tag && !prev_closetag
+          " let ind = ind - 1
+        " endif
+      " endif
+
+      " if getline(a:lnum) =~ '</\w\+>'
+        " let block_start = search('^'.repeat(' ', lind + (&sw * ind - 1)).'\S'  , 'bnW')
+        " let prev_tag = search(tags_exp, 'bW', block_start)
+        " let prev_closetag = search(close_tags_exp, 'W', a:lnum)
+        " if prev_tag && !prev_closetag
+          " let ind = ind - 1
+        " endif
+      " endif
+    " endfor
+
     if restore_ic == 0
         setlocal noic
     endif
 
-    return indent(lnum) + (&sw * ind)
+    return lind + (&sw * ind)
 endfun
 
 let &cpo = s:cpo_save

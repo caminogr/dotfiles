@@ -21,11 +21,9 @@ NeoBundle 'tpope/vim-fugitive'
 
 
 " highlight
-NeoBundle 'taichouchou2/html5.vim'
+NeoBundle 'othree/html5.vim'
 NeoBundle 'tpope/vim-haml'
 NeoBundle 'slim-template/vim-slim'
- 
- 
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'digitaltoad/vim-pug'
 
