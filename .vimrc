@@ -27,6 +27,11 @@ NeoBundle 'slim-template/vim-slim'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'digitaltoad/vim-pug'
 
+
+" complement 
+NeoBundle 'kana/vim-smartinput'
+NeoBundle 'tpope/vim-endwise'
+
 call neobundle#end()
 NeoBundleCheck
 
