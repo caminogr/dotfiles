@@ -253,11 +253,6 @@ nnoremap sm :<C-u>CtrlPMRUFiles<CR>
 let g:ctrlp_user_command = 'ag %s -ig ""'
 
 
-" === vim-fugitive === 
-autocmd BufWritePost *
-  \ if exists('b:git_dir') && executable(b:git_dir.'/hooks/ctags') |
-  \   call system('"'.b:git_dir.'/hooks/ctags" &') |
-  \ endif
 
 " === neocomplcache ===
 " Disable AutoComplPop.
