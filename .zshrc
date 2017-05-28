@@ -111,6 +111,12 @@ export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init -)"
 
+## GOPATH
+if [ -x "`which go`" ]; then
+  export GOPATH=$HOME/.go
+  export PATH=$PATH:$GOPATH/bin
+fi
+
 
 ## cdr の設定
 
