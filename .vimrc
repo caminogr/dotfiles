@@ -253,6 +253,9 @@ nnoremap sm :<C-u>CtrlPMRUFiles<CR>
 let g:ctrlp_user_command = 'ag %s -ig ""'
 
 
+" === ctags ===
+" tagsジャンプの時に複数ある時は一覧表示                                        
+nnoremap <C-]> g<C-]>
 
 " === neocomplcache ===
 " Disable AutoComplPop.
