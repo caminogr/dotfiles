@@ -104,6 +104,10 @@ function op() {
 ## config
 
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="$HOME/.nodebrew/current/bin:$PATH"
+
+### awsコマンド
+export PATH="$HOME/Library/Python/2.7/bin:$PATH"
 
 
 ## rubyコマンドパス設定
