@@ -17,6 +17,7 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'tyru/caw.vim.git'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'alvan/vim-closetag'
 
 
 
@@ -224,6 +225,7 @@ let g:NERDTreeShowBookmarks=1
 " nerdtreeを開くためのキーマッピング
 nnoremap <silent><C-t> :NERDTreeToggle<cr>
 
+
 " === auto-save ===
 
 " デフォルトで有効にする
@@ -233,12 +235,14 @@ let g:auto_save_in_insert_mode = 0
 
 
 " === caw.vim ===
+
 " コメントアウト機能
 nmap <leader>c <plug>(caw:i:toggle)
 vmap <leader>c <plug>(caw:i:toggle)
 
 
 " === vim-indent-guides ===
+
 let g:indent_guides_enable_on_vim_startup = 1
 set tabstop=2 shiftwidth=2 expandtab
 let g:indent_guides_auto_colors = 0
@@ -254,10 +258,20 @@ let g:ctrlp_user_command = 'ag %s -ig ""'
 
 
 " === ctags ===
+
 " tagsジャンプの時に複数ある時は一覧表示                                        
 nnoremap <C-]> g<C-]>
 
+" === vim-closetag ===
+"
+let g:closetag_emptyTags_caseSensitive = 1
+
+" サポートするファイル 
+let g:closetag_filenames = "*.html, *.xhtml, *.phtml, *.jsx"
+
+
 " === neocomplcache ===
+"
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 " Use neocomplcache.
@@ -289,6 +303,7 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplcache#close_popup()
+
 
 
 
