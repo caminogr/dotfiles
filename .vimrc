@@ -27,6 +27,8 @@ NeoBundle 'tpope/vim-haml'
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'digitaltoad/vim-pug'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'mxw/vim-jsx'
 
 
 " complement 
@@ -316,6 +318,7 @@ autocmd BufNewFile,BufRead *.haml setf haml
 autocmd BufNewFile,BufRead *.slim setf slim
 autocmd BufNewFile,BufRead *.scss setf scss
 autocmd BufNewFile,BufRead *.js setf javascript
+autocmd BufNewFile,BufRead *.jsx setf javascript.jsx
 autocmd BufNewFile,BufRead *.coffee setf coffee
 autocmd BufNewFile,BufRead *.jade setf jade
 autocmd BufNewFile,BufRead *.md setf markdown
