@@ -77,6 +77,8 @@ let mapleader = "\<space>"
 " キーを無効化
 nnoremap s <nop>
 nnoremap o <nop>
+nnoremap . <nop>
+nnoremap x <nop>
 " neobundleinstall
 cnoremap NBI NeoBundleInstall
 " binding.pry
@@ -87,10 +89,11 @@ inoremap <C-c> console.log();
 noremap ; :
 " カーソル後の文字削除
 noremap  <C-d> <Del>
-inoremap <C-d> <Del>
+noremap! <C-d> <Del>
 " 行頭からカーソルまで削除
 noremap  <C-u> d0
 inoremap <C-u> <C-o>d0
+cnoremap <C-u> <C-w>
 " カーソルから行末まで削除
 noremap  <C-k> D
 inoremap <C-k> <C-o>D
@@ -120,10 +123,14 @@ noremap s. <C-w>>
 noremap s, <C-w><
 
 " === カーソル移動 ===
- 
- " 行頭に移動
+
+" 行頭に移動
 noremap  <C-a> 0
 inoremap <C-a> <C-o>0
+cnoremap <C-a> <C-b>
+" カーソル行の先頭の最初の空白ではない文字に移動
+noremap <C-s> ^
+inoremap <C-s> ^
 " 行末に移動
 noremap  <C-e> $
 inoremap <C-e> <C-o>$
@@ -131,10 +138,11 @@ inoremap <C-e> <C-o>$
 noremap m <C-d>
 " 半画面上にスクロール
 noremap <S-m> <C-u>
-noremap <S-m> <C-u>
 " 次の単語の前に移動
 noremap f w
-
+" ファイルの末尾に移動
+noremap <C-g> G 
+noremap! <C-g> G
 " === tab関連 ===
 
 " tc 新しいタブを作る
