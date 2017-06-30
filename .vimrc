@@ -87,6 +87,8 @@ inoremap <C-b> binding.pry
 inoremap <C-c> console.log();
 " ;を:にマッピング
 noremap ; :
+" cでコピー 
+vnoremap c y
 " カーソル後の文字削除
 noremap  <C-d> <Del>
 noremap! <C-d> <Del>
@@ -173,6 +175,8 @@ autocmd QuickFixCmdPost *grep* cwindow
 set hlsearch
 " Esc でハイライトOFF
 nnoremap <silent><Esc> :noh<Return>
+" カーソルが当たっている文字を検索
+nnoremap <D-d> gd
 
 
 """"""""""""""""""""""""""""""""""""""
