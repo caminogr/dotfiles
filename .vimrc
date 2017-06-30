@@ -238,6 +238,8 @@ autocmd vimenter * if !argc() | NERDTree | endif
 let g:NERDTreeShowBookmarks=1
 " nerdtreeを開くためのキーマッピング
 nnoremap <silent><C-t> :NERDTreeToggle<cr>
+" nerdtreeとファイル間の移動
+nnoremap <C-w>n <C-w>t
 
 
 " === auto-save ===
