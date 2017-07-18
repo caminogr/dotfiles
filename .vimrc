@@ -383,13 +383,6 @@ autocmd ColorScheme * highlight LineNr guifg=#767676 ctermfg=244
 " visualモードの背景の設定
 autocmd ColorScheme * highlight Visual guifg=#4D5056 guibg=#C5C4BD
 
-
-" fontの指定
-if has('mac') && has('gui_running')
-  set macligatures
-  set guifont=Fira\ Code:h12
-endif
-
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
