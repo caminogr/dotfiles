@@ -174,7 +174,7 @@ autocmd QuickFixCmdPost *grep* cwindow
 " ハイライトON
 set hlsearch
 " Esc でハイライトOFF
-nnoremap <silent><Esc> :noh<Return>
+nnoremap <ESC><ESC> :noh<Return>
 " カーソルが当たっている文字を検索
 nnoremap <D-d> gd
 
