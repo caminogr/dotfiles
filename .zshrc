@@ -51,7 +51,6 @@ function chpwd() { ls }
 
 alias re='exec $SHELL -l'
 alias la='ls -a'
-alias ll='ls -l'
 alias rg='rails g'
 alias rgc='rails g controller'
 alias ds='bundle exec cap staging deploy'
@@ -137,7 +136,7 @@ zstyle ':chpwd:*' recent-dirs-pushd true
 
 alias -g P='| peco'
 if [ -x "`which peco`" ]; then
-    alias ll='ls -la | peco'
+    alias ll='ls -lah | peco'
     alias tp='top | peco'
     alias pp='ps aux | peco'
 
