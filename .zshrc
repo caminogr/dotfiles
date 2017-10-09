@@ -81,6 +81,13 @@ alias gr='git reset'
 alias gp='git pull'
 alias hc='hub clone'
 alias rm='gmv -f --backup=numbered --target-directory ~/.Trash'
+
+### docker
+alias d='docker'
+alias dc='docker-compose'
+alias ds='docker-sync'
+
+
 alias cleartrash='\rm ~/.Trash/*'
 alias ctags='/usr/local/Cellar/ctags/5.8_1/bin/ctags'
 
