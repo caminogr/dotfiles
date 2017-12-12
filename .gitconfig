@@ -1,6 +1,7 @@
 [core]
   excludesfile = ~/.gitignore_global
   editor = /usr/bin/vim
+  pager = less -q -R
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
   path = 
@@ -18,3 +19,10 @@
 	templatedir = ~/.git_tmp
 [alias]
   ctags = !.git/hooks/ctags
+  logg = log --stat --decorate=short --pretty=format:'%C(yellow)%h %Cgreen%cr %Cblue%cn%Cred%d %Creset%s %C(cyan)%b'
+  sync = !git checkout master && git pull origin master && git fetch -p origin && git branch -d $(git branch --merged | grep -v master | grep -v '*')
+  soft = !git reset --soft HEAD^
+[push]
+  default = current
+[github]
+  user = kaminora
