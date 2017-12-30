@@ -91,6 +91,11 @@ alias ds='docker-sync'
 alias cleartrash='\rm ~/.Trash/*'
 alias ctags='/usr/local/Cellar/ctags/5.8_1/bin/ctags'
 
+## keybind
+bindkey -r '^w'
+bindkey '^g' kill-line
+bindkey '^u' backward-kill-line
+
 ## less
 export LESS="-N"
 
