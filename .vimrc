@@ -141,6 +141,18 @@ noremap s. <C-w>>
 " 幅を減らす
 noremap s, <C-w><
 
+" need to Refactor
+noremap s1 :execute 1 . 'wincmd w'<cr>
+noremap s2 :execute 2 . 'wincmd w'<cr>
+noremap s3 :execute 3 . 'wincmd w'<cr>
+noremap s4 :execute 4 . 'wincmd w'<cr>
+noremap s5 :execute 5 . 'wincmd w'<cr>
+noremap s6 :execute 6 . 'wincmd w'<cr>
+noremap s7 :execute 7 . 'wincmd w'<cr>
+noremap s8 :execute 8 . 'wincmd w'<cr>
+noremap s9 :execute 9 . 'wincmd w'<cr>
+" win_gotoid(win_getid(${num}))
+
 " === カーソル移動 ===
 
 " 行頭に移動
@@ -228,7 +240,7 @@ set laststatus=2
 " highlight statusline   term=NONE cterm=NONE guifg=red ctermfg=yellow ctermbg=red
 "入力中のコマンドをステータスに表示する
 set showcmd
-set statusline=%f%r%h%w\%=[POS=%04v,%04l][%p%%]\ [LEN=%L]
+set statusline=<%{winnr()}>\%f%r%h%w\%=[POS=%04v,%04l][%p%%]\ [LEN=%L]
 
 
 " === ファイルに関する設定 ===
