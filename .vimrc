@@ -240,23 +240,20 @@ noremap <D-1> :echo expand("%:p") <CR>
 " current pathをコピー
 noremap <D-2> :let @+ = expand("%:p") <CR>
 
+"========================================================
+" Setting for Plugin
+"========================================================
 
-""""""""""""""""""""""""""""""""""""""
-" Neo Bundle Plugin
-""""""""""""""""""""""""""""""""""""""
+"--------------------------------------------------------
+" vimfiler
+"--------------------------------------------------------
 
-" === nerdtree ===
+let g:vimfiler_as_default_explorer   = 1
+let g:vimfiler_safe_mode_by_default  = 0
+noremap <C-T> :VimFilerExplorer<cr>
+nnoremap sn <C-w>t
 
-" 隠しファイルをデフォルトで表示させる
-let NERDTreeShowHidden = 1
-" デフォルトでツリーを表示させる
-autocmd vimenter * if !argc() | NERDTree | endif
-" ブックマークを初期表示
-let g:NERDTreeShowBookmarks=1
-" nerdtreeを開くためのキーマッピング
-nnoremap <silent><C-t> :NERDTreeToggle<cr>
-" nerdtreeとファイル間の移動
-nnoremap <C-w>n <C-w>t
+set splitright
 
 
 " === auto-save ===
