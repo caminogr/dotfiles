@@ -76,19 +76,20 @@ alias gm='git commit'
 alias gm1='git commit --allow-empty -m "create PR"'
 alias gb='git branch'
 alias gch='git checkout'
-alias gs='git status'
+alias gs='git status -s'
 alias gr='git reset'
 alias gp='git pull'
 alias hc='hub clone'
-alias rm='gmv -f --backup=numbered --target-directory ~/.Trash'
+alias ts='tig status'
 
 ### docker
 alias d='docker'
 alias dc='docker-compose'
 alias ds='docker-sync'
 
-
+alias del='gmv -f --backup=numbered --target-directory ~/.Trash'
 alias cleartrash='\rm ~/.Trash/*'
+
 alias ctags='/usr/local/Cellar/ctags/5.8_1/bin/ctags'
 
 ## keybind
