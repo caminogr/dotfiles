@@ -1,66 +1,83 @@
-""""""""""""""""""""""""""""""""""""""
-" NeoBundle
-"""""""""""""""""""""""""""""""""""""""
-set nocompatible
-if has('vim_starting')
-  "初回起動時のみruntimepathにneobundleのパスを指定する
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+if &compatible
+    set nocompatible
 endif
 
-" === Init Neobundle ===
-call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'vim-scripts/vim-auto-save'
-NeoBundle 'rking/ag.vim'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'tyru/caw.vim.git'
-NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'alvan/vim-closetag'
 
+"--------------------------------------------------------
+"dein.vim
+"--------------------------------------------------------
 
+let s:dein_dir = expand('~/.vim/dein')
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
-" highlight
-NeoBundle 'othree/html5.vim'
-NeoBundle 'tpope/vim-haml'
-NeoBundle 'slim-template/vim-slim'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'digitaltoad/vim-pug'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'mxw/vim-jsx'
-
-
-" complement 
-NeoBundle 'kana/vim-smartinput'
-NeoBundle 'tpope/vim-endwise'
-NeoBundle 'Shougo/neocomplcache'
-
-call neobundle#end()
-NeoBundleCheck
-
-
-
-
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2008 Dec 17
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
-
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
+" get dein.vim if it doesn`t exist
+if &runtimepath !~# '/dein.vim'
+  if !isdirectory(s:dein_repo_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+  endif
+  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
 endif
 
-" Use Vim settings, rather than Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
+" setting for deinn
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
+
+  let g:rc_dir    = expand('~/.vim/rc')
+  let s:toml      = g:rc_dir . '/dein.toml'
+  let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
+
+  call dein#load_toml(s:toml,      {'lazy': 0})
+  call dein#load_toml(s:lazy_toml, {'lazy': 1})
+
+  call dein#end()
+  call dein#save_state()
+endif
+
+if dein#check_install()
+  call dein#install()
+endif
+
+
+ " """"""""""""""""""""""""""""""""""""""
+ " " NeoBundle
+ " """""""""""""""""""""""""""""""""""""""
+ " if has('vim_starting')
+ "   "初回起動時のみruntimepathにneobundleのパスを指定する
+ "   set runtimepath+=~/.vim/bundle/neobundle.vim/
+ " endif
+ "
+ " " === Init Neobundle ===
+ " call neobundle#begin(expand('~/.vim/bundle/'))
+ " NeoBundleFetch 'Shougo/neobundle.vim'
+ " " NeoBundle 'scrooloose/nerdtree'
+ " " NeoBundle 'vim-scripts/vim-auto-save'
+ " NeoBundle 'rking/ag.vim'
+ " " NeoBundle 'ctrlpvim/ctrlp.vim'
+ " " NeoBundle 'tyru/caw.vim.git'
+ " " NeoBundle 'nathanaelkane/vim-indent-guides'
+ " " NeoBundle 'tpope/vim-fugitive'
+ " NeoBundle 'alvan/vim-closetag'
+ " NeoBundle 'fatih/vim-go'
+ "
+ "
+ "
+ " " highlight
+ " " NeoBundle 'othree/html5.vim'
+ " NeoBundle 'tpope/vim-haml'
+ " NeoBundle 'slim-template/vim-slim'
+ " NeoBundle 'kchmck/vim-coffee-script'
+ " NeoBundle 'digitaltoad/vim-pug'
+ " NeoBundle 'pangloss/vim-javascript'
+ " NeoBundle 'mxw/vim-jsx'
+ " NeoBundle 'fleischie/vim-styled-components'
+ "
+ "
+ " " complement
+ "
+ " call neobundle#end()
+ " NeoBundleCheck
+
+
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
