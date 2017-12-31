@@ -251,7 +251,13 @@ inoremap <expr><C-g> neocomplete#undo_completion()
 inoremap <expr><C-f> neocomplete#complete_common_string()
 
 "--------------------------------------------------------
+" neosnippet
+"--------------------------------------------------------
 
+let g:neosnippet#snippets_directory = '~/.vim/snippets/'
+imap <C-s> <Plug>(neosnippet_expand_or_jump)
+smap <C-s> <Plug>(neosnippet_expand_or_jump)
+nmap <leader>s :NeoSnippetEdit<cr>
 
 
 "--------------------------------------------------------
