@@ -89,56 +89,35 @@ set backspace=indent,eol,start
 " mapping 
 """""""""""""""""""""""""""""""""""""""
 
-"リーダーキーをスペースにマッピング
 let mapleader = "\<space>" 
-" キーを無効化
 nnoremap s <nop>
 nnoremap o <nop>
 nnoremap . <nop>
 nnoremap x <nop>
-" neobundleinstall
-cnoremap NBI NeoBundleInstall
-" binding.pry
-inoremap <C-b> binding.pry
-" console.log();
-inoremap <C-c> console.log();
-" ;を:にマッピング
-noremap ; :
-" cでコピー 
-vnoremap c y
-" カーソル後の文字削除
+vnoremap U <nop>
+vnoremap u <nop>
+noremap  ; :
+vnoremap C U
+vnoremap c u
 noremap  <C-d> <Del>
 noremap! <C-d> <Del>
-" 行頭からカーソルまで削除
 noremap  <C-u> d0
 inoremap <C-u> <C-o>d0
 cnoremap <C-u> <C-w>
-" カーソルから行末まで削除
 noremap  <C-k> D
 inoremap <C-k> <C-o>D
-" ファイルの変更を保存しないで終了する
-noremap <C-y> :q<CR>
-" control + i で下の行でinsert
+noremap  <C-y> :q<CR>
 nnoremap <C-i> o
-" 水平分割
-noremap ss :split<CR>
-" 垂直分割
-noremap sv :vsplit<CR>
-" 左に移動
+
+noremap <silent>ss :split<CR>
+noremap <silent>sv :vsplit<CR>
 noremap sh <C-w>h
-" 右に移動
 noremap sl <C-w>l
-" 上に移動
 noremap sk <C-w>k
-" 下に移動
 noremap sj <C-w>j
-"高さを増やす
 noremap s; <C-w>+
-"高さを減らす
 noremap s- <C-w>-
-" 幅を増やす
 noremap s. <C-w>>
-" 幅を減らす
 noremap s, <C-w><
 
 " need to Refactor
@@ -153,37 +132,28 @@ noremap s8 :execute 8 . 'wincmd w'<cr>
 noremap s9 :execute 9 . 'wincmd w'<cr>
 " win_gotoid(win_getid(${num}))
 
+
 " === カーソル移動 ===
 
-" 行頭に移動
 noremap  <C-a> 0
 inoremap <C-a> <C-o>0
 cnoremap <C-a> <C-b>
-" カーソル行の先頭の最初の空白ではない文字に移動
-noremap <C-s> ^
+noremap  <C-s> ^
 inoremap <C-s> ^
-" 行末に移動
 noremap  <C-e> $
 inoremap <C-e> <C-o>$
-" 半画面下にスクロール
-noremap m <C-d>
-" 半画面上にスクロール
-noremap <S-m> <C-u>
-" 次の単語の前に移動
-noremap f w
-" ファイルの末尾に移動
-noremap <C-g> G 
+noremap  m <C-d>
+noremap  <S-m> <C-u>
+noremap  f w
+noremap  <C-g> G 
 noremap! <C-g> G
+
 " === tab関連 ===
 
-" tc 新しいタブを作る
-noremap <silent> tt :tablast <bar> tabnew<CR>
-" tx タブを閉じる
+noremap <silent> tt    :tablast <bar> tabnew<CR>
 noremap <silent> <D-w> :tabclose<CR>
-" tn 次のタブ
-noremap <silent> tn :tabnext<CR>
-" tp 前のタブ
-noremap <silent> tp :tabprevious<CR>
+noremap <silent> tn    :tabnext<CR>
+noremap <silent> tp    :tabprevious<CR>
 
 
 """"""""""""""""""""""""""""""""""""""
@@ -283,22 +253,30 @@ let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
 inoremap <expr><C-g> neocomplete#undo_completion()
 inoremap <expr><C-f> neocomplete#complete_common_string()
-" === auto-save ===
 
-" デフォルトで有効にする
+"--------------------------------------------------------
+
+
+
+"--------------------------------------------------------
+" auto-save 
+"--------------------------------------------------------
+
 let g:auto_save = 1
-" インサートモード時は保存しない
+" disable in insert mode
 let g:auto_save_in_insert_mode = 0
 
 
-" === caw.vim ===
+"--------------------------------------------------------
+" caw.vim 
+"--------------------------------------------------------
+nmap <Leader>c <Plug>(caw:hatpos:toggle)
+vmap <Leader>c <Plug>(caw:hatpos:toggle)
 
-" コメントアウト機能
-nmap <leader>c <plug>(caw:i:toggle)
-vmap <leader>c <plug>(caw:i:toggle)
 
-
-" === vim-indent-guides ===
+"--------------------------------------------------------
+" vim indent guildes
+"--------------------------------------------------------
 
 let g:indent_guides_enable_on_vim_startup = 1
 set tabstop=2 shiftwidth=2 expandtab
@@ -307,59 +285,33 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=#444433 ctermbg=black
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#3c3c3c ctermbg=darkgray 
 
 
-" === ctrlp-vim ===
 
-" これまで開いたファイル履歴から絞り込む
+"--------------------------------------------------------
+" ctrlp 
+"--------------------------------------------------------
+
 nnoremap sm :<C-u>CtrlPMRUFiles<CR>
 let g:ctrlp_user_command = 'ag %s -ig ""'
 
 
-" === ctags ===
+"--------------------------------------------------------
+" ctags
+"--------------------------------------------------------
 
 " tagsジャンプの時に複数ある時は一覧表示                                        
 nnoremap <C-]> g<C-]>
 
-" === vim-closetag ===
-"
+
+"--------------------------------------------------------
+" vim-closetag
+"--------------------------------------------------------
 let g:closetag_emptyTags_caseSensitive = 1
 
 " サポートするファイル 
 let g:closetag_filenames = "*.html, *.xhtml, *.phtml, *.jsx"
 
 
-" === neocomplcache ===
-"
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
-" Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
-" Define dictionary.
-let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default' : ''
-    \ }
-
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplcache#undo_completion()
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return neocomplcache#smart_close_popup() . "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplcache#close_popup()
 
 
 
