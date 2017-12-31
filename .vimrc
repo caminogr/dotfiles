@@ -268,6 +268,21 @@ nnoremap sn <C-w>t
 set splitright
 
 
+"--------------------------------------------------------
+" neocomplete 
+"--------------------------------------------------------
+
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+
+" Use neocomplete.
+let g:neocomplete#enable_at_startup  = 1
+let g:neocomplete#enable_smart_case  = 1
+let g:neocomplete#min_keyword_length = 3
+let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+
+inoremap <expr><C-g> neocomplete#undo_completion()
+inoremap <expr><C-f> neocomplete#complete_common_string()
 " === auto-save ===
 
 " デフォルトで有効にする
