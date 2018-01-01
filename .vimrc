@@ -308,6 +308,11 @@ nnoremap <C-]> g<C-]>
 
 
 "--------------------------------------------------------
+" Tagbar"
+"--------------------------------------------------------
+
+nnoremap <silent><Leader>b :TagbarToggle<CR>
+
 " vim-closetag
 "--------------------------------------------------------
 let g:closetag_emptyTags_caseSensitive = 1

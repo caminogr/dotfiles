@@ -90,8 +90,6 @@ alias ds='docker-sync'
 alias del='gmv -f --backup=numbered --target-directory ~/.Trash'
 alias cleartrash='\rm ~/.Trash/*'
 
-alias ctags='/usr/local/Cellar/ctags/5.8_1/bin/ctags'
-
 ## keybind
 bindkey -r '^w'
 bindkey '^g' kill-line
