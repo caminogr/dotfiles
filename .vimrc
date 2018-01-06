@@ -230,7 +230,8 @@ let g:vimfiler_as_default_explorer   = 1
 let g:vimfiler_safe_mode_by_default  = 0
 let g:vimfiler_ignore_pattern = '\%(.pyc\)$'
 
-noremap <C-T> :VimFilerExplorer<cr>
+nmap     <C-r> <Plug>(vimfiler_redraw_screen)
+noremap  <C-T> :VimFilerExplorer<cr>
 nnoremap sn <C-w>t
 
 set splitright
