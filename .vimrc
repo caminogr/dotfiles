@@ -115,10 +115,11 @@ noremap sh <C-w>h
 noremap sl <C-w>l
 noremap sk <C-w>k
 noremap sj <C-w>j
-noremap s; <C-w>+
-noremap s- <C-w>-
-noremap s. <C-w>>
-noremap s, <C-w><
+
+noremap = <C-w>+
+noremap - <C-w>-
+noremap 0 <C-w>>
+noremap 9 <C-w><
 
 " need to Refactor
 noremap s1 :execute 1 . 'wincmd w'<cr>
