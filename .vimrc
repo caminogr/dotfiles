@@ -115,11 +115,20 @@ noremap sh <C-w>h
 noremap sl <C-w>l
 noremap sk <C-w>k
 noremap sj <C-w>j
+noremap sH <C-w>H
+noremap sL <C-w>L
+noremap sK <C-w>K
+noremap sJ <C-w>J
 
-noremap = <C-w>+
-noremap - <C-w>-
-noremap 0 <C-w>>
-noremap 9 <C-w><
+
+nnoremap s[ <C-w>+
+nnoremap s] <C-w>-
+nnoremap s0 <C-w>>
+nnoremap s9 <C-w><
+nnoremap - <C-w>10+
+nnoremap = <C-w>10-
+nnoremap 9 <C-w>10>
+nnoremap 0 <C-w>10<
 
 " need to Refactor
 noremap s1 :execute 1 . 'wincmd w'<cr>
@@ -130,7 +139,7 @@ noremap s5 :execute 5 . 'wincmd w'<cr>
 noremap s6 :execute 6 . 'wincmd w'<cr>
 noremap s7 :execute 7 . 'wincmd w'<cr>
 noremap s8 :execute 8 . 'wincmd w'<cr>
-noremap s9 :execute 9 . 'wincmd w'<cr>
+" noremap s9 :execute 9 . 'wincmd w'<cr>
 " win_gotoid(win_getid(${num}))
 
 
