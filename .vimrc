@@ -230,12 +230,19 @@ noremap <D-2> :let @+ = expand("%:p") <CR>
 let g:vimfiler_as_default_explorer   = 1
 let g:vimfiler_safe_mode_by_default  = 0
 let g:vimfiler_ignore_pattern = '\%(.pyc\)$'
+let g:vimfiler_tree_opened_icon = '▾'
+let g:vimfiler_tree_closed_icon = '▸'
 
-nmap     <C-r> <Plug>(vimfiler_redraw_screen)
 noremap  <C-T> :VimFilerExplorer<cr>
 nnoremap sn <C-w>t
 
-set splitright
+autocmd FileType vimfiler nnoremap <buffer>h h
+autocmd FileType vimfiler nnoremap <buffer>l l
+autocmd FileType vimfiler nmap     <buffer>H     <Plug>(vimfiler_smart_h)
+autocmd FileType vimfiler nmap     <buffer>L     <Plug>(vimfiler_smart_l)
+autocmd FileType vimfiler nmap     <buffer><C-r> <Plug>(vimfiler_redraw_screen)
+autocmd FileType vimfiler nmap     <buffer><BS>  <Plug>(vimfiler_new_file)
+autocmd FileType vimfiler nnoremap <buffer>N     <S-N>
 
 
 "--------------------------------------------------------
