@@ -279,6 +279,33 @@ imap <C-s> <Plug>(neosnippet_expand_or_jump)
 smap <C-s> <Plug>(neosnippet_expand_or_jump)
 nmap <leader>s :NeoSnippetEdit<cr>
 
+"--------------------------------------------------------
+" lightline
+"--------------------------------------------------------
+
+let g:lightline = {
+      \ 'colorscheme': 'Tomorrow_Night',
+      \ 'active': {
+      \   'right': [ [ 'lineinfo' ],
+      \              [ 'percent' ],
+      \              ['empty']]
+      \ },
+      \ 'component_function': {
+      \   'filename': 'LightlineFilename',
+      \   'empty': 'Empty'
+      \ }
+      \ }
+      
+function! Empty()
+  return ""
+endfunction
+
+function! LightlineFilename()
+  return &filetype ==# 'vimfiler' ? vimfiler#get_status_string() :
+        \ &filetype ==# 'unite' ? unite#get_status_string() :
+        \ &filetype ==# 'vimshell' ? vimshell#get_status_string() :
+        \ expand('%:p') !=# '' ? expand('%:p') : '[No Name]'
+endfunction
 
 "--------------------------------------------------------
 " auto-save 
