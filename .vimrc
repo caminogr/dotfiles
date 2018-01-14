@@ -171,7 +171,8 @@ noremap <silent> tp    :tabprevious<CR>
 """"""""""""""""""""""""""""""""""""""
 
 " 外部grepにhighwayを指定
-set grepprg=hw
+set grepprg=rg\ --vimgrep
+
 " コマンド、検索パターンの履歴
 set history=50		" keep 50 lines of command line history
 " 検索の時に大文字と小文字を区別しない
