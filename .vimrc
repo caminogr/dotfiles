@@ -170,8 +170,10 @@ noremap <silent> tp    :tabprevious<CR>
 " 検索設定
 """"""""""""""""""""""""""""""""""""""
 
-" 外部grepにhighwayを指定
+" 外部grepにripgrepを指定
 set grepprg=rg\ --vimgrep
+command! -nargs=+ Grep execute 'silent grep! <args>' |:redraw!
+noremap  <leader>f :Grep 
 
 " コマンド、検索パターンの履歴
 set history=50		" keep 50 lines of command line history
