@@ -1,6 +1,6 @@
 [core]
   excludesfile = ~/.gitignore_global
-  editor = /usr/bin/vim
+  editor = /usr/local/bin/vim
   pager = less -q -R
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
@@ -22,6 +22,7 @@
   logg = log --stat --decorate=short --pretty=format:'%C(yellow)%h %Cgreen%cr %Cblue%cn%Cred%d %Creset%s %C(cyan)%b'
   sync = !git checkout master && git pull origin master && git fetch -p origin && git branch -d $(git branch --merged | grep -v master | grep -v '*')
   soft = !git reset --soft HEAD^
+  hard = !git reset --hard HEAD^
 [push]
   default = current
 [github]
