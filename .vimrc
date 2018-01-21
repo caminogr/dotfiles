@@ -241,11 +241,9 @@ augroup reloadFileDiff
   autocmd InsertEnter,WinEnter * checktime
 augroup END
 
-augroup highlightFullSpace
-  autocmd!
-  autocmd colorscheme * highlight ideographicspace term=underline ctermbg=darkgreen guibg=darkgreen
-  autocmd vimenter,winenter * match ideographicspace /　/
-augroup end
+let &t_SI = "\e]50;CursorShape=1\x7"
+let &t_EI = "\e]50;CursorShape=0\x7"
+
 
 " swapをファイル作らない
 set noswapfile
@@ -450,12 +448,20 @@ if has('mouse')
   set mouse=a
 endif
 
-" 行数の色設定
-autocmd ColorScheme * highlight LineNr guifg=#767676 ctermfg=244
 
+"--------------------------------------------------------
+" Color & Highlight
+"--------------------------------------------------------
 
-" visualモードの背景の設定
-autocmd ColorScheme * highlight Visual guifg=#4D5056 guibg=#C5C4BD
+augroup golangSettings
+  autocmd!
+  autocmd ColorScheme * highlight LineNr guifg=#767676 ctermfg=244
+  autocmd ColorScheme * highlight Visual guifg=#4D5056 guibg=#C5C4BD
+  autocmd ColorScheme * highlight Search cterm=bold ctermfg=0 ctermbg=7 gui=bold guifg=Black guibg=LightGrey
+
+  autocmd colorscheme * highlight ideographicspace term=underline ctermbg=darkgreen guibg=darkgreen
+  autocmd vimenter,winenter * match ideographicspace /　/
+augroup END
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -465,13 +471,8 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
 
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
+if has("autocmd")
   filetype plugin indent on
 
   " Put these in an autocmd group, so that we can delete them easily.
