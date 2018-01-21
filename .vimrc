@@ -205,25 +205,19 @@ nnoremap <ESC><ESC> :noh<Return>
 nnoremap <D-d> gd
 
 
-""""""""""""""""""""""""""""""""""""""
-" 表示設定
-""""""""""""""""""""""""""""""""""""""
+"--------------------------------------------------------
+" setting for display 
+"--------------------------------------------------------
+
+
+" === window === 
 
 " タイトルをウィンドウ枠に表示する
 set title
-" 行番号を表示
 set number
-" 新しいウィンドウを下に開く
 set splitbelow
-" 新しいウィンドウを右に開く
 set splitright
 
-" 全角スペースを可視化
-augroup highlightidegraphicspace
-  autocmd!
-  autocmd colorscheme * highlight ideographicspace term=underline ctermbg=darkgreen guibg=darkgreen
-  autocmd vimenter,winenter * match ideographicspace /　/
-augroup end
 
 " === status line ===
 
@@ -236,7 +230,18 @@ set showcmd
 set statusline=<%{winnr()}>\%f%r%h%w\%=[POS=%04v,%04l][%p%%]\ [LEN=%L]
 
 
-" === ファイルに関する設定 ===
+" === text ===
+
+augroup reloadFileDiff
+  autocmd!
+  autocmd InsertEnter,WinEnter * checktime
+augroup END
+
+augroup highlightFullSpace
+  autocmd!
+  autocmd colorscheme * highlight ideographicspace term=underline ctermbg=darkgreen guibg=darkgreen
+  autocmd vimenter,winenter * match ideographicspace /　/
+augroup end
 
 " swapをファイル作らない
 set noswapfile
