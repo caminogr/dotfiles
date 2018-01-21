@@ -162,16 +162,19 @@ nnoremap <C-z> <C-o>
 "--------------------------------------------------------
 " keybind for insert new line
 "--------------------------------------------------------
-
-nnoremap <C-i> o
+" binding CTRL+i to F12 by karabiner elements
+noremap <F12> <C-i>
+nnoremap <F12> o
 nnoremap <C-o> O
-inoremap <C-i> <C-o>o
+inoremap <F12> <C-o>o
 inoremap <C-o> <C-o>O
+
 augroup autoCommentOff
     autocmd!
     autocmd BufEnter * setlocal formatoptions-=r
     autocmd BufEnter * setlocal formatoptions-=o
 augroup END
+
 " === tab関連 ===
 
 noremap <silent> tt    :tablast <bar> tabnew<CR>
@@ -232,6 +235,7 @@ set statusline=<%{winnr()}>\%f%r%h%w\%=[POS=%04v,%04l][%p%%]\ [LEN=%L]
 
 " === text ===
 
+noremap <TAB> >>
 augroup reloadFileDiff
   autocmd!
   autocmd InsertEnter,WinEnter * checktime
