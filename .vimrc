@@ -107,7 +107,6 @@ cnoremap <C-u> <C-w>
 noremap  <C-k> D
 inoremap <C-k> <C-o>D
 noremap  <C-y> :q<CR>
-nnoremap <C-i> o
 
 noremap <silent>ss :split<CR>
 noremap <silent>sv :vsplit<CR>
@@ -157,7 +156,22 @@ noremap  <S-m> <C-u>
 noremap  f w
 noremap  <C-g> G 
 noremap! <C-g> G
+nnoremap <C-z> <C-o>
 
+ 
+"--------------------------------------------------------
+" keybind for insert new line
+"--------------------------------------------------------
+
+nnoremap <C-i> o
+nnoremap <C-o> O
+inoremap <C-i> <C-o>o
+inoremap <C-o> <C-o>O
+augroup autoCommentOff
+    autocmd!
+    autocmd BufEnter * setlocal formatoptions-=r
+    autocmd BufEnter * setlocal formatoptions-=o
+augroup END
 " === tab関連 ===
 
 noremap <silent> tt    :tablast <bar> tabnew<CR>
