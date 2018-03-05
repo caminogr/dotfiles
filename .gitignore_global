@@ -3,3 +3,5 @@
 .netrwhist
 
 .idea/
+.vim/dein/.cache/
+.vim/dein/repos/
