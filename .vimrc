@@ -38,51 +38,8 @@ if dein#check_install()
 endif
 
 
- " """"""""""""""""""""""""""""""""""""""
- " " NeoBundle
- " """""""""""""""""""""""""""""""""""""""
- " if has('vim_starting')
- "   "初回起動時のみruntimepathにneobundleのパスを指定する
- "   set runtimepath+=~/.vim/bundle/neobundle.vim/
- " endif
- "
- " " === Init Neobundle ===
- " call neobundle#begin(expand('~/.vim/bundle/'))
- " NeoBundleFetch 'Shougo/neobundle.vim'
- " " NeoBundle 'scrooloose/nerdtree'
- " " NeoBundle 'vim-scripts/vim-auto-save'
- " NeoBundle 'rking/ag.vim'
- " " NeoBundle 'ctrlpvim/ctrlp.vim'
- " " NeoBundle 'tyru/caw.vim.git'
- " " NeoBundle 'nathanaelkane/vim-indent-guides'
- " " NeoBundle 'tpope/vim-fugitive'
- " NeoBundle 'alvan/vim-closetag'
- " NeoBundle 'fatih/vim-go'
- "
- "
- "
- " " highlight
- " " NeoBundle 'othree/html5.vim'
- " NeoBundle 'tpope/vim-haml'
- " NeoBundle 'slim-template/vim-slim'
- " NeoBundle 'kchmck/vim-coffee-script'
- " NeoBundle 'digitaltoad/vim-pug'
- " NeoBundle 'pangloss/vim-javascript'
- " NeoBundle 'mxw/vim-jsx'
- " NeoBundle 'fleischie/vim-styled-components'
- "
- "
- " " complement
- "
- " call neobundle#end()
- " NeoBundleCheck
-
-
-
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
-
-
 
 
 """"""""""""""""""""""""""""""""""""""
