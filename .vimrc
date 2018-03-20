@@ -351,6 +351,18 @@ let g:closetag_filenames = "*.html, *.xhtml, *.phtml, *.jsx"
 
 
 
+"--------------------------------------------------------
+" neoformat
+"--------------------------------------------------------
+let g:neoformat_try_formatprg = 1
+let g:neoformat_javascript_prettier = {
+  \ 'exe': './node_modules/.bin/prettier',
+  \ 'args': ['--write', '--config .prettierrc'],
+  \ 'replace': 1
+  \ }
+
+noremap <silent><leader>p :Neoformat<CR>
+
 
 """"""""""""""""""""""""""""""""""""""
 " Register filetype or syntax
