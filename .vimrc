@@ -49,11 +49,11 @@ set backspace=indent,eol,start
 let mapleader = "\<space>" 
 nnoremap s <nop>
 nnoremap o <nop>
-nnoremap . <nop>
 nnoremap x <nop>
 vnoremap U <nop>
 vnoremap u <nop>
 noremap  ; :
+noremap  ' ;
 vnoremap C U
 vnoremap c u
 noremap  <C-d> <Del>
@@ -64,6 +64,7 @@ cnoremap <C-u> <C-w>
 noremap  <C-k> D
 inoremap <C-k> <C-o>D
 noremap  <C-y> :q<CR>
+nnoremap E :E<CR>
 
 noremap <silent>ss :split<CR>
 noremap <silent>sv :vsplit<CR>
@@ -77,14 +78,14 @@ noremap sK <C-w>K
 noremap sJ <C-w>J
 
 
-nnoremap s[ <C-w>+
-nnoremap s] <C-w>-
+nnoremap s] <C-w>+
+nnoremap s[ <C-w>-
 nnoremap s0 <C-w>>
 nnoremap s9 <C-w><
-nnoremap - <C-w>10+
-nnoremap = <C-w>10-
-nnoremap 9 <C-w>10>
-nnoremap 0 <C-w>10<
+nnoremap = <C-w>10+
+nnoremap - <C-w>10-
+nnoremap 0 <C-w>10>
+nnoremap 9 <C-w>10<
 
 " need to Refactor
 noremap s1 :execute 1 . 'wincmd w'<cr>
@@ -110,7 +111,6 @@ noremap  <C-e> $
 inoremap <C-e> <C-o>$
 noremap  m <C-d>
 noremap  <S-m> <C-u>
-noremap  f w
 noremap  <C-g> G 
 noremap! <C-g> G
 nnoremap <C-z> <C-o>
