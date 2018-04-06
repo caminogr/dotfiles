@@ -353,7 +353,17 @@ let g:closetag_filenames = "*.html, *.xhtml, *.phtml, *.jsx"
 
 
 
+"--------------------------------------------------------
+" emmet-vim
+"--------------------------------------------------------
 
+let g:user_emmet_install_global = 0
+
+autocmd FileType html,css EmmetInstall
+let g:user_emmet_leader_key='<c-f>'
+let g:user_emmet_expandabbr_key="'"
+
+"--------------------------------------------------------
 
 
 "--------------------------------------------------------
