@@ -87,6 +87,12 @@ nnoremap - <C-w>10-
 nnoremap 0 <C-w>10>
 nnoremap 9 <C-w>10<
 
+" yank
+nnoremap p "0p 
+vnoremap p "0p 
+nnoremap op "1p 
+vnoremap op "1p 
+
 " need to Refactor
 noremap s1 :execute 1 . 'wincmd w'<cr>
 noremap s2 :execute 2 . 'wincmd w'<cr>
@@ -113,7 +119,7 @@ noremap  m <C-d>
 noremap  <S-m> <C-u>
 noremap  <C-g> G 
 noremap! <C-g> G
-nnoremap <C-z> <C-o>
+nnoremap <C-x> <C-o>
 
  
 "--------------------------------------------------------
