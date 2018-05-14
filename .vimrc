@@ -392,6 +392,18 @@ let g:neoformat_javascript_prettier = {
 noremap <silent><leader>p :Neoformat<CR>
 
 
+"--------------------------------------------------------
+"
+
+"--------------------------------------------------------
+" ALE
+"--------------------------------------------------------
+let g:ale_fixers = {
+\   'javascript': ['eslint', 'prettier'],
+\}
+let g:ale_javascript_prettier_use_local_config = 1
+let g:ale_fix_on_save = 1
+"
 """"""""""""""""""""""""""""""""""""""
 " Register filetype or syntax
 """"""""""""""""""""""""""""""""""""""
