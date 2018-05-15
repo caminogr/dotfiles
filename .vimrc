@@ -380,20 +380,9 @@ let g:user_emmet_expandabbr_key="'"
 
 
 "--------------------------------------------------------
-" neoformat
 "--------------------------------------------------------
-let g:neoformat_try_formatprg = 1
-let g:neoformat_javascript_prettier = {
-  \ 'exe': './node_modules/.bin/prettier',
-  \ 'args': ['--write', '--config .prettierrc'],
-  \ 'replace': 1
-  \ }
-
-noremap <silent><leader>p :Neoformat<CR>
 
 
-"--------------------------------------------------------
-"
 
 "--------------------------------------------------------
 " ALE
@@ -403,7 +392,17 @@ noremap <leader>p :ALEFix<CR>
 let g:ale_fixers = {
 \   'javascript': ['eslint', 'prettier'],
 \}
+let g:ale_linters = {
+\  'javascript': ['flow']
+\}
 let g:ale_javascript_prettier_use_local_config = 1
+let g:ale_set_highlights = 0
+let g:ale_set_signs = 0
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
+let g:ale_echo_msg_format = '%linter% says %s'
+nnoremap <leader>an :ALENextWrap<cr>
+nnoremap <leader>ap :ALEPreviousWrap<cr>
 
 """"""""""""""""""""""""""""""""""""""
 " Register filetype or syntax
