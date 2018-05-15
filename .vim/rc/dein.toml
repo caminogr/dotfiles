@@ -56,11 +56,17 @@ repo = 'othree/html5.vim'
 repo = 'digitaltoad/vim-pug'
 on_ft = ['jade, pug']
 
+# highlight javascrpit syntax
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+
+# highlight es6 syntax
 [[plugins]]
 repo = 'othree/yajs.vim'
 
-# [[plugins]]
-# repo = 'pangloss/vim-javascript'
+# highlight jsx syntax
+[[plugins]]
+repo = 'mxw/vim-jsx'
 
 [[plugins]]
 repo = 'cespare/vim-toml'
@@ -73,5 +79,6 @@ repo = 'tpope/vim-fugitive'
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
 
+# checker
 [[plugins]]
 repo = 'w0rp/ale' 
