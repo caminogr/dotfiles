@@ -192,8 +192,31 @@ if [ -x "`which peco`" ]; then
     }
     zle -N peco-kill-process
     bindkey '^xk' peco-kill-process
-
 fi
+
+## git grep edit
+if [ -x "`which peco`" ]; then
+  alias gg='git-grep-edit'
+  git-grep-edit () {
+    P=$(git grep -n $1 | peco | awk -F: '{print $1}')
+    if [ ${#P} -ne 0 ]; then
+        vim ${P};
+    fi
+  }
+fi
+
+# Switch back to vim
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/kaminora/sdk/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/kaminora/sdk/google-cloud-sdk/path.zsh.inc'; fi
