@@ -30,7 +30,7 @@ repo = 'Shougo/neocomplete.vim'
 repo = 'vim-scripts/vim-auto-save'
 
 [[plugins]]
-repo = 'ctrlpvim/ctrlp.vim'
+repo = 'junegunn/fzf.vim'
 
 [[plugins]]
 repo = 'tyru/caw.vim.git'

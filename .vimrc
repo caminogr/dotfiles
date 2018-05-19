@@ -149,11 +149,6 @@ noremap <silent> tp    :tabprevious<CR>
 " 検索設定
 """"""""""""""""""""""""""""""""""""""
 
-" 外部grepにripgrepを指定
-set grepprg=rg\ --vimgrep
-command! -nargs=+ Grep execute 'silent grep! <args>' |:redraw!
-noremap  <leader>f :Grep 
-
 " コマンド、検索パターンの履歴
 set history=50		" keep 50 lines of command line history
 " 検索の時に大文字と小文字を区別しない
@@ -342,6 +337,37 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#3c3c3c ctermbg=235
 
 nnoremap sm :<C-u>CtrlPMRUFiles<CR>
 let g:ctrlp_user_command = 'ag %s -ig ""'
+
+
+"--------------------------------------------------------
+" fzf
+"--------------------------------------------------------
+
+set rtp+=/usr/local/opt/fzf
+nnoremap <Leader>fb :Buffers<CR>
+nnoremap <Leader>ff :Files<CR>
+nnoremap <Leader>fg :GFiles?<CR>
+nnoremap <Leader>fr :Rg 
+nnoremap <Leader>ft :Tags<CR>
+nnoremap <Leader>fm :FZFMru<CR>
+
+" preview file with :Files
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+command! FZFMru call fzf#run({
+\  'source':  v:oldfiles,
+\  'sink':    'e',
+\  'options': '-m -x +s',
+\  'down':    '40%'})
+
+run ripgrep with :Rg
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('right:50%:hidden', '?')
+  \           : fzf#vim#with_preview('up:60%'),
+  \   <bang>0)
 
 
 "--------------------------------------------------------
