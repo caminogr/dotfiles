@@ -64,7 +64,8 @@ cnoremap <C-u> <C-w>
 noremap  <C-k> D
 inoremap <C-k> <C-o>D
 noremap  <C-y> :q<CR>
-nnoremap E :E<CR>
+nnoremap E :Explore<CR>
+nnoremap VE :Vexplore<CR>
 
 noremap <silent>ss :split<CR>
 noremap <silent>sv :vsplit<CR>
@@ -88,10 +89,9 @@ nnoremap 0 <C-w>10>
 nnoremap 9 <C-w>10<
 
 " yank
-nnoremap p "0p 
-vnoremap p "0p 
-nnoremap op "1p 
-vnoremap op "1p 
+
+xnoremap p "_dP
+
 
 " need to Refactor
 noremap s1 :execute 1 . 'wincmd w'<cr>
@@ -107,12 +107,11 @@ noremap s8 :execute 8 . 'wincmd w'<cr>
 
 
 " === カーソル移動 ===
-
 noremap  <C-a> 0
 inoremap <C-a> <C-o>0
 cnoremap <C-a> <C-b>
-noremap  <C-s> ^
-inoremap <C-s> ^
+" nnoremap  <C-s> ^
+" inoremap <C-s> ^
 noremap  <C-e> $
 inoremap <C-e> <C-o>$
 noremap  m <C-d>
@@ -176,14 +175,16 @@ nnoremap <D-d> gd
 "--------------------------------------------------------
 
 
-" === window === 
+" === window, buffer === 
 
 " タイトルをウィンドウ枠に表示する
 set title
 set number
 set splitbelow
 set splitright
-
+" always show netrw as tree.
+" without this, file explore need to bdelete! to close
+let g:netrw_liststyle=3
 
 " === status line ===
 
