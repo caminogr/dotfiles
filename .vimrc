@@ -348,6 +348,7 @@ let g:ctrlp_user_command = 'ag %s -ig ""'
 "--------------------------------------------------------
 
 set rtp+=/usr/local/opt/fzf
+let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
 nnoremap <Leader>fb :Buffers<CR>
 nnoremap <Leader>ff :Files<CR>
 nnoremap <Leader>fg :GFiles?<CR>
