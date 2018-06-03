@@ -1,7 +1,10 @@
 if &compatible
-    set nocompatible
+  set nocompatible
 endif
 
+augroup load_theme
+  autocmd!
+augroup END
 
 "--------------------------------------------------------
 "dein.vim
@@ -163,6 +166,7 @@ set hlsearch
 nnoremap <ESC><ESC> :noh<Return>
 " カーソルが当たっている文字を検索
 nnoremap <D-d> gd
+syntax on
 
 
 "--------------------------------------------------------
@@ -504,15 +508,6 @@ augroup golangSettings
   autocmd colorscheme * highlight ideographicspace term=underline ctermbg=darkgreen guibg=darkgreen
   autocmd vimenter,winenter * match ideographicspace /　/
 augroup END
-
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-  colorscheme Tomorrow-Night
-  syntax on
-  set hlsearch
-endif
-
 
 if has("autocmd")
   filetype plugin indent on
