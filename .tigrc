@@ -60,6 +60,13 @@ bind generic <Ctrl-b> move-page-up
 
 
 
+### view-main ###
+bind main    R !git rebase -i %(commit)
+
+
+### view-diff ###
+bind diff    R !git rebase -i %(commit)
+
 
 #### view-status ####
 
