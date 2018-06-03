@@ -63,13 +63,19 @@ alias rdr='bundle exec rake db:rollback'
 alias be='bundle exec'
 alias os='open -a sublime\ text'
 alias ls='ls -G'
+### rails
 alias rs='rails s'
 alias rs4='rails s -p 4000'
 alias rs5='rails s -p 5000'
 alias rc='rails c'
-alias v='mvim .'
-alias vv='mvim ~/.vimrc'
-alias vz='mvim ~/.zshrc'
+
+### vim
+alias v='vim .'
+# alias vim='mvim'
+alias vv='vim ~/.vimrc'
+alias vz='vim ~/.zshrc'
+
+### git
 alias g='git'
 alias ga='git add'
 alias gm='git commit'
@@ -79,6 +85,11 @@ alias gch='git checkout'
 alias gs='git status -s'
 alias gr='git reset'
 alias gp='git pull'
+alias grb='git rebase'
+alias grb1='git rebase -i HEAD~1'
+alias gg='git grep -i'
+alias gpf='git push --force-with'
+
 alias hc='hub clone'
 alias ts='tig status'
 
