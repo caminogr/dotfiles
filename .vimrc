@@ -429,8 +429,9 @@ let g:ale_fixers = {
 \   'javascript': ['eslint', 'prettier'],
 \}
 let g:ale_linters = {
-\  'javascript': ['eslint', 'prettier', 'flow']
+\  'javascript': ['stylelint', 'eslint', 'prettier', 'flow'],
 \}
+let g:ale_linter_aliases = {'javascript': ['javascript', 'css']}
 let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_set_highlights = 0
 let g:ale_sign_error = 'X'
