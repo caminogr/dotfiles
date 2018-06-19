@@ -88,7 +88,7 @@ alias gp='git pull'
 alias grb='git rebase'
 alias grb1='git rebase -i HEAD~1'
 alias gg='git grep -i'
-alias gpf='git push --force-with'
+alias gpf='git push --force-with-lease'
 
 alias hc='hub clone'
 alias ts='tig status'
