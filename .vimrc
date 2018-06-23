@@ -443,20 +443,6 @@ let g:ale_echo_msg_format = '%linter%: %s'
 nnoremap <leader>an :ALENextWrap<cr>
 nnoremap <leader>ap :ALEPreviousWrap<cr>
 
-""""""""""""""""""""""""""""""""""""""
-" Register filetype or syntax
-""""""""""""""""""""""""""""""""""""""
-autocmd BufNewFile,BufRead *.html setf html
-autocmd BufNewFile,BufRead *.erb setf eruby.html
-autocmd BufNewFile,BufRead *.haml setf haml
-autocmd BufNewFile,BufRead *.slim setf slim
-autocmd BufNewFile,BufRead *.scss setf scss
-autocmd BufNewFile,BufRead *.js setf javascript
-autocmd BufNewFile,BufRead *.jsx setf javascript.jsx
-autocmd BufNewFile,BufRead *.coffee setf coffee
-autocmd BufNewFile,BufRead *.jade setf jade
-autocmd BufNewFile,BufRead *.md setf markdown
-autocmd BufNewFile,BufRead *.yml setf yaml
 
 """""""""""""""""""""""""""""""""""""
 " コピペ
