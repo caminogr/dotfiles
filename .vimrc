@@ -181,9 +181,6 @@ set title
 set number
 set splitbelow
 set splitright
-" always show netrw as tree.
-" without this, file explore need to bdelete! to close
-let g:netrw_liststyle=3
 
 " === status line ===
 
@@ -225,9 +222,29 @@ noremap <D-2> :let @+ = expand("%:p") <CR>
 "========================================================
 
 "--------------------------------------------------------
+" netrw(default)
+"--------------------------------------------------------
+" always show netrw as tree.
+" without this, file explore need to bdelete! to close
+let g:netrw_liststyle=3
+let g:netrw_banner=0
+
+augroup netrw_mapping
+    autocmd!
+    autocmd filetype netrw call NetrwMapping()
+    autocmd FileType netrw setl bufhidden=delete
+augroup END
+
+function! NetrwMapping()
+    map <buffer> s s 
+    map <buffer> r R 
+    map <buffer> <c-r> <c-l>
+    " map <buffer> h -
+endfunction
+
+"--------------------------------------------------------
 " vimfiler
 "--------------------------------------------------------
-
 let g:vimfiler_as_default_explorer   = 1
 let g:vimfiler_safe_mode_by_default  = 0
 let g:vimfiler_ignore_pattern = '\%(.pyc\)$'
@@ -237,14 +254,24 @@ let g:vimfiler_tree_closed_icon = '▸'
 noremap  <C-T> :VimFilerExplorer<cr>
 nnoremap sn <C-w>t
 
-autocmd FileType vimfiler nnoremap <buffer>h h
-autocmd FileType vimfiler nnoremap <buffer>l l
-autocmd FileType vimfiler nmap     <buffer>H     <Plug>(vimfiler_smart_h)
-autocmd FileType vimfiler nmap     <buffer>L     <Plug>(vimfiler_smart_l)
-autocmd FileType vimfiler nmap     <buffer><C-r> <Plug>(vimfiler_redraw_screen)
-autocmd FileType vimfiler nmap     <buffer><BS>  <Plug>(vimfiler_new_file)
-autocmd FileType vimfiler nnoremap <buffer>N     <S-N>
-
+augroup vimFiler
+  autocmd!
+  autocmd FileType vimfiler nnoremap <buffer>v v 
+  autocmd FileType vimfiler nnoremap <buffer>h h
+  autocmd FileType vimfiler nnoremap <buffer>l l
+  autocmd FileType vimfiler nnoremap <buffer>t t
+  autocmd FileType vimfiler nnoremap <buffer>s s
+  autocmd FileType vimfiler nnoremap <buffer><Space> <Space>
+  autocmd FileType vimfiler nmap     <buffer>H     <Plug>(vimfiler_smart_h)
+  autocmd FileType vimfiler nmap     <buffer><Right> <Plug>(vimfiler_smart_l)
+  autocmd FileType vimfiler nmap     <buffer><C-r> <Plug>(vimfiler_redraw_screen)
+  autocmd FileType vimfiler nmap     <buffer><cr> <Plug>(vimfiler_expand_or_edit)
+  autocmd FileType vimfiler nmap     <buffer><BS> <Plug>(vimfiler_new_file) 
+  autocmd FileType vimfiler nmap     <buffer>D  <Plug>(vimfiler_delete_file)
+  autocmd FileType vimfiler nmap     <buffer><N>  <Plug>(vimfiler_make_directory)
+  autocmd FileType vimfiler nnoremap <buffer>N     <S-N>
+augroup END
+"
 
 "--------------------------------------------------------
 " neocomplete 
