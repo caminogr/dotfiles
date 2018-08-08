@@ -23,7 +23,11 @@
   sync = !git checkout master && git pull origin master && git fetch -p origin && git branch -d $(git branch --merged | grep -v master | grep -v '*')
   soft = !git reset --soft HEAD^
   hard = !git reset --hard HEAD^
+  rebase1= !git rebase -i HEAD~
+  see  = !hub browse -- pull/$(git symbolic-ref --short HEAD)
 [push]
   default = current
 [github]
   user = kaminora
+[commit]
+  template = ~/.git_commit_template

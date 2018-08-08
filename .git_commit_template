@@ -13,9 +13,10 @@
 # 🆙  :up: 依存パッケージなどのアップデート
 # 🔒  :lock: 新機能の公開範囲の制限
 # 👮  :cop: セキュリティ関連の改善
-# 🌱  :seed:
+# 🌱  :seedling:
 # 🎨  :art: styleの追加・編集
 # 📝  :memo: コメント・ドキュメントの追加
+# ✏️   :pencil2: storybookの追加など
 
 # ==== Format ====
 # :emoji: Subject
