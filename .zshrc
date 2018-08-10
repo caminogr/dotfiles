@@ -135,14 +135,6 @@ man() {
 alias t='tmux'
 alias tname='tmux new -s'
 
-function op() {
-  if [ -z "$1" ]; then
-    open .
-  else
-    open "$@"
-  fi
-}
-
 
 ## config
 
