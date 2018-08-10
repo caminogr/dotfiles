@@ -1,3 +1,5 @@
+setopt nonomatch
+
 ## prompt
 PROMPT="%{${fg[blue]}%}$%{${reset_color}%} "
 export PROMPT="%B[%{$fg[default]%}%/]%{$fg[cyan]%} $%b"
@@ -63,6 +65,11 @@ alias rdr='bundle exec rake db:rollback'
 alias be='bundle exec'
 alias os='open -a sublime\ text'
 alias ls='ls -G'
+
+mkcd() {
+  \mkdir $* && cd $_
+}
+
 ### rails
 alias rs='rails s'
 alias rs4='rails s -p 4000'
@@ -87,6 +94,8 @@ alias gr='git reset'
 alias gp='git pull'
 alias grb='git rebase'
 alias grb1='git rebase -i HEAD~1'
+alias grbc='git rebase --continue'
+alias grba='git rebase --abort'
 alias gg='git grep -i'
 alias gpf='git push --force-with-lease'
 
