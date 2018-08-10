@@ -619,7 +619,7 @@ function! ReadJSFile() abort
     if isdirectory(s:fullName)
       let s:fullName = s:fullName . '/index.js'
     else
-      let s:fullName = simplify(glob("*/src/") . s:fileName) . '.js'
+      let s:fullName = simplify(glob("src/") . s:fileName) . '.js'
     endif
   endif
   execute ':e ' . s:fullName
