@@ -152,8 +152,8 @@ if [ -x "`which go`" ]; then
 fi
 
 
-## cdr の設定
 
+## cdr の設定
 zstyle ':completion:*' recent-dirs-insert both
 zstyle ':chpwd:*' recent-dirs-max 500
 zstyle ':chpwd:*' recent-dirs-default true
@@ -161,10 +161,8 @@ zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/shell/chpwd-recent-dirs"
 zstyle ':chpwd:*' recent-dirs-pushd true
 
 
-########################################
-# peco
-########################################
 
+## peco
 alias -g P='| peco'
 if [ -x "`which peco`" ]; then
     alias ll='ls -lah | peco'
@@ -187,7 +185,7 @@ if [ -x "`which peco`" ]; then
     if is-at-least 4.3.11
     then
         autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
-        add-zsh-hook chpwd chpwd_recent_dirs
+      
         zstyle ':chpwd:*' recent-dirs-max 5000
         zstyle ':chpwd:*' recent-dirs-default yes
         zstyle ':completion:*' recent-dirs-insert both
