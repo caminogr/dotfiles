@@ -138,6 +138,9 @@ alias tname='tmux new -s'
 
 ## config
 
+### git
+export PATH=/usr/local/bin:$PATH
+
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 eval "$(nodenv init -)"
 
@@ -165,6 +168,9 @@ zstyle ':chpwd:*' recent-dirs-default true
 zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/shell/chpwd-recent-dirs"
 zstyle ':chpwd:*' recent-dirs-pushd true
 
+
+## git-completion
+fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 
 
 ## peco
