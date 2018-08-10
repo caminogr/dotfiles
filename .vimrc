@@ -161,13 +161,23 @@ syntax on
 nnoremap <silent><ESC><ESC> :noh<Return>
 
 
+" nnoremap <silent> <leader>g :<C-u>Unite grep:. -resume -buffer-name=search-buffer<CR>
+" nnoremap <silent> <leader>g :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
+if executable('rg')
+  let g:unite_source_grep_command = 'rg'
+  let g:unite_source_grep_default_opts = '--no-heading --hidden'
+            \ " --ignore-file='*.log'"
+            \ " --ignore-file='*.idea*'"
+  let g:unite_source_grep_recursive_opt = ''
+endif
+
+
 "--------------------------------------------------------
 " setting for display 
 "--------------------------------------------------------
 
 
 " === window, buffer === 
-
 " タイトルをウィンドウ枠に表示する
 set title
 set number
@@ -295,8 +305,8 @@ inoremap <expr><C-f> neocomplete#complete_common_string()
 "--------------------------------------------------------
 
 let g:neosnippet#snippets_directory = '~/.vim/snippets/'
-imap <C-s> <Plug>(neosnippet_expand_or_jump)
-smap <C-s> <Plug>(neosnippet_expand_or_jump)
+" imap <C-s> <Plug>(neosnippet_expand_or_jump)
+" smap <C-s> <Plug>(neosnippet_expand_or_jump)
 nmap <leader>s :NeoSnippetEdit<cr>
 
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
@@ -315,14 +325,19 @@ let g:lightline = {
       \ 'active': {
       \   'right': [ [ 'lineinfo' ],
       \              [ 'percent' ],
-      \              ['empty']]
+      \              [ 'empty' ] ]
       \ },
       \ 'component_function': {
       \   'filename': 'LightlineFilename',
       \   'empty': 'Empty'
       \ }
       \ }
-      
+      " \   'paneinfo': 'PaneInfo',
+      " \   'left':  [ ['paneinfo'] ],
+" function! PaneInfo()
+"   return %{winnr()}
+" endfunction
+"
 function! Empty()
   return ""
 endfunction
@@ -415,29 +430,26 @@ nnoremap <C-]> g<C-]>
 " Tagbar"
 "--------------------------------------------------------
 
-nnoremap <silent><Leader>b :TagbarToggle<CR>
+nnoremap <silent><Leader>tb :TagbarToggle<CR>
 
+
+"--------------------------------------------------------
 " vim-closetag
 "--------------------------------------------------------
+
 let g:closetag_emptyTags_caseSensitive = 1
 
 " サポートするファイル 
 let g:closetag_filenames = "*.html, *.xhtml, *.phtml, *.jsx"
 
 
-
 "--------------------------------------------------------
-" emmet-vim
+" vim-go
 "--------------------------------------------------------
 
-let g:user_emmet_install_global = 0
 augroup golangSettings
   autocmd!
   autocmd FileType go nmap <leader>gd <Plug>(go-def)
-
-autocmd FileType html,css EmmetInstall
-let g:user_emmet_leader_key='<c-f>'
-let g:user_emmet_expandabbr_key="'"
   " autocmd BufWritePost *.go gofmt 
   " autocmd FileType go nmap <leader>gr <Plug>(go-run)
   " autocmd FileType go nmap <leader>gb <Plug>(go-build)
@@ -456,8 +468,11 @@ let g:go_def_mapping_enabled=0
 
 
 "--------------------------------------------------------
+" emmet-vim
 "--------------------------------------------------------
 
+let g:user_emmet_mode='i'
+let g:user_emmet_leader_key='<c-f>'
 
 "--------------------------------------------------------
 " vim-javascript
@@ -470,14 +485,15 @@ let g:javascript_plugin_flow = 1
 noremap <leader>p :ALEFix<CR>
 
 let g:ale_fixers = {
-\   'javascript': ['eslint', 'prettier'],
+\  'javascript': ['eslint', 'prettier']
 \}
 let g:ale_linters = {
-\  'javascript': ['stylelint', 'eslint', 'prettier', 'flow'],
+\  'javascript': ['stylelint', 'eslint', 'flow'],
 \}
 let g:ale_linter_aliases = {'javascript': ['javascript', 'css']}
 let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_set_highlights = 0
+let g:ale_sign_column_always = 1
 let g:ale_sign_error = 'X'
 let g:ale_sign_warning = '?'
 " let g:ale_set_signs = 0
