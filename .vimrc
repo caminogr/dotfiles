@@ -113,8 +113,6 @@ noremap s8 :execute 8 . 'wincmd w'<cr>
 noremap  <C-a> 0
 inoremap <C-a> <C-o>0
 cnoremap <C-a> <C-b>
-" nnoremap  <C-s> ^
-" inoremap <C-s> ^
 noremap  <C-e> $
 inoremap <C-e> <C-o>$
 noremap  m <C-d>
@@ -122,7 +120,6 @@ noremap  <S-m> <C-u>
 noremap  <C-g> G 
 noremap! <C-g> G
 nnoremap <C-x> <C-o>
-
  
 "--------------------------------------------------------
 " keybind for insert new line
@@ -154,19 +151,14 @@ noremap <silent> tp    :tabprevious<CR>
 
 " コマンド、検索パターンの履歴
 set history=50		" keep 50 lines of command line history
-" 検索の時に大文字と小文字を区別しない
-set ignorecase
-" インクリメントリサーチを使う 
+set ignorecase 
+set smartcase
 set incsearch
 set ruler		" show the cursor position all the time
 autocmd QuickFixCmdPost *grep* cwindow
-" ハイライトON
 set hlsearch
-" Esc でハイライトOFF
-nnoremap <ESC><ESC> :noh<Return>
-" カーソルが当たっている文字を検索
-nnoremap <D-d> gd
 syntax on
+nnoremap <silent><ESC><ESC> :noh<Return>
 
 
 "--------------------------------------------------------
@@ -195,7 +187,11 @@ set statusline=<%{winnr()}>\%f%r%h%w\%=[POS=%04v,%04l][%p%%]\ [LEN=%L]
 
 " === text ===
 
-noremap <TAB> >>
+vnoremap <TAB> >gv
+vnoremap <S-TAB> <gv
+nnoremap <TAB> >>
+nnoremap <S-TAB> <<
+
 augroup reloadFileDiff
   autocmd!
   autocmd InsertEnter,WinEnter * checktime
@@ -209,13 +205,18 @@ else
   let &t_EI = "\e]50;CursorShape=0\x7"
 endif
 
+" === その他 ===
 
 " swapをファイル作らない
 set noswapfile
 " current pathを表示
-noremap <D-1> :echo expand("%:p") <CR>
+noremap ! :echo expand("%:p") <CR>
 " current pathをコピー
-noremap <D-2> :let @+ = expand("%:p") <CR>
+noremap @ :let @+ = expand("%:p") <CR>
+"内容が変更されたら自動的に再読み込み
+" set autoread
+" ビープ音消す
+set vb t_vb=
 
 "========================================================
 " Setting for Plugin
@@ -492,7 +493,7 @@ nnoremap <leader>ap :ALEPreviousWrap<cr>
 """""""""""""""""""""""""""""""""""""
 
 " クリップボード連携
-set clipboard=unnamed,autoselect
+set clipboard=unnamed
 
 
 """"""""""""""""""""""""""""""""""""""
