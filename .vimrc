@@ -59,8 +59,8 @@ noremap  ; :
 noremap  ' ;
 vnoremap C U
 vnoremap c u
-noremap  <C-d> <Del>
-noremap! <C-d> <Del>
+noremap  <C-d> x
+noremap! <C-d> x
 noremap  <C-u> d0
 inoremap <C-u> <C-o>d0
 cnoremap <C-u> <C-w>
@@ -88,11 +88,12 @@ nnoremap s0 <C-w>>
 nnoremap s9 <C-w><
 nnoremap = <C-w>10+
 nnoremap - <C-w>10-
-nnoremap 0 <C-w>10>
-nnoremap 9 <C-w>10<
+nnoremap <C-0> <C-w>10>
+nnoremap <C-9> <C-w>10<
 
 " yank
 
+set autoindent
 xnoremap p "_dP
 
 
@@ -572,8 +573,6 @@ if has("autocmd")
   augroup END
 
 else
-
-  set autoindent		" always set autoindenting on
 
 endif " has("autocmd")
 
