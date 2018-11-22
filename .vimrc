@@ -67,8 +67,7 @@ cnoremap <C-u> <C-w>
 noremap  <C-k> D
 inoremap <C-k> <C-o>D
 noremap  <C-y> :q<CR>
-nnoremap E :Explore<CR>
-nnoremap VE :Vexplore<CR>
+nnoremap E :e %:h<CR>
 
 noremap <silent>ss :split<CR>
 noremap <silent>sv :vsplit<CR>
@@ -238,21 +237,21 @@ set vb t_vb=
 "--------------------------------------------------------
 " always show netrw as tree.
 " without this, file explore need to bdelete! to close
-let g:netrw_liststyle=3
-let g:netrw_banner=0
-
-augroup netrw_mapping
-    autocmd!
-    autocmd filetype netrw call NetrwMapping()
-    autocmd FileType netrw setl bufhidden=delete
-augroup END
-
-function! NetrwMapping()
-    map <buffer> s s 
-    map <buffer> r R 
-    map <buffer> <c-r> <c-l>
-    " map <buffer> h -
-endfunction
+" let g:netrw_liststyle=3
+" let g:netrw_banner=0
+"
+" augroup netrw_mapping
+"     autocmd!
+"     autocmd filetype netrw call NetrwMapping()
+"     autocmd FileType netrw setl bufhidden=delete
+" augroup END
+"
+" function! NetrwMapping()
+"     map <buffer> s s 
+"     map <buffer> r R 
+"     map <buffer> <c-r> <c-l>
+"     " map <buffer> h -
+" endfunction
 
 "--------------------------------------------------------
 " vimfiler
