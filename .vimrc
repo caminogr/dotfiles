@@ -122,6 +122,11 @@ noremap  <C-g> G
 noremap! <C-g> G
 nnoremap <C-x> <C-o>
 noremap x %
+
+" Jump file 
+set path=src,node_modules
+set suffixesadd=.js,.jsx,.ts,.tsx,.vim
+
 "--------------------------------------------------------
 " keybind for insert new line
 "--------------------------------------------------------
@@ -583,6 +588,3 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
 endif
-
-set runtimepath+=~/.vim/
-runtime find_js_file.vim
