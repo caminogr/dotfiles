@@ -55,12 +55,13 @@ nnoremap o <nop>
 nnoremap x <nop>
 vnoremap U <nop>
 vnoremap u <nop>
+vnoremap x <nop>
 noremap  ; :
 noremap  ' ;
 vnoremap C U
 vnoremap c u
-noremap  <C-d> x
-noremap! <C-d> x
+noremap  <C-d> <DEL>
+noremap! <C-d> <DEL>
 noremap  <C-u> d0
 inoremap <C-u> <C-o>d0
 cnoremap <C-u> <C-w>
@@ -81,14 +82,14 @@ noremap sK <C-w>K
 noremap sJ <C-w>J
 
 
-nnoremap s] <C-w>+
-nnoremap s[ <C-w>-
-nnoremap s0 <C-w>>
-nnoremap s9 <C-w><
+" nnoremap s] <C-w>+
+" nnoremap s[ <C-w>-
+" nnoremap s0 <C-w>>
+" nnoremap s9 <C-w><
 nnoremap = <C-w>10+
 nnoremap - <C-w>10-
-nnoremap <C-0> <C-w>10>
-nnoremap <C-9> <C-w>10<
+nnoremap + <C-w>10>
+nnoremap _ <C-w>10<
 
 " yank
 
@@ -120,7 +121,7 @@ noremap  <S-m> <C-u>
 noremap  <C-g> G 
 noremap! <C-g> G
 nnoremap <C-x> <C-o>
- 
+noremap x %
 "--------------------------------------------------------
 " keybind for insert new line
 "--------------------------------------------------------
@@ -219,10 +220,10 @@ endif
 
 " swapをファイル作らない
 set noswapfile
-" current pathを表示
-noremap ! :echo expand("%:p") <CR>
-" current pathをコピー
-noremap @ :let @+ = expand("%:p") <CR>
+" Show current path
+noremap >1 :echo expand("%:p") <CR>
+" Copy current path
+noremap >2 :let @+ = expand("%:p") <CR>
 "内容が変更されたら自動的に再読み込み
 " set autoread
 " ビープ音消す
