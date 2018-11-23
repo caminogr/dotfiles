@@ -486,6 +486,7 @@ let g:ale_fixers = {
 \  'javascript': ['eslint', 'prettier']
 \}
 let g:ale_linters = {
+\  'vim': ['vint'],
 \  'javascript': ['stylelint', 'eslint', 'flow'],
 \}
 let g:ale_linter_aliases = {'javascript': ['javascript', 'css']}
