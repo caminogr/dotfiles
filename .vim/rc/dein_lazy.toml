@@ -61,7 +61,7 @@ on_ft = 'rb'
 # checker
 [[plugins]]
 repo = 'w0rp/ale' 
-on_ft = ['js', 'jsx']
+on_ft = ['js', 'jsx', 'vim']
 
 [[plugins]]
 repo = 'majutsushi/tagbar'
