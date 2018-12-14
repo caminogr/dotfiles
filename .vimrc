@@ -234,6 +234,23 @@ noremap >2 :let @+ = expand("%:p") <CR>
 " ビープ音消す
 set vb t_vb=
 
+
+"--------------------------------------------------------
+" setting for markdown
+"--------------------------------------------------------
+
+nnoremap <Leader>m :Typora<CR>
+if has('mac')
+  function! OpenTypora()
+      " Launch Typora
+      call system("open -a Typora \"" . expand("%") . "\"")
+      setlocal autoread
+  endfunction
+
+  command! Typora call OpenTypora()
+endif
+
+
 "========================================================
 " Setting for Plugin
 "========================================================
