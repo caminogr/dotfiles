@@ -1,55 +1,37 @@
-if &compatible
-  set nocompatible
-endif
-
 augroup load_theme
   autocmd!
 augroup END
 
-"--------------------------------------------------------
-"dein.vim
-"--------------------------------------------------------
+let mapleader = "\<space>" 
 
-let s:dein_dir = expand('~/.vim/dein')
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+source ~/.vim/rc/plugins/dein.vim
 
-" get dein.vim if it doesn`t exist
-if &runtimepath !~# '/dein.vim'
-  if !isdirectory(s:dein_repo_dir)
-    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
-  endif
-  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
-endif
+source ~/.vim/rc/plugins/ale.vim
+source ~/.vim/rc/plugins/auto-save.vim
+source ~/.vim/rc/plugins/caw.vim
+source ~/.vim/rc/plugins/ctags.vim
+source ~/.vim/rc/plugins/deoplete.vim
+source ~/.vim/rc/plugins/emmet-vim.vim
+source ~/.vim/rc/plugins/fzf.vim
+source ~/.vim/rc/plugins/lightline.vim
+source ~/.vim/rc/plugins/neosnippet.vim
+source ~/.vim/rc/plugins/tagbar.vim
+source ~/.vim/rc/plugins/vim-closetag.vim
+source ~/.vim/rc/plugins/vim-indent-guide.vim
+source ~/.vim/rc/plugins/vim-javascript.vim
+source ~/.vim/rc/plugins/vimfiler.vim
 
-" setting for deinn
-if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir)
+source ~/.vim/rc/set.vim
 
-  let g:rc_dir    = expand('~/.vim/rc')
-  let s:toml      = g:rc_dir . '/dein.toml'
-  let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
+filetype plugin indent on
+syntax enable
 
-  call dein#load_toml(s:toml,      {'lazy': 0})
-  call dein#load_toml(s:lazy_toml, {'lazy': 1})
-
-  call dein#end()
-  call dein#save_state()
-endif
-
-if dein#check_install()
-  call dein#install()
-endif
-
-
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
 
 
 """"""""""""""""""""""""""""""""""""""
 " mapping 
 """""""""""""""""""""""""""""""""""""""
 
-let mapleader = "\<space>" 
 nnoremap s <nop>
 nnoremap o <nop>
 nnoremap x <nop>
@@ -93,7 +75,6 @@ nnoremap _ <C-w>10<
 
 " yank
 
-set autoindent
 xnoremap p "_dP
 
 
@@ -123,9 +104,15 @@ noremap! <C-g> G
 nnoremap <C-x> <C-o>
 noremap x %
 
-" Jump file 
-set path=src,node_modules
-set suffixesadd=.js,.jsx,.ts,.tsx,.vim
+" Terminal mode
+nnoremap T :tabe<CR>:terminal<CR>
+tnoremap <silent> <ESC> <C-\><C-n>
+tnoremap <silent> <ESC> <C-\><C-n>
+tnoremap <silent> <C-h> <nop>
+tnoremap <silent> <C-j> <nop>
+tnoremap <silent> <C-k> <nop>
+tnoremap <silent> <C-l> <nop>
+
 
 "--------------------------------------------------------
 " keybind for insert new line
@@ -137,11 +124,6 @@ nnoremap <C-o> O
 inoremap <F12> <C-o>o
 inoremap <C-o> <C-o>O
 
-augroup autoCommentOff
-    autocmd!
-    autocmd BufEnter * setlocal formatoptions-=r
-    autocmd BufEnter * setlocal formatoptions-=o
-augroup END
 
 " === tab関連 ===
 
@@ -155,15 +137,6 @@ noremap <silent> tp    :tabprevious<CR>
 " 検索設定
 """"""""""""""""""""""""""""""""""""""
 
-" コマンド、検索パターンの履歴
-set history=50		" keep 50 lines of command line history
-set ignorecase 
-set smartcase
-set incsearch
-set ruler		" show the cursor position all the time
-autocmd QuickFixCmdPost *grep* cwindow
-set hlsearch
-syntax on
 nnoremap <silent><ESC><ESC> :noh<Return>
 
 
@@ -172,33 +145,11 @@ nnoremap <silent><ESC><ESC> :noh<Return>
 if executable('rg')
   let g:unite_source_grep_command = 'rg'
   let g:unite_source_grep_default_opts = '--no-heading --hidden'
-            \ " --ignore-file='*.log'"
-            \ " --ignore-file='*.idea*'"
+           \ " --ignore-file='*.log'"
+           \ " --ignore-file='*.idea*'"
   let g:unite_source_grep_recursive_opt = ''
 endif
 
-
-"--------------------------------------------------------
-" setting for display 
-"--------------------------------------------------------
-
-
-" === window, buffer === 
-" タイトルをウィンドウ枠に表示する
-set title
-set number
-set splitbelow
-set splitright
-
-" === status line ===
-
-"ステータス行を表示
-set laststatus=2
-" ステータスラインの色
-" highlight statusline   term=NONE cterm=NONE guifg=red ctermfg=yellow ctermbg=red
-"入力中のコマンドをステータスに表示する
-set showcmd
-set statusline=<%{winnr()}>\%f%r%h%w\%=[POS=%04v,%04l][%p%%]\ [LEN=%L]
 
 
 " === text ===
@@ -208,10 +159,10 @@ vnoremap <S-TAB> <gv
 nnoremap <TAB> >>
 nnoremap <S-TAB> <<
 
-augroup reloadFileDiff
-  autocmd!
-  autocmd InsertEnter,WinEnter * checktime
-augroup END
+" augroup reloadFileDiff
+"   autocmd!
+"   autocmd InsertEnter,WinEnter * checktime
+" augroup END
 
 if exists('$TMUX')
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
@@ -221,18 +172,12 @@ else
   let &t_EI = "\e]50;CursorShape=0\x7"
 endif
 
-" === その他 ===
 
-" swapをファイル作らない
-set noswapfile
 " Show current path
 noremap >1 :echo expand("%:p") <CR>
 " Copy current path
 noremap >2 :let @+ = expand("%:p") <CR>
-"内容が変更されたら自動的に再読み込み
-" set autoread
-" ビープ音消す
-set vb t_vb=
+
 
 
 "--------------------------------------------------------
@@ -251,17 +196,13 @@ if has('mac')
 endif
 
 
-"========================================================
-" Setting for Plugin
-"========================================================
-
 "--------------------------------------------------------
 " netrw(default)
 "--------------------------------------------------------
 " always show netrw as tree.
 " without this, file explore need to bdelete! to close
-" let g:netrw_liststyle=3
-" let g:netrw_banner=0
+" let g:netrw_liststyle=2
+" let g:netrw_banner=-1
 "
 " augroup netrw_mapping
 "     autocmd!
@@ -276,287 +217,52 @@ endif
 "     " map <buffer> h -
 " endfunction
 
-"--------------------------------------------------------
-" vimfiler
-"--------------------------------------------------------
-let g:vimfiler_as_default_explorer   = 1
-let g:vimfiler_safe_mode_by_default  = 0
-let g:vimfiler_ignore_pattern = '\%(.pyc\)$'
-let g:vimfiler_tree_opened_icon = '▾'
-let g:vimfiler_tree_closed_icon = '▸'
-
-noremap  <C-T> :VimFilerExplorer<cr>
-nnoremap sn <C-w>t
-
-augroup vimFiler
-  autocmd!
-  autocmd FileType vimfiler nnoremap <buffer>v v 
-  autocmd FileType vimfiler nnoremap <buffer>h h
-  autocmd FileType vimfiler nnoremap <buffer>l l
-  autocmd FileType vimfiler nnoremap <buffer>t t
-  autocmd FileType vimfiler nnoremap <buffer>s s
-  autocmd FileType vimfiler nnoremap <buffer><Space> <Space>
-  autocmd FileType vimfiler nmap     <buffer>H     <Plug>(vimfiler_smart_h)
-  autocmd FileType vimfiler nmap     <buffer><Right> <Plug>(vimfiler_smart_l)
-  autocmd FileType vimfiler nmap     <buffer><C-r> <Plug>(vimfiler_redraw_screen)
-  autocmd FileType vimfiler nmap     <buffer><cr> <Plug>(vimfiler_expand_or_edit)
-  autocmd FileType vimfiler nmap     <buffer><BS> <Plug>(vimfiler_new_file) 
-  autocmd FileType vimfiler nmap     <buffer>D  <Plug>(vimfiler_delete_file)
-  autocmd FileType vimfiler nmap     <buffer><N>  <Plug>(vimfiler_make_directory)
-  autocmd FileType vimfiler nnoremap <buffer>N     <S-N>
-augroup END
-"
 
 "--------------------------------------------------------
 " neocomplete 
 "--------------------------------------------------------
-
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-
-" Use neocomplete.
-let g:neocomplete#enable_at_startup  = 1
-let g:neocomplete#enable_smart_case  = 1
-let g:neocomplete#min_keyword_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-
-inoremap <expr><C-g> neocomplete#undo_completion()
-inoremap <expr><C-f> neocomplete#complete_common_string()
-
-"--------------------------------------------------------
-" neosnippet
-"--------------------------------------------------------
-
-let g:neosnippet#snippets_directory = '~/.vim/snippets/'
-" imap <C-s> <Plug>(neosnippet_expand_or_jump)
-" smap <C-s> <Plug>(neosnippet_expand_or_jump)
-nmap <leader>s :NeoSnippetEdit<cr>
-
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-  \ "\<Plug>(neosnippet_expand_or_jump)"
-  \: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-  \ "\<Plug>(neosnippet_expand_or_jump)"
-  \: "\<TAB>"
-
-"--------------------------------------------------------
-" lightline
-"--------------------------------------------------------
-
-let g:lightline = {
-      \ 'colorscheme': 'Tomorrow_Night',
-      \ 'active': {
-      \   'right': [ [ 'lineinfo' ],
-      \              [ 'percent' ],
-      \              [ 'empty' ] ]
-      \ },
-      \ 'component_function': {
-      \   'filename': 'LightlineFilename',
-      \   'empty': 'Empty'
-      \ }
-      \ }
-      " \   'paneinfo': 'PaneInfo',
-      " \   'left':  [ ['paneinfo'] ],
-" function! PaneInfo()
-"   return %{winnr()}
-" endfunction
 "
-function! Empty()
-  return ""
-endfunction
-
-function! LightlineFilename()
-  return &filetype ==# 'vimfiler' ? vimfiler#get_status_string() :
-        \ &filetype ==# 'unite' ? unite#get_status_string() :
-        \ &filetype ==# 'vimshell' ? vimshell#get_status_string() :
-        \ expand('%:p') !=# '' ? expand('%:p') : '[No Name]'
-endfunction
-
-"--------------------------------------------------------
-" auto-save 
-"--------------------------------------------------------
-
-let g:auto_save = 1
-" disable in insert mode
-let g:auto_save_in_insert_mode = 0
-
+" " Disable AutoComplPop.
+" let g:acp_enableAtStartup = -1
+"
+" " Use neocomplete.
+" let g:neocomplete#enable_at_startup  = 0
+" let g:neocomplete#enable_smart_case  = 0
+" let g:neocomplete#min_keyword_length = 2
+" let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+"
+" inoremap <expr><C-g> neocomplete#undo_completion()
+" inoremap <expr><C-f> neocomplete#complete_common_string()
+"
 
 "--------------------------------------------------------
-" caw.vim 
-"--------------------------------------------------------
-nmap <Leader>c <Plug>(caw:hatpos:toggle)
-vmap <Leader>c <Plug>(caw:hatpos:toggle)
-
-
-"--------------------------------------------------------
-" vim indent guildes
-"--------------------------------------------------------
-set tabstop=2 shiftwidth=2 expandtab
-
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_auto_colors = 0
-let g:indent_guides_guide_size  = 2
-
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#262626 ctermbg=236
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#3c3c3c ctermbg=235
-
-
-"--------------------------------------------------------
-" fzf
+" mhartington/nvim-typescript doesnt work
 "--------------------------------------------------------
 
-set rtp+=/usr/local/opt/fzf
-let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
-nnoremap <Leader>fb :Buffers<CR>
-nnoremap <Leader>ff :Files<CR>
-nnoremap <Leader>fg :GFiles?<CR>
-nnoremap <Leader>fr :Rg 
-nnoremap <Leader>ft :Tags<CR>
-nnoremap <Leader>fm :FZFMru<CR>
+" let g:nvim_typescript#vue_support=0
 
-" preview file with :Files
-command! -bang -nargs=? -complete=dir Files
-  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-
-command! FZFMru call fzf#run({
-\  'source':  v:oldfiles,
-\  'sink':    'e',
-\  'options': '-m -x +s',
-\  'down':    '40%'})
-
-run ripgrep with :Rg
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
-  \   <bang>0 ? fzf#vim#with_preview('right:50%:hidden', '?')
-  \           : fzf#vim#with_preview('up:60%'),
-  \   <bang>0)
+" autocmd BufWrite *.ts,*.tsx TSGetDiagnostics
+"
+"
 
 
-"--------------------------------------------------------
-" ctags
-"--------------------------------------------------------
 
-" tagsジャンプの時に複数ある時は一覧表示                                        
-nnoremap <C-]> g<C-]>
-
-
-"--------------------------------------------------------
-" Tagbar"
-"--------------------------------------------------------
-
-nnoremap <silent><Leader>tb :TagbarToggle<CR>
-
-
-"--------------------------------------------------------
-" vim-closetag
-"--------------------------------------------------------
-
-let g:closetag_emptyTags_caseSensitive = 1
-
-" サポートするファイル 
-let g:closetag_filenames = "*.html, *.xhtml, *.phtml, *.jsx"
-
-
-"--------------------------------------------------------
-" vim-go
-"--------------------------------------------------------
-
-augroup golangSettings
-  autocmd!
-  autocmd FileType go nmap <leader>gd <Plug>(go-def)
-  " autocmd BufWritePost *.go gofmt 
-  " autocmd FileType go nmap <leader>gr <Plug>(go-run)
-  " autocmd FileType go nmap <leader>gb <Plug>(go-build)
-  " autocmd FileType go nmap <leader>gt <Plug>(go-test)
-  " autocmd FileType go nmap <leader>gc <Plug>(go-coverage)
-  " autocmd FileType go nmap <leader>gd <Plug>(go-doc)
-  autocmd FileType go nmap <leader>gf <Plug>(go-fmt)
-  autocmd FileType go nmap <leader>gi <Plug>(go-imports)
-  " autocmd FileType go nmap <leader>gm <Plug>(go-implements)
-  autocmd FileType go setlocal tabstop=4
-  autocmd FileType go setlocal shiftwidth=4
-augroup END
-
-let g:go_fmt_autosave = 0 
-let g:go_def_mapping_enabled=0
-
-
-"--------------------------------------------------------
-" emmet-vim
-"--------------------------------------------------------
-
-let g:user_emmet_mode='i'
-let g:user_emmet_leader_key='<c-f>'
-
-"--------------------------------------------------------
-" vim-javascript
-"--------------------------------------------------------
-let g:javascript_plugin_flow = 1
-
-"--------------------------------------------------------
-" ALE
-"--------------------------------------------------------
-noremap <leader>p :ALEFix<CR>
-
-let g:ale_fixers = {
-\  'javascript': ['eslint', 'prettier']
-\}
-let g:ale_linters = {
-\  'vim': ['vint'],
-\  'javascript': ['stylelint', 'eslint', 'flow'],
-\}
-let g:ale_linter_aliases = {'javascript': ['javascript', 'css']}
-let g:ale_javascript_prettier_use_local_config = 1
-let g:ale_set_highlights = 0
-let g:ale_sign_column_always = 1
-let g:ale_sign_error = 'X'
-let g:ale_sign_warning = '?'
-" let g:ale_set_signs = 0
-highlight clear ALEErrorSign
-highlight clear ALEWarningSign
-let g:ale_echo_msg_format = '%linter%: %s'
-nnoremap <leader>an :ALENextWrap<cr>
-nnoremap <leader>ap :ALEPreviousWrap<cr>
-
-
-"""""""""""""""""""""""""""""""""""""
-" コピペ
-"""""""""""""""""""""""""""""""""""""
-
-" クリップボード連携
-set clipboard=unnamed
-
-
-""""""""""""""""""""""""""""""""""""""
-" バックアップ
-""""""""""""""""""""""""""""""""""""""
-
-" ファイルのバックアップを有効にする
-set backup
-" 取得するバックアップを編集前のファイルとする(無効化する場合は「nowritebackup」)
-set writebackup
-" バックアップ先のディレクトリ指定
-set backupdir=$HOME/.vimbackup
 
 
 
 
 " prompt
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
+" For Win31 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
 
 " Don't use Ex mode, use Q for formatting
-map Q gq
+" map Q gq
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
-inoremap <C-U> <C-G>u<C-U>
+" inoremap <C-U> <C-G>u<C-U>
 
 " In many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-  set mouse=a
-endif
 
 
 "--------------------------------------------------------
@@ -565,44 +271,44 @@ endif
 
 augroup colorAndHighlight 
   autocmd!
-  autocmd ColorScheme * highlight LineNr guifg=#767676 ctermfg=244
-  autocmd ColorScheme * highlight Visual guifg=#4D5056 guibg=#C5C4BD
+  autocmd colorscheme * highlight LineNr guifg=#767675 ctermfg=244
   autocmd ColorScheme * highlight Search cterm=bold ctermfg=0 ctermbg=7 gui=bold guifg=Black guibg=LightGrey
 
-  autocmd colorscheme * highlight ideographicspace term=underline ctermbg=darkgreen guibg=darkgreen
-  autocmd vimenter,winenter * match ideographicspace /　/
+  autocmd colorscheme * highlight ideographicSpace term=underline ctermbg=darkgreen guibg=darkgreen
+  autocmd vimenter,winenter * match ideographicSpace /　/
 augroup END
 
-if has("autocmd")
-  filetype plugin indent on
 
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-  au!
-
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
-
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  " Also don't do it when the mark is in the first line, that is the default
-  " position when opening a file.
-  autocmd BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
-
-  augroup END
-
-else
-
-endif " has("autocmd")
+" if has("autocmd")
+"   filetype plugin indent on
+"
+"   " Put these in an autocmd group, so that we can delete them easily.
+"   augroup vimrcEx
+"   au!
+"
+"   " For all text files set 'textwidth' to 77 characters.
+"   autocmd FileType text setlocal textwidth=77
+"
+"   " When editing a file, always jump to the last known cursor position.
+"   " Don't do it when the position is invalid or when inside an event handler
+"   " (happens when dropping a file on gvim).
+"   " Also don't do it when the mark is in the first line, that is the default
+"   " position when opening a file.
+"   autocmd BufReadPost *
+"   \ if line("'\"") > 0 && line("'\"") <= line("$") |
+"   \   exe "normal! g`\"" |
+"   \ endif
+"
+"   augroup END
+"
+" else
+"
+" endif " has("autocmd")
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
 " Only define it when not defined already.
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
-endif
+" if !exists(":DiffOrig")
+"   command DiffOrig vert new | set bt=nofile | r # | -1d_ | diffthis
+" 	  \ | wincmd p | diffthis
+" endif
