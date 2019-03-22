@@ -8,7 +8,7 @@ source ~/.vim/rc/plugins/dein.vim
 
 source ~/.vim/rc/plugins/ale.vim
 source ~/.vim/rc/plugins/auto-save.vim
-source ~/.vim/rc/plugins/caw.vim
+source ~/.vim/rc/plugins/nerdcommenter.vim
 source ~/.vim/rc/plugins/ctags.vim
 source ~/.vim/rc/plugins/deoplete.vim
 source ~/.vim/rc/plugins/emmet-vim.vim
