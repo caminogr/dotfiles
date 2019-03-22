@@ -19,6 +19,7 @@ source ~/.vim/rc/plugins/tagbar.vim
 source ~/.vim/rc/plugins/vim-closetag.vim
 source ~/.vim/rc/plugins/vim-indent-guide.vim
 source ~/.vim/rc/plugins/vim-javascript.vim
+source ~/.vim/rc/plugins/vim-precious.vim
 source ~/.vim/rc/plugins/vimfiler.vim
 
 source ~/.vim/rc/set.vim
