@@ -6,11 +6,10 @@ repo = 'Shougo/vimproc.vim'
 build = 'make'
 
 [[plugins]]
-repo = 'Shougo/vimfiler.vim'
-depends = 'unite.vim'
+repo = 'cocopon/vaffle.vim'
 
 [[plugins]]
-repo = 'Shougo/unite.vim'
+repo = 'scrooloose/nerdtree'
 
 [[plugins]]
 repo = 'vim-scripts/vim-auto-save'
@@ -19,7 +18,7 @@ repo = 'vim-scripts/vim-auto-save'
 repo = 'junegunn/fzf.vim'
 
 [[plugins]]
-repo = 'tyru/caw.vim.git'
+repo = 'scrooloose/nerdcommenter'
 
 [[plugins]]
 repo = 'tpope/vim-surround'
@@ -50,59 +49,16 @@ hook_add = '''
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 
-# highlight ts syntax
-[[plugins]]
-repo = 'leafgarland/typescript-vim'
-on_ft = ['ts, tsx']
-
-[[plugins]]
-repo = 'posva/vim-vue'
-on_ft = ['vue']
-
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
-repo = 'iloginow/vim-stylus'
-on_ft = 'styl'
-
-[[plugins]]
-repo = 'gorodinskiy/vim-coloresque'
-on_ft = ['html', 'css', 'styl', 'vue']
-
-[[plugins]]
-repo = 'tidalcycles/vim-tidal'
-on_ft = ['tidal']
-rev='tidal-0.9'
-
-# cpp
-[[plugins]]
-repo = 'vim-jp/vim-cpp'
-on_ft = ['cpp']
-
-# [[plugins]]
-# repo = 'osyo-manga/vim-marching'
-# on_ft = ['cpp']
-
-[[plugins]]
 repo = 'Shougo/context_filetype.vim'
 
-# vueのlsp serverがあまり補完が強くないので使用
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-depends = 'context_filetype.vim'
-do = 'UpdateRemotePlugins'
-on_i = 1
-on_ft = ['vue']
-hook_source = '''
-  let g:deoplete#enable_at_startup = 1
-'''
-
-[[plugins]]
-repo = 'tbodt/deoplete-tabnine'
-on_event = ['InsertEnter']
-build = './install.sh'
-on_ft = ['vue']
+# カーソル位置のコンテキストに合わせてftを切り替える
+# [[plugins]]
+# repo = 'osyo-manga/vim-precious'
+# depends = ['context_filetype.vim']
 
 # # # https://muunyblue.github.io/520bae6649b42ff5a3c8c58b7fcfc5a9.html
 # [[plugins]]
@@ -120,13 +76,3 @@ on_ft = ['vue']
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
 build = 'npm install -g  typescript-language-server'
-
-[[plugins]]
-repo = 'prabirshrestha/async.vim'
-
-[[plugins]]
-repo = 'prabirshrestha/asyncomplete.vim'
-
-[[plugins]]
-repo = 'prabirshrestha/asyncomplete-lsp.vim'
-

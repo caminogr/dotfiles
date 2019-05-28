@@ -1,4 +1,4 @@
-# highlight javascrpit syntax
+
 [[plugins]]
 repo = 'pangloss/vim-javascript'
 on_ft = ['js, jsx']
@@ -31,8 +31,8 @@ on_ft = ['html', 'css', 'scss', 'js']
 
 [[plugins]]
 repo = 'Shougo/neosnippet'
-depends = ['neosnippet-snippets']
-on_i = 1
+depends = ['neosnippet-snippets', 'context_filetype.vim']
+on_event = ['InsertEnter']
 on_ft = 'snippet'
 
 [[plugins]]
@@ -60,3 +60,64 @@ on_ft = ['vue', 'ts', 'tsx', 'js', 'jsx', 'vim']
 repo = 'majutsushi/tagbar'
 on_cmd = 'Tagbar'
 
+# highlight ts syntax
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+on_ft = ['ts', 'tsx', 'vue']
+
+[[plugins]]
+repo = 'posva/vim-vue'
+on_ft = ['vue']
+hook_add = '''
+set iskeyword+=$
+set iskeyword+=-
+'''
+
+[[plugins]]
+repo = 'iloginow/vim-stylus'
+on_ft = ['styl', 'vue']
+
+[[plugins]]
+repo = 'gorodinskiy/vim-coloresque'
+on_ft = ['html', 'css', 'styl', 'vue']
+
+[[plugins]]
+repo = 'tidalcycles/vim-tidal'
+on_ft = ['tidal']
+rev='tidal-0.9'
+
+# cpp
+[[plugins]]
+repo = 'vim-jp/vim-cpp'
+on_ft = ['cpp']
+
+# [[plugins]]
+# repo = 'osyo-manga/vim-marching'
+# on_ft = ['cpp']
+
+# vueのlsp serverがあまり補完が強くないので使用
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+depends = 'context_filetype.vim'
+do = 'UpdateRemotePlugins'
+on_event = ['InsertEnter']
+hook_source = '''
+  let g:deoplete#enable_at_startup = 1
+'''
+
+[[plugins]]
+repo = 'tbodt/deoplete-tabnine'
+on_event = ['InsertEnter']
+do = './install.sh'
+
+[[plugins]]
+repo = 'prabirshrestha/async.vim'
+on_ft = ['ts', 'vue']
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete.vim'
+on_ft = ['ts', 'vue']
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-lsp.vim'
+on_ft = ['ts', 'vue']
