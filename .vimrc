@@ -3,6 +3,8 @@ augroup load_theme
 augroup END
 
 let mapleader = "\<space>" 
+let g:python_host_prog = expand('~/.pyenv/shims/python')
+let g:python3_host_prog = expand('~/.pyenv/shims/python3')
 
 source ~/.vim/rc/plugins/dein.vim
 
@@ -18,6 +20,7 @@ source ~/.vim/rc/plugins/neosnippet.vim
 source ~/.vim/rc/plugins/tagbar.vim
 source ~/.vim/rc/plugins/vim-closetag.vim
 source ~/.vim/rc/plugins/vim-indent-guide.vim
+source ~/.vim/rc/plugins/vim-lsp.vim
 source ~/.vim/rc/plugins/vim-javascript.vim
 source ~/.vim/rc/plugins/vim-precious.vim
 source ~/.vim/rc/plugins/vimfiler.vim

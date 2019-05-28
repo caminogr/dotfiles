@@ -70,36 +70,6 @@ on_ft = 'styl'
 repo = 'gorodinskiy/vim-coloresque'
 on_ft = ['html', 'css', 'styl', 'vue']
 
-
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-on_i = 1
-hook_add = 'let g:deoplete#enable_at_startup = 1'
-
-# https://github.com/Shougo/deoplete.nvim/wiki/Completion-Sources
-
-[[plugins]]
-repo = 'carlitux/deoplete-ternjs'
-on_ft = ['js', 'jsx', 'vue']
-build = 'npm install -g tern'
-
-# required by nvim-typescript
-# [[plugins]]
-# repo = 'HerringtonDarkholme/yats.vim'
-# on_ft = ['ts', 'tsx', 'vue']
-
-# [[plugins]]
-# repo = 'mhartington/nvim-typescript'
-# on_ft = ['ts', 'tsx']
-# build = './install'
-
-[[plugins]]
-repo = 'deoplete-plugins/deoplete-jedi'
-on_ft = ['python']
-on_i = 1
-# hook_add = '''
-#   let g:deoplete#sources#jedi#python_path = /path/to/python3
-# '''
 [[plugins]]
 repo = 'tidalcycles/vim-tidal'
 on_ft = ['tidal']
@@ -115,5 +85,45 @@ on_ft = ['cpp']
 # on_ft = ['cpp']
 
 [[plugins]]
-repo = 'zchee/deoplete-clang'
-on_ft = ['cpp']
+repo = 'Shougo/context_filetype.vim'
+
+# vueのlsp serverがあまり補完が強くないので使用
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+depends = 'context_filetype.vim'
+do = 'UpdateRemotePlugins'
+on_i = 1
+on_ft = ['vue']
+
+[[plugins]]
+repo = 'tbodt/deoplete-tabnine'
+on_event = ['InsertEnter']
+build = './install.sh'
+on_ft = ['vue']
+
+# # # https://muunyblue.github.io/520bae6649b42ff5a3c8c58b7fcfc5a9.html
+# [[plugins]]
+# repo = 'autozimu/LanguageClient-neovim'
+# rev = 'next'
+# # depends = ['deoplete.nvim']
+# build = 'bash install.sh'
+# # on_ft = ['vue', 'cpp']
+
+# [[plugins]]
+# repo = 'rizzatti/dash.vim'
+# hook_add = 'nmap <silent> <Leader>d <Plug>DashSearch'
+
+# lsp
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+build = 'npm install -g  typescript-language-server'
+
+[[plugins]]
+repo = 'prabirshrestha/async.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-lsp.vim'
+
