@@ -11,7 +11,6 @@ source ~/.vim/rc/plugins/dein.vim
 source ~/.vim/rc/plugins/ale.vim
 source ~/.vim/rc/plugins/auto-save.vim
 source ~/.vim/rc/plugins/ctags.vim
-source ~/.vim/rc/plugins/deoplete.vim
 source ~/.vim/rc/plugins/emmet-vim.vim
 source ~/.vim/rc/plugins/fzf.vim
 source ~/.vim/rc/plugins/lightline.vim
