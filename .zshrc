@@ -77,10 +77,10 @@ alias rs5='rails s -p 5000'
 alias rc='rails c'
 
 ### vim
-alias v='vim .'
-# alias vim='mvim'
-alias vv='vim ~/.vimrc'
-alias vz='vim ~/.zshrc'
+alias vi='nvim'
+alias vim='nvim'
+alias vv='nvim ~/.vimrc'
+alias vz='nvim ~/.zshrc'
 
 ### git
 alias g='git'
