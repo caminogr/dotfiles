@@ -8,6 +8,8 @@ let g:python3_host_prog = expand('~/.pyenv/shims/python3')
 
 source ~/.vim/rc/plugins/dein.vim
 
+runtime macros/matchit.vim
+
 source ~/.vim/rc/plugins/ale.vim
 source ~/.vim/rc/plugins/auto-save.vim
 source ~/.vim/rc/plugins/ctags.vim
@@ -105,7 +107,7 @@ noremap  <S-m> <C-u>
 noremap  <C-g> G 
 noremap! <C-g> G
 nnoremap <C-x> <C-o>
-noremap x %
+map x %
 
 " Terminal mode
 nnoremap T :tabe<CR>:terminal<CR>
