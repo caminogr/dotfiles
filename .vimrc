@@ -1,7 +1,3 @@
-augroup load_theme
-  autocmd!
-augroup END
-
 let mapleader = "\<space>" 
 let g:python_host_prog = expand('~/.pyenv/shims/python')
 let g:python3_host_prog = expand('~/.pyenv/shims/python3')
@@ -164,11 +160,6 @@ vnoremap <S-TAB> <gv
 nnoremap <TAB> >>
 nnoremap <S-TAB> <<
 
-" augroup reloadFileDiff
-"   autocmd!
-"   autocmd InsertEnter,WinEnter * checktime
-" augroup END
-
 if exists('$TMUX')
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
@@ -274,12 +265,12 @@ endif
 " Color & Highlight
 "--------------------------------------------------------
 
-augroup colorAndHighlight 
+augroup color-and-highlight 
   autocmd!
-  autocmd colorscheme * highlight LineNr guifg=#767675 ctermfg=244
+  autocmd ColorScheme * highlight LineNr guifg=#767675 ctermfg=244
   autocmd ColorScheme * highlight Search cterm=bold ctermfg=0 ctermbg=7 gui=bold guifg=Black guibg=LightGrey
 
-  autocmd colorscheme * highlight ideographicSpace term=underline ctermbg=darkgreen guibg=darkgreen
+  autocmd ColorScheme * highlight ideographicSpace term=underline ctermbg=darkgreen guibg=darkgreen
   autocmd vimenter,winenter * match ideographicSpace /　/
 augroup END
 

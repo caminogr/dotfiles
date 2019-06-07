@@ -34,12 +34,14 @@ repo = 'tpope/vim-fugitive'
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
 
-
 [[plugins]]
 repo = 'w0ng/vim-hybrid'
 hook_add = '''
   set background=dark
-  au load_theme VimEnter * nested colorscheme hybrid
+  augroup load-theme
+    autocmd!
+    autocmd load-theme VimEnter * nested colorscheme hybrid
+  augroup END
 '''
 # repo = 'chriskempson/vim-tomorrow-theme'
 # hook_add = '''

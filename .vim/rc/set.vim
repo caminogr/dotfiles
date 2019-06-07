@@ -5,7 +5,8 @@ set backspace=indent,eol,start
 set path=src,node_modules
 set suffixesadd=.js,.jsx,.ts,.tsx,.vim
 
-augroup autoCommentOff
+" Stop putting comments in front of new lines
+augroup auto-comment-off
     autocmd!
     autocmd BufEnter * setlocal formatoptions-=r
     autocmd BufEnter * setlocal formatoptions-=o
@@ -17,7 +18,6 @@ set ignorecase
 set smartcase
 set incsearch
 set ruler		" show the cursor position all the time
-autocmd QuickFixCmdPost *grep* cwindow
 set hlsearch
 syntax on
 
@@ -43,6 +43,11 @@ set noswapfile
 
 "内容が変更されたら自動的に再読み込み
 " set autoread
+augroup reload-file-diff
+  autocmd!
+  autocmd InsertEnter,WinEnter * checktime
+augroup END
+
 " ビープ音消す
 set vb t_vb=
 set ttimeoutlen=4
