@@ -34,10 +34,6 @@ on_event = ['InsertEnter']
 on_ft = 'snippet'
 
 [[plugins]]
-repo = 'fatih/vim-go'
-on_ft = 'go'
-
-[[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = 'toml'
 
@@ -53,10 +49,6 @@ on_ft = ['javascript', 'jsx']
 [[plugins]]
 repo = 'w0rp/ale' 
 on_ft = ['vue', 'typescript', 'tsx', 'js', 'jsx', 'vim']
-
-# [[plugins]]
-# repo = 'majutsushi/tagbar'
-# on_cmd = 'Tagbar'
 
 # highlight ts syntax
 [[plugins]]

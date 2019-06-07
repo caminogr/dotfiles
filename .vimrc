@@ -8,19 +8,16 @@ runtime macros/matchit.vim
 
 source ~/.vim/rc/plugins/ale.vim
 source ~/.vim/rc/plugins/auto-save.vim
-source ~/.vim/rc/plugins/ctags.vim
 source ~/.vim/rc/plugins/emmet-vim.vim
 source ~/.vim/rc/plugins/fzf.vim
 source ~/.vim/rc/plugins/lightline.vim
 source ~/.vim/rc/plugins/nerdcommenter.vim
 source ~/.vim/rc/plugins/neosnippet.vim
-source ~/.vim/rc/plugins/tagbar.vim
 source ~/.vim/rc/plugins/vim-closetag.vim
 source ~/.vim/rc/plugins/vim-indent-guide.vim
 source ~/.vim/rc/plugins/vim-lsp.vim
 source ~/.vim/rc/plugins/vim-javascript.vim
 source ~/.vim/rc/plugins/vim-precious.vim
-source ~/.vim/rc/plugins/vimfiler.vim
 
 source ~/.vim/rc/set.vim
 
@@ -190,58 +187,6 @@ if has('mac')
 
   command! Typora call OpenTypora()
 endif
-
-
-"--------------------------------------------------------
-" netrw(default)
-"--------------------------------------------------------
-" always show netrw as tree.
-" without this, file explore need to bdelete! to close
-" let g:netrw_liststyle=2
-" let g:netrw_banner=-1
-"
-" augroup netrw_mapping
-"     autocmd!
-"     autocmd filetype netrw call NetrwMapping()
-"     autocmd FileType netrw setl bufhidden=delete
-" augroup END
-"
-" function! NetrwMapping()
-"     map <buffer> s s 
-"     map <buffer> r R 
-"     map <buffer> <c-r> <c-l>
-"     " map <buffer> h -
-" endfunction
-
-
-"--------------------------------------------------------
-" neocomplete 
-"--------------------------------------------------------
-"
-" " Disable AutoComplPop.
-" let g:acp_enableAtStartup = -1
-"
-" " Use neocomplete.
-" let g:neocomplete#enable_at_startup  = 0
-" let g:neocomplete#enable_smart_case  = 0
-" let g:neocomplete#min_keyword_length = 2
-" let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-"
-" inoremap <expr><C-g> neocomplete#undo_completion()
-" inoremap <expr><C-f> neocomplete#complete_common_string()
-"
-
-"--------------------------------------------------------
-" mhartington/nvim-typescript doesnt work
-"--------------------------------------------------------
-
-" let g:nvim_typescript#vue_support=0
-
-" autocmd BufWrite *.ts,*.tsx TSGetDiagnostics
-"
-"
-
-
 
 
 
