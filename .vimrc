@@ -72,8 +72,10 @@ nnoremap + <C-w>10>
 nnoremap _ <C-w>10<
 
 " yank
-
+ 
 xnoremap p "_dP
+nnoremap [p :pu<CR>
+nnoremap [P :pu!<CR>
 
 
 " need to Refactor
