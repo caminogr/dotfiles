@@ -63,7 +63,7 @@ alias rdc='bundle exec rake db:create'
 alias rds='bundle exec rake db:seed'
 alias rdr='bundle exec rake db:rollback'
 alias be='bundle exec'
-alias os='open -a sublime\ text'
+alias xcode='open -a /Applications/Xcode.app'
 alias ls='ls -G'
 
 mkcd() {
@@ -85,6 +85,7 @@ alias vz='nvim ~/.zshrc'
 ### git
 alias g='git'
 alias ga='git add'
+alias gd='git diff'
 alias gm='git commit'
 alias gm1='git commit --allow-empty -m "create PR"'
 alias gb='git branch'
@@ -97,10 +98,13 @@ alias grb1='git rebase -i HEAD~1'
 alias grbc='git rebase --continue'
 alias grba='git rebase --abort'
 alias gg='git grep -i'
+alias glo='git log --oneline'
 alias gpf='git push --force-with-lease'
+alias gh='ghq look $(ghq list | peco)'
 
 alias hc='hub clone'
 alias ts='tig status'
+alias tnm='tig --no-merges'
 
 ### docker
 alias d='docker'
