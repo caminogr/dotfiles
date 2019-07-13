@@ -212,10 +212,9 @@ endif
 
 augroup color-and-highlight 
   autocmd!
-  autocmd ColorScheme * highlight LineNr guifg=#767675 ctermfg=244
-  autocmd ColorScheme * highlight Search cterm=bold ctermfg=0 ctermbg=7 gui=bold guifg=Black guibg=LightGrey
-
-  autocmd ColorScheme * highlight ideographicSpace term=underline ctermbg=darkgreen guibg=darkgreen
+  autocmd ColorScheme * highlight LineNr ctermfg=244
+  autocmd ColorScheme * highlight Search ctermfg=238 ctermbg=231
+  autocmd ColorScheme * highlight ideographicSpace term=underline ctermbg=darkgreen
   autocmd vimenter,winenter * match ideographicSpace /　/
 augroup END
 
