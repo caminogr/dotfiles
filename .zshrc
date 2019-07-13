@@ -115,7 +115,9 @@ alias del='gmv -f --backup=numbered --target-directory ~/.Trash'
 alias cleartrash='\rm ~/.Trash/*'
 
 ## keybind
-bindkey -r '^w'
+bindkey '^F' forward-word
+bindkey '^B' backward-word
+# bindkey -r '^w'
 bindkey '^g' kill-line
 bindkey '^u' backward-kill-line
 
