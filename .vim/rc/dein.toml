@@ -93,9 +93,6 @@ repo = 'digitaltoad/vim-pug'
 [[plugins]]
 repo = 'pangloss/vim-javascript'
 
-[[plugins]]
-repo = 'gorodinskiy/vim-coloresque'
-
 # highlight ts syntax
 [[plugins]]
 repo = 'leafgarland/typescript-vim'
