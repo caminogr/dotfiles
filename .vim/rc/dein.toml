@@ -78,3 +78,30 @@ repo = 'Shougo/context_filetype.vim'
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
 build = 'npm install -g  typescript-language-server'
+
+
+[[plugins]]
+repo = 'prabirshrestha/async.vim'
+
+# cpp
+[[plugins]]
+repo = 'vim-jp/vim-cpp'
+
+[[plugins]]
+repo = 'digitaltoad/vim-pug'
+
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+
+[[plugins]]
+repo = 'gorodinskiy/vim-coloresque'
+
+# highlight ts syntax
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+
+[[plugins]]
+repo = 'othree/html5.vim'
+
+[[plugins]]
+repo = 'cespare/vim-toml'
