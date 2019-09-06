@@ -79,6 +79,8 @@ repo = 'Shougo/context_filetype.vim'
 repo = 'prabirshrestha/vim-lsp'
 build = 'npm install -g  typescript-language-server'
 
+[[plugins]]
+repo = 'Lokaltog/vim-easymotion'
 
 [[plugins]]
 repo = 'prabirshrestha/async.vim'
@@ -102,3 +104,12 @@ repo = 'othree/html5.vim'
 
 [[plugins]]
 repo = 'cespare/vim-toml'
+
+[[plugins]]
+repo='kshenoy/vim-signature'
+hook_add = '''
+  let g:SignatureMap = {
+    \ 'GotoNextLineAlpha'  :  "",
+    \ 'GotoPrevLineAlpha'  :  "",
+    \ }
+'''
