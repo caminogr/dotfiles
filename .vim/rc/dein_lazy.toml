@@ -80,3 +80,6 @@ on_ft = ['typescript', 'vue']
 [[plugins]]
 repo = 'prabirshrestha/asyncomplete-lsp.vim'
 on_ft = ['typescript', 'vue']
+[[plugins]]
+repo='mattn/sonictemplate-vim'
+on_event= ['CmdlineEnter']
