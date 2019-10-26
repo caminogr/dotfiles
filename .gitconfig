@@ -1,7 +1,10 @@
 [core]
   excludesfile = ~/.gitignore_global
-  editor = /usr/local/bin/vim
+  editor = /usr/local/bin/nvim
   pager = less -q -R
+  # 日本語ファイル名用の設定
+  precomposeUnicode = true
+  ignorecase = false
 [user]
   name = kaminora
   email = kaminoura9207@gmail.com
@@ -10,7 +13,7 @@
   smudge = git-lfs smudge %f
   required = true
 [init]
-	templatedir = ~/.git_tmp
+  templatedir = ~/.git_template
 [alias]
   ctags = !.git/hooks/ctags
   logg = log --stat --decorate=short --pretty=format:'%C(yellow)%h %Cgreen%cr %Cblue%cn%Cred%d %Creset%s %C(cyan)%b'
