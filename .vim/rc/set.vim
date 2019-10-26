@@ -41,8 +41,8 @@ set statusline=<%{winnr()}>\%f%r%h%w\%=[POS=%04v,%04l][%p%%]\ [LEN=%L]
 " swapをファイル作らない
 set noswapfile
 
-"内容が変更されたら自動的に再読み込み
-" set autoread
+" 内容が変更されたら自動的に再読み込み
+set autoread
 augroup reload-file-diff
   autocmd!
   autocmd InsertEnter,WinEnter * checktime
@@ -63,6 +63,9 @@ set backup
 set writebackup
 " バックアップ先のディレクトリ指定
 set backupdir=$HOME/.vimbackup
+
+" insert tab as an en space
+set expandtab
 
 if has('mouse')
   set mouse=a
