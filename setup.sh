@@ -1,7 +1,9 @@
-for dotfile in .?*
+#!/bin/bash
+
+# TODO: .git などに対して シンボリックリンクのループになってしまっている
+for file in .??*
 do
-    if [ $dotfile != '..' ] && [ $dotfile != '.git' ]
-    then
-        ln -Fs "$PWD/$dotfile" $HOME
-    fi
+  [ "$f" = ".git" ] && continue
+  [ "$f" = ".config" ] && continue
+  ln -Fs $HOME/dotfiles/$file $HOME/$file
 done
