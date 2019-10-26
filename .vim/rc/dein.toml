@@ -12,9 +12,6 @@ repo = 'cocopon/vaffle.vim'
 repo = 'scrooloose/nerdtree'
 
 [[plugins]]
-repo = 'vim-scripts/vim-auto-save'
-
-[[plugins]]
 repo = 'junegunn/fzf.vim'
 
 [[plugins]]
@@ -43,10 +40,6 @@ hook_add = '''
     autocmd load-theme VimEnter * nested colorscheme hybrid
   augroup END
 '''
-# repo = 'chriskempson/vim-tomorrow-theme'
-# hook_add = '''
-#   au load_theme VimEnter * nested colorscheme Tomorrow-Night 
-# '''
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
