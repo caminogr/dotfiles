@@ -34,7 +34,7 @@ syntax enable
 """""""""""""""""""""""""""""""""""""""
 
 nnoremap s <nop>
-nnoremap o <nop>
+" nnoremap o <nop>
 nnoremap x <nop>
 vnoremap U <nop>
 vnoremap u <nop>
@@ -43,15 +43,20 @@ noremap  ; :
 noremap  ' ;
 vnoremap C U
 vnoremap c u
+noremap  <C-s> <C-d>
 noremap  <C-d> <DEL>
 noremap! <C-d> <DEL>
-noremap  <C-u> d0
+nnoremap DD "_dd
+nnoremap D "_d
+" noremap  <C-u> d0
 inoremap <C-u> <C-o>d0
 cnoremap <C-u> <C-w>
 noremap  <C-k> D
 inoremap <C-k> <C-o>D
 noremap  <C-y> :q<CR>
-nnoremap E :e %:h<CR>
+nnoremap <C-C> :e %:h<CR>
+nnoremap  <C-g> <C-e>
+nnoremap  <C-m> <C-y>
 
 noremap <silent>ss :split<CR>
 noremap <silent>sv :vsplit<CR>
@@ -100,10 +105,10 @@ inoremap <C-a> <C-o>0
 cnoremap <C-a> <C-b>
 noremap  <C-e> $
 inoremap <C-e> <C-o>$
-noremap  m <C-d>
-noremap  <S-m> <C-u>
-noremap  <C-g> G 
-noremap! <C-g> G
+" noremap  m <C-d>
+" noremap  <S-m> <C-u>
+" noremap  <C-g> G
+" noremap! <C-g> G
 nnoremap <C-x> <C-o>
 map x %
 
