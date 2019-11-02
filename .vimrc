@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 let mapleader = "\<space>" 
 let g:python_host_prog = expand('~/.pyenv/shims/python')
 let g:python3_host_prog = expand('~/.pyenv/shims/python3')
@@ -48,6 +50,8 @@ noremap  <C-d> <DEL>
 noremap! <C-d> <DEL>
 nnoremap DD "_dd
 nnoremap D "_d
+" delete line except indetataion
+inoremap <C-U> <C-G>u<C-U>
 " noremap  <C-u> d0
 inoremap <C-u> <C-o>d0
 cnoremap <C-u> <C-w>
@@ -209,9 +213,6 @@ endif
 " Don't use Ex mode, use Q for formatting
 " map Q gq
 
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
-" so that you can undo CTRL-U after inserting a line break.
-" inoremap <C-U> <C-G>u<C-U>
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 
@@ -220,13 +221,13 @@ endif
 " Color & Highlight
 "--------------------------------------------------------
 
-augroup color-and-highlight 
-  autocmd!
-  autocmd ColorScheme * highlight LineNr ctermfg=244
-  autocmd ColorScheme * highlight Search ctermfg=238 ctermbg=231
-  autocmd ColorScheme * highlight ideographicSpace term=underline ctermbg=darkgreen
-  autocmd vimenter,winenter * match ideographicSpace /　/
-augroup END
+" augroup color-and-highlight
+  " autocmd!
+  " autocmd ColorScheme * highlight LineNr ctermfg=244
+  " autocmd ColorScheme * highlight Search ctermfg=238 ctermbg=231
+  " autocmd ColorScheme * highlight ideographicSpace term=underline ctermbg=darkgreen
+  " autocmd vimenter,winenter * match ideographicSpace /　/
+" augroup END
 
 
 " if has("autocmd")
@@ -262,3 +263,9 @@ augroup END
 "   command DiffOrig vert new | set bt=nofile | r # | -1d_ | diffthis
 " 	  \ | wincmd p | diffthis
 " endif
+  
+
+
+" In the quickfix window, <CR> is used to jump to the error under the cursor,
+" so undefine the mapping there.
+autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
