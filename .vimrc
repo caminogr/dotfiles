@@ -23,7 +23,7 @@ source ~/.vim/rc/plugins/vim-indent-guide.vim
 source ~/.vim/rc/plugins/vim-lsp.vim
 source ~/.vim/rc/plugins/vim-javascript.vim
 source ~/.vim/rc/plugins/vim-precious.vim
-
+source ~/.vim/rc/plugins/vim-precious.vim
 source ~/.vim/rc/set.vim
 
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf_openframeworks.py'
@@ -270,3 +270,8 @@ endif
 " In the quickfix window, <CR> is used to jump to the error under the cursor,
 " so undefine the mapping there.
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+
+
+" Comment out if you want to get log
+" set verbosefile=~/VimRuntimeDebugging.log
+" set verbose=2
