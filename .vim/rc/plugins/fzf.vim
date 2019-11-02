@@ -1,5 +1,9 @@
-set rtp+=/usr/local/opt/fzf
-let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
+" let fzf_path = system('which fzf')
+" set rtp+=fzf_path
+" set rtp+=/usr/bin/fzf
+
+" let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
+let $FZF_DEFAULT_COMMAND = 'rg -l ""'
 nnoremap <Leader>fb :Buffers<CR>
 nnoremap <Leader>ff :Files<CR>
 nnoremap <Leader>fg :GFiles?<CR>
