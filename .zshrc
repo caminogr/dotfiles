@@ -37,10 +37,12 @@ colors
 
 ## history
 
-setopt hist_ignore_dups
 export HISTFILE=${HOME}/.zsh_history
 export HISTSIZE=1000
 export SAVEHIST=100000
+# HISTORY_IGNORE='(ls:ls *:bg:fg:history:cd ..:re)'
+setopt hist_ignore_dups
+setopt share_history
 
 
 ## ディレクトリ移動
@@ -157,9 +159,21 @@ export PATH=/usr/local/bin:$PATH
 
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 eval "$(nodenv init -)"
+export PATH=$PATH:./node_modules/.bin
+# export PATH=$PATH:`npm bin -g`
+### python
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
-### awsコマンド
-export PATH="$HOME/Library/Python/2.7/bin:$PATH"
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+# export PATH="$HOME/Library/Python/2.7/bin:$PATH"
+
+# openFrameworks 
+# export OF_ROOT=~/openFrameworks/of_v0.10.1_osx_release
+# export PG_OF_PATH=$OF_ROOT
 
 
 ## rubyコマンドパス設定
@@ -227,14 +241,14 @@ if [ -x "`which peco`" ]; then
         zle clear-screen
     }
     zle -N peco-cdr
-    bindkey '^f' peco-cdr
+    bindkey '^t' peco-cdr
 
-    function peco-kill-process () {
-        ps -ef | peco | awk '{ print $2 }' | xargs kill
-        zle clear-screen
-    }
-    zle -N peco-kill-process
-    bindkey '^xk' peco-kill-process
+    # function peco-kill-process () {
+        # ps -ef | peco | awk '{ print $2 }' | xargs kill
+        # zle clear-screen
+    # }
+    # zle -N peco-kill-process
+    # bindkey '^xk' peco-kill-process
 fi
 
 ## git grep edit
@@ -270,7 +284,7 @@ zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/kaminora/sdk/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/kaminora/sdk/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/kaminoura/sdk/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/kaminoura/sdk/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/kaminora/sdk/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/kaminora/sdk/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/Users/kaminoura/sdk/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/kaminoura/sdk/google-cloud-sdk/completion.zsh.inc'; fi
