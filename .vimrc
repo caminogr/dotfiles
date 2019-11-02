@@ -26,9 +26,10 @@ source ~/.vim/rc/plugins/vim-precious.vim
 
 source ~/.vim/rc/set.vim
 
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf_openframeworks.py'
+
 filetype plugin indent on
 syntax enable
-
 
 
 """"""""""""""""""""""""""""""""""""""
