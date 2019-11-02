@@ -26,3 +26,8 @@ endif
 if dein#check_install()
   call dein#install()
 endif
+
+call map(dein#check_clean(), "delete(v:val, 'rf')")
+
+" manually execute
+" :call dein#recache_runtimepath()
