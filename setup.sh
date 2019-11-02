@@ -1,9 +1,11 @@
 #!/bin/bash
 
-# TODO: .git などに対して シンボリックリンクのループになってしまっている
 for file in .??*
 do
-  [ "$f" = ".git" ] && continue
-  [ "$f" = ".config" ] && continue
-  ln -Fs $HOME/dotfiles/$file $HOME/$file
+    if [ $dotfile != '..' ] && [ $dotfile != '.git' ] && [ $dotfile != '.config' ]
+    then
+        ln -snfv "$PWD/$dotfile" $HOME
+    elif [ $dotfile == '.config' ]; then
+        ln -snfv "$PWD/.config/nvim" "$HOME/.config/"
+    fi
 done
