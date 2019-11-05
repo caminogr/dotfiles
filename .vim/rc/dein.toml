@@ -12,7 +12,12 @@ repo = 'cocopon/vaffle.vim'
 repo = 'scrooloose/nerdtree'
 
 [[plugins]]
+repo = 'junegunn/fzf'
+build = './install'
+
+[[plugins]]
 repo = 'junegunn/fzf.vim'
+depends = 'fzf'
 
 [[plugins]]
 repo = 'scrooloose/nerdcommenter'
