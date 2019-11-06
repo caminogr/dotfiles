@@ -120,9 +120,9 @@ on_event = ['InsertEnter']
 # hook_add = '''
   # call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '{', 'input': '{'})
 # '''
-# [[plugins]]
-# repo='mattn/sonictemplate-vim'
-# on_event= ['CmdlineEnter']
+[[plugins]]
+repo='mattn/sonictemplate-vim'
+on_event= ['CmdlineEnter']
 
 [[plugins]]
 repo = 'tikhomirov/vim-glsl'
