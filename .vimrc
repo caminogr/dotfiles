@@ -1,6 +1,7 @@
 scriptencoding utf-8
 
 let mapleader = "\<space>" 
+
 let g:python_host_prog = expand('~/.pyenv/shims/python')
 let g:python3_host_prog = expand('~/.pyenv/shims/python3')
 
@@ -270,6 +271,7 @@ endif
 " In the quickfix window, <CR> is used to jump to the error under the cursor,
 " so undefine the mapping there.
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 
 
 " Comment out if you want to get log

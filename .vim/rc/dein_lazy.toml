@@ -47,7 +47,7 @@ on_ft = ['javascript', 'jsx']
 # checker
 [[plugins]]
 repo = 'w0rp/ale' 
-on_ft = ['vue', 'typescript', 'tsx', 'javascript', 'jsx', 'vim']
+on_ft = ['vue', 'typescript', 'tsx', 'typescript', 'javascript', 'jsx', 'vim']
 
 [[plugins]]
 repo = 'posva/vim-vue'
@@ -76,7 +76,7 @@ repo = 'Shougo/deoplete.nvim'
 depends = 'context_filetype.vim'
 do = ':UpdateRemotePlugins'
 on_event = ['InsertEnter']
-on_ft = ['javascript', 'vue']
+on_ft = ['javascript', 'vue', 'typescript', 'tsx' ]
 hook_add = '''
   let g:deoplete#enable_at_startup = 1
 '''
