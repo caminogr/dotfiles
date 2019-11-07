@@ -55,8 +55,6 @@ function chpwd() { ls }
 
 alias re='exec $SHELL -l'
 alias la='ls -a'
-alias rg='rails g'
-alias rgc='rails g controller'
 alias ds='bundle exec cap staging deploy'
 alias rake='bundle exec rake'
 alias rr='bundle exec rake routes'
