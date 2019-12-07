@@ -12,7 +12,7 @@ runtime macros/matchit.vim
 source ~/.vim/rc/plugins/ale.vim
 source ~/.vim/rc/plugins/auto-save.vim
 source ~/.vim/rc/plugins/emmet-vim.vim
-source ~/.vim/rc/plugins/filer.vim
+" source ~/.vim/rc/plugins/filer.vim
 source ~/.vim/rc/plugins/fzf.vim
 source ~/.vim/rc/plugins/lightline.vim
 source ~/.vim/rc/plugins/nerdcommenter.vim
@@ -60,7 +60,6 @@ cnoremap <C-u> <C-w>
 noremap  <C-k> D
 inoremap <C-k> <C-o>D
 noremap  <C-y> :q<CR>
-nnoremap <C-C> :e %:h<CR>
 nnoremap  <C-g> <C-e>
 nnoremap  <C-m> <C-y>
 
