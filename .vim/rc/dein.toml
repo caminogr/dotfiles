@@ -72,6 +72,9 @@ repo = 'prabirshrestha/vim-lsp'
 build = 'npm install -g  typescript-language-server'
 
 [[plugins]]
+repo = 'mattn/vim-lsp-settings'
+
+[[plugins]]
 repo = 'Lokaltog/vim-easymotion'
 
 [[plugins]]
