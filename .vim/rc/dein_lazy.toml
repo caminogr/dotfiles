@@ -127,3 +127,20 @@ on_event= ['CmdlineEnter']
 [[plugins]]
 repo = 'tikhomirov/vim-glsl'
 on_ft = ['frag', 'glsl']
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+on_cmd = ['QuickRun']
+hook_post_source = '''
+  let g:quickrun_config = {}
+  let g:quickrun_config['_'] = {
+      \  'outputter/buffer/split'          : ':botright 8sp',
+      \  'outputter/buffer/running_mark'   : '[running...]',
+      \}
+
+  let g:quickrun_config['cv'] = {
+    \   'type'  : 'cpp',
+    \   'command' : 'g++',
+    \   'cmdopt'  : '`pkg-config --cflags --libs opencv4` -std=c++11',
+    \}
+'''
