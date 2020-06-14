@@ -10,7 +10,6 @@ source ~/.vim/rc/plugins/dein.vim
 runtime macros/matchit.vim
 
 source ~/.vim/rc/plugins/ale.vim
-source ~/.vim/rc/plugins/auto-save.vim
 source ~/.vim/rc/plugins/emmet-vim.vim
 " source ~/.vim/rc/plugins/filer.vim
 source ~/.vim/rc/plugins/fzf.vim
@@ -89,20 +88,6 @@ nnoremap _ <C-w>10<
 xnoremap p "_dP
 nnoremap [p :pu<CR>
 nnoremap [P :pu!<CR>
-
-
-" need to Refactor
-noremap s1 :execute 1 . 'wincmd w'<cr>
-noremap s2 :execute 2 . 'wincmd w'<cr>
-noremap s3 :execute 3 . 'wincmd w'<cr>
-noremap s4 :execute 4 . 'wincmd w'<cr>
-noremap s5 :execute 5 . 'wincmd w'<cr>
-noremap s6 :execute 6 . 'wincmd w'<cr>
-noremap s7 :execute 7 . 'wincmd w'<cr>
-noremap s8 :execute 8 . 'wincmd w'<cr>
-" noremap s9 :execute 9 . 'wincmd w'<cr>
-" win_gotoid(win_getid(${num}))
-
 
 " === カーソル移動 ===
 noremap  <C-a> 0

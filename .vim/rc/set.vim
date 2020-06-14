@@ -73,3 +73,8 @@ set expandtab
 if has('mouse')
   set mouse=a
 endif
+
+augroup fileTypeIndent
+    autocmd!
+    autocmd BufNewFile,BufRead *.php setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
+augroup END
