@@ -1,6 +1,6 @@
 [core]
   excludesfile = ~/.gitignore_global
-  editor = /usr/local/bin/nvim
+  editor = nvim
   pager = less -q -R
   # 日本語ファイル名用の設定
   precomposeUnicode = true
