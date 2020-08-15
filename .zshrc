@@ -158,13 +158,18 @@ tm() {
 export PATH=/usr/local/bin:$PATH
 
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-eval "$(nodenv init -)"
+export PATH="$HOME/.nodenv/bin:$PATH"
+if [ -x "`which nodenv`" ]; then
+  eval "$(nodenv init -)"
+fi
 export PATH=$PATH:./node_modules/.bin
 # export PATH=$PATH:`npm bin -g`
 ### python
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+if [ -x "`which pyenv`" ]; then
+  eval "$(pyenv init -)"
+fi
 
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
@@ -176,10 +181,6 @@ eval "$(pyenv init -)"
 # export PG_OF_PATH=$OF_ROOT
 
 
-## rubyコマンドパス設定
-
-export PATH=$HOME/.rbenv/bin:$PATH
-eval "$(rbenv init - --no-rehash)"
 
 ## GOPATH
 if [ -x "`which go`" ]; then
@@ -198,8 +199,9 @@ zstyle ':chpwd:*' recent-dirs-pushd true
 
 
 ## git-completion
-fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
-
+if [ -x "`which brew`" ]; then
+  fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+fi
 
 ## peco
 alias -g P='| peco'
