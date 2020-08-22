@@ -10,11 +10,9 @@ source ~/.vim/rc/plugins/dein.vim
 runtime macros/matchit.vim
 
 source ~/.vim/rc/plugins/ale.vim
-source ~/.vim/rc/plugins/auto-save.vim
 source ~/.vim/rc/plugins/emmet-vim.vim
 " source ~/.vim/rc/plugins/filer.vim
 source ~/.vim/rc/plugins/fzf.vim
-source ~/.vim/rc/plugins/lightline.vim
 source ~/.vim/rc/plugins/nerdcommenter.vim
 source ~/.vim/rc/plugins/neosnippet.vim
 source ~/.vim/rc/plugins/sonictemplate-vim.vim
@@ -23,7 +21,6 @@ source ~/.vim/rc/plugins/vim-closetag.vim
 source ~/.vim/rc/plugins/vim-indent-guide.vim
 source ~/.vim/rc/plugins/vim-lsp.vim
 source ~/.vim/rc/plugins/vim-javascript.vim
-source ~/.vim/rc/plugins/vim-precious.vim
 source ~/.vim/rc/plugins/vim-precious.vim
 source ~/.vim/rc/set.vim
 
@@ -264,7 +261,7 @@ endif
 "   command DiffOrig vert new | set bt=nofile | r # | -1d_ | diffthis
 " 	  \ | wincmd p | diffthis
 " endif
-  
+ 
 
 
 " In the quickfix window, <CR> is used to jump to the error under the cursor,
