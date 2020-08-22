@@ -31,17 +31,43 @@ repo = 'tpope/vim-fugitive'
 repo = 'airblade/vim-gitgutter'
 
 [[plugins]]
-repo = 'w0ng/vim-hybrid'
+repo = 'joshdick/onedark.vim'
 hook_add = '''
-  set background=dark
-  augroup load-theme
-    autocmd!
-    autocmd load-theme VimEnter * nested colorscheme hybrid
-  augroup END
+  colorscheme onedark
 '''
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
+hook_add = '''
+  let g:lightline = {
+       \ 'colorscheme': 'onedark',
+       \ 'active': {
+       \   'right': [ [ 'lineinfo' ],
+       \              [ 'percent' ],
+       \              [ 'empty' ] ]
+       \ },
+       \ 'component_function': {
+       \   'filename': 'LightlineFilename',
+       \   'empty': 'Empty'
+       \ }
+       \ }
+        " \   'paneinfo': 'PaneInfo',
+        " \   'left':  [ ['paneinfo'] ],
+  " function! PaneInfo()
+  "   return %{winnr()}
+  " endfunction
+  "
+  function! Empty()
+    return ""
+  endfunction
+
+  function! LightlineFilename()
+    return &filetype ==# 'vimfiler' ? vimfiler#get_status_string() :
+         \ &filetype ==# 'unite' ? unite#get_status_string() :
+         \ &filetype ==# 'vimshell' ? vimshell#get_status_string() :
+         \ expand('%:p') !=# '' ? expand('%:p') : '[No Name]'
+  endfunction
+'''
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
