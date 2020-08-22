@@ -1,3 +1,9 @@
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -73,3 +79,8 @@ set expandtab
 if has('mouse')
   set mouse=a
 endif
+
+augroup fileTypeIndent
+    autocmd!
+    autocmd BufNewFile,BufRead *.php setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
+augroup END
