@@ -71,22 +71,23 @@ repo = 'Shougo/deoplete.nvim'
 depends = 'context_filetype.vim'
 do = ':UpdateRemotePlugins'
 on_event = ['InsertEnter']
-on_ft = ['javascript', 'vue', 'typescript', 'tsx' ]
+on_ft = ['javascript', 'vue', 'markdown', 'html' ]
 hook_add = '''
   set runtimepath+=~/.vim/dein/repos/github.com/Shougo/deoplete.nvim
   let g:deoplete#enable_at_startup = 1
-  call deoplete#custom#var('tabnine', {
-  \ 'line_limit': 500,
-  \ 'max_num_results': 10,
-  \ })
 '''
+  # call deoplete#custom#var('tabnine', {
+  # \ 'line_limit': 500,
+  # \ 'max_num_results': 10,
+  # \ })
 
-[[plugins]]
-repo = 'tbodt/deoplete-tabnine'
-# on_ft = ['typescript', 'javascript', 'vue', 'html']
-on_event = ['InsertEnter']
-depends = ['deoplete.nvim']
-build = './install.sh'
+# [[plugins]]
+# repo = 'tbodt/deoplete-tabnine'
+# # on_ft = ['javascript', 'vue', 'typescript', 'tsx', 'html' ]
+# on_ft = ['html']
+# on_event = ['InsertEnter']
+# depends = ['deoplete.nvim']
+# build = './install.sh'
 
 [[plugins]]
 repo='pdavydov108/vim-lsp-cquery'
