@@ -24,18 +24,18 @@ let g:lsp_signs_warning = {'text': '‼'}
 " let g:clang_cpp_options = '-std=c++11'
 
 " cpp
-" if executable('cquery')
-  " augroup LspCpp
-    " autocmd!
-    " autocmd User lsp_setup call lsp#register_server({
-        " \ 'name': 'cquery',
-        " \ 'cmd': {server_info->['cquery']},
-        " \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
-        " \ 'initialization_options': { 'cacheDirectory': '/tmp/cquery/cache' },
-        " \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
-        " \ })
-  " augroup end
-" endif
+if executable('cquery')
+  augroup LspCpp
+    autocmd!
+    autocmd User lsp_setup call lsp#register_server({
+        \ 'name': 'cquery',
+        \ 'cmd': {server_info->['cquery']},
+        \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
+        \ 'initialization_options': { 'cacheDirectory': '/tmp/cquery/cache' },
+        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
+        \ })
+  augroup end
+endif
 
 " typescript
 if executable('typescript-language-server')
