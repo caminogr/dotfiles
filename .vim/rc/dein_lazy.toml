@@ -150,8 +150,5 @@ hook_post_source = '''
     \}
 '''
 
-# カーソル位置のコンテキストに合わせてftを切り替える
 [[plugins]]
-repo = 'osyo-manga/vim-precious'
-depends = ['context_filetype.vim']
-on_ft = ['vue', 'html', 'scss']
+repo = 'tpope/vim-commentary'

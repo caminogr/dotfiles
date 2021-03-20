@@ -13,7 +13,6 @@ source ~/.vim/rc/plugins/ale.vim
 source ~/.vim/rc/plugins/emmet-vim.vim
 " source ~/.vim/rc/plugins/filer.vim
 source ~/.vim/rc/plugins/fzf.vim
-source ~/.vim/rc/plugins/nerdcommenter.vim
 source ~/.vim/rc/plugins/neosnippet.vim
 source ~/.vim/rc/plugins/sonictemplate-vim.vim
 source ~/.vim/rc/plugins/vim-easymotion.vim
