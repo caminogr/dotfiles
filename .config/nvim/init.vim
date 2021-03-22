@@ -86,6 +86,8 @@ nnoremap _ <C-w>10<
 xnoremap p "_dP
 nnoremap [p :pu<CR>
 nnoremap [P :pu!<CR>
+nnoremap p ]p
+nnoremap P ]P
 
 
 " need to Refactor
@@ -130,9 +132,9 @@ tnoremap <silent> <C-l> <nop>
 " binding CTRL+i to F12 by karabiner elements
 noremap <F12> <C-i>
 nnoremap <F12> o
-nnoremap <C-o> O
+" nnoremap <C-o> O
 inoremap <F12> <C-o>o
-inoremap <C-o> <C-o>O
+" inoremap <C-o> <C-o>O
 
 
 " === tab関連 ===

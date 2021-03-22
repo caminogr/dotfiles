@@ -103,6 +103,7 @@ alias gg='git grep -i'
 alias glo='git log --oneline'
 alias gpf='git push --force-with-lease'
 alias gh='cd "$( ghq list --full-path | peco)"'
+alias grbauto='git rebase -i --autosquash'
 
 alias hc='hub clone'
 alias ts='tig status'
