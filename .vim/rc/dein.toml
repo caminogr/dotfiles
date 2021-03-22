@@ -73,9 +73,9 @@ repo = 'Shougo/neosnippet-snippets'
 repo = 'Shougo/context_filetype.vim'
 
 # カーソル位置のコンテキストに合わせてftを切り替える
-# [[plugins]]
-# repo = 'osyo-manga/vim-precious'
-# depends = ['context_filetype.vim']
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+depends = ['context_filetype.vim']
 
 # # # https://muunyblue.github.io/520bae6649b42ff5a3c8c58b7fcfc5a9.html
 # [[plugins]]
