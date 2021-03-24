@@ -21,7 +21,7 @@ source ~/.vim/rc/plugins/vim-indent-guide.vim
 source ~/.vim/rc/plugins/vim-lsp.vim
 source ~/.vim/rc/plugins/vim-javascript.vim
 source ~/.vim/rc/plugins/vim-precious.vim
-source ~/.vim/rc/plugins/vim-quickrun.vim
+" source ~/.vim/rc/plugins/vim-quickrun.vim
 source ~/.vim/rc/set.vim
 
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf_openframeworks.py'
