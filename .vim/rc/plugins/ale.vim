@@ -1,19 +1,24 @@
 noremap <leader>p :ALEFix<CR>
 
-" \  'javascript': ['eslint', 'prettier'],
 " \  'typescript': ['eslint', 'tslint', 'prettier'],
+" \  'javascript': ['eslint'],
+" \  'html': ['eslint', 'prettier'],
 let g:ale_fixers = {
-\  'javascript': ['eslint'],
-\  'typescript': ['eslint', 'tslint'],
 \  'vue': ['eslint', 'prettier'],
+\  'javascript': ['eslint', 'prettier'],
+\  'typescript': ['eslint', 'tslint'],
+\  'python': ['autopep8', 'black', 'isort'],
 \ 'cpp': ['clang-format'],
 \  }
 
+" \  'vue': ['eslint', 'prettier'],
+" \  'html': ['eslint', 'prettier'],
 let g:ale_linters = {
 \  'vim': ['vint'],
-\  'javascript': ['stylelint', 'eslint', 'flow'],
+\  'javascript': ['stylelint', 'eslint', 'prettier'],
 \  'typescript': ['eslint', 'tslint', 'tsserver', 'typecheck'],
-\  'vue': ['eslint'],
+\  'vue': ['eslint', 'prettier'],
+\  'python': ['flake8'],
 \ 'cpp': ['clang-format'],
 \ }
 

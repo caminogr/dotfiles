@@ -160,9 +160,9 @@ export PATH=/usr/local/bin:$PATH
 
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="$HOME/.nodenv/bin:$PATH"
-if [ -x "`which nodenv`" ]; then
+# if [ -x "`which nodenv`" ]; then
   eval "$(nodenv init -)"
-fi
+# fi
 export PATH=$PATH:./node_modules/.bin
 # export PATH=$PATH:`npm bin -g`
 ### python
@@ -291,3 +291,4 @@ if [ -f '/Users/kaminoura/sdk/google-cloud-sdk/path.zsh.inc' ]; then source '/Us
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/kaminoura/sdk/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/kaminoura/sdk/google-cloud-sdk/completion.zsh.inc'; fi
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
