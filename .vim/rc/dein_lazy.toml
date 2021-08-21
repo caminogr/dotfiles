@@ -17,7 +17,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
-on_ft = ['html', 'css', 'scss', 'javascript', 'vue', 'php']
+on_ft = ['html', 'css', 'scss', 'javascript', 'vue', 'php', 'jsx', 'tsx']
 
 [[plugins]]
 repo = 'Shougo/neosnippet'
@@ -66,20 +66,20 @@ on_ft = ['styl', 'vue']
 # on_ft = ['cpp']
 
 # vueのlsp serverがあまり補完が強くないので使用
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-depends = 'context_filetype.vim'
-do = ':UpdateRemotePlugins'
-on_event = ['InsertEnter']
-on_ft = ['javascript', 'vue', 'markdown', 'html' ]
-hook_add = '''
-  set runtimepath+=~/.vim/dein/repos/github.com/Shougo/deoplete.nvim
-  let g:deoplete#enable_at_startup = 1
-'''
-  # call deoplete#custom#var('tabnine', {
-  # \ 'line_limit': 500,
-  # \ 'max_num_results': 10,
-  # \ })
+# [[plugins]]
+# repo = 'Shougo/deoplete.nvim'
+# depends = 'context_filetype.vim'
+# do = ':UpdateRemotePlugins'
+# on_event = ['InsertEnter']
+# on_ft = ['vue']
+# hook_add = '''
+#   set runtimepath+=~/.vim/dein/repos/github.com/Shougo/deoplete.nvim
+#   let g:deoplete#enable_at_startup = 1
+#   call deoplete#custom#var('tabnine', {
+#   \ 'line_limit': 500,
+#   \ 'max_num_results': 10,
+#   \ })
+# '''
 
 # [[plugins]]
 # repo = 'tbodt/deoplete-tabnine'
@@ -88,6 +88,11 @@ hook_add = '''
 # on_event = ['InsertEnter']
 # depends = ['deoplete.nvim']
 # build = './install.sh'
+# 
+
+# [[plugins]]
+# repo = 'codota/tabnine-vim'
+## on_ft = ['vue']
 
 [[plugins]]
 repo='pdavydov108/vim-lsp-cquery'
@@ -131,6 +136,10 @@ on_event= ['CmdlineEnter']
 repo = 'tikhomirov/vim-glsl'
 on_ft = ['frag', 'glsl']
 
+[[plugins]]
+repo = 'scrooloose/nerdcommenter'
+on_ft = ['vue']
+
 # [[plugins]]
 # repo = 'thinca/vim-quickrun'
 # on_cmd = ['QuickRun']
@@ -151,3 +160,16 @@ on_ft = ['frag', 'glsl']
 # '''
 # 
 # カーソル位置のコンテキストに合わせてftを切り替える
+
+[[plugins]]
+repo = 'dart-lang/dart-vim-plugin'
+on_ft = ['dart']
+
+[[plugins]]
+repo = 'thosakwe/vim-flutter'
+on_ft = ['dart']
+
+[[plugins]]
+repo = "neoclide/coc.nvim"
+rev = "release"
+on_ft = ['dart']

@@ -13,6 +13,7 @@ source ~/.vim/rc/plugins/ale.vim
 source ~/.vim/rc/plugins/emmet-vim.vim
 " source ~/.vim/rc/plugins/filer.vim
 source ~/.vim/rc/plugins/fzf.vim
+source ~/.vim/rc/plugins/nerdcommenter.vim
 source ~/.vim/rc/plugins/neosnippet.vim
 source ~/.vim/rc/plugins/sonictemplate-vim.vim
 source ~/.vim/rc/plugins/vim-easymotion.vim
@@ -20,7 +21,7 @@ source ~/.vim/rc/plugins/vim-closetag.vim
 source ~/.vim/rc/plugins/vim-indent-guide.vim
 source ~/.vim/rc/plugins/vim-lsp.vim
 source ~/.vim/rc/plugins/vim-javascript.vim
-source ~/.vim/rc/plugins/vim-precious.vim
+" source ~/.vim/rc/plugins/vim-precious.vim
 " source ~/.vim/rc/plugins/vim-quickrun.vim
 source ~/.vim/rc/set.vim
 
@@ -47,8 +48,8 @@ vnoremap c u
 noremap  <C-s> <C-d>
 noremap  <C-d> <DEL>
 noremap! <C-d> <DEL>
-nnoremap DD "_dd
-nnoremap D "_d
+" nnoremap DD "_dd
+" nnoremap D "_d
 " delete line except indetataion
 inoremap <C-U> <C-G>u<C-U>
 " noremap  <C-u> d0

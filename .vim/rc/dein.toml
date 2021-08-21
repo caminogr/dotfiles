@@ -73,9 +73,9 @@ repo = 'Shougo/neosnippet-snippets'
 repo = 'Shougo/context_filetype.vim'
 
 # カーソル位置のコンテキストに合わせてftを切り替える
-[[plugins]]
-repo = 'osyo-manga/vim-precious'
-depends = ['context_filetype.vim']
+# [[plugins]]
+# repo = 'osyo-manga/vim-precious'
+# depends = ['context_filetype.vim']
 
 # # # https://muunyblue.github.io/520bae6649b42ff5a3c8c58b7fcfc5a9.html
 # [[plugins]]
@@ -85,9 +85,12 @@ depends = ['context_filetype.vim']
 # build = 'bash install.sh'
 # # on_ft = ['vue', 'cpp']
 
-# [[plugins]]
-# repo = 'rizzatti/dash.vim'
-# hook_add = 'nmap <silent> <Leader>d <Plug>DashSearch'
+[[plugins]]
+repo = 'codota/tabnine-vim'
+
+[[plugins]]
+repo = 'rizzatti/dash.vim'
+hook_add = 'nmap <silent> <Leader><Leader>d <Plug>DashSearch'
 
 # lsp
 [[plugins]]

@@ -81,7 +81,7 @@ alias rc='rails c'
 ### vim
 alias vi='nvim'
 alias vim='nvim'
-alias vv='nvim ~/.vimrc'
+alias vv='nvim ~/.config/nvim/init.vim'
 alias vz='nvim ~/.zshrc'
 
 ### git
@@ -102,7 +102,7 @@ alias grba='git rebase --abort'
 alias gg='git grep -i'
 alias glo='git log --oneline'
 alias gpf='git push --force-with-lease'
-alias gh='cd "$( ghq list --full-path | peco)"'
+alias ghl='cd "$( ghq list --full-path | peco)"'
 alias grbauto='git rebase -i --autosquash'
 
 alias hc='hub clone'
@@ -169,8 +169,10 @@ export PATH=$PATH:./node_modules/.bin
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 if [ -x "`which pyenv`" ]; then
-  eval "$(pyenv init -)"
+  eval "$(pyenv init --path)"
 fi
+export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/bzip2/lib"
+export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include"
 
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"

@@ -1,0 +1,11 @@
+{
+  "suggest.floatEnable": true,
+  "diagnostic.messageTarget": "echo",
+  "diagnostic.virtualText": true,
+  "signature.target": "echo",
+  "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+  "dart.enableSdkFormatter": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "dart"
+  ]
+}
