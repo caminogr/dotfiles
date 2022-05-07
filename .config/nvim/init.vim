@@ -57,6 +57,8 @@ inoremap <C-u> <C-o>d0
 cnoremap <C-u> <C-w>
 noremap  <C-k> D
 inoremap <C-k> <C-o>D
+noremap  sw :w<CR>
+noremap  sq :wq<CR>
 noremap  <C-y> :q<CR>
 nnoremap  <C-g> <C-e>
 nnoremap  <C-m> <C-y>
@@ -82,6 +84,15 @@ nnoremap - <C-w>10-
 nnoremap + <C-w>10>
 nnoremap _ <C-w>10<
 
+" display lines downward.
+nmap gj gj<SID>g
+nmap gk gk<SID>g
+nnoremap <script> <SID>gj gj<SID>g
+nnoremap <script> <SID>gk gk<SID>g
+nmap <SID>g <Nop>
+
+
+
 " yank
  
 xnoremap p "_dP
@@ -89,20 +100,6 @@ nnoremap [p :pu<CR>
 nnoremap [P :pu!<CR>
 nnoremap p ]p
 nnoremap P ]P
-
-
-" need to Refactor
-noremap s1 :execute 1 . 'wincmd w'<cr>
-noremap s2 :execute 2 . 'wincmd w'<cr>
-noremap s3 :execute 3 . 'wincmd w'<cr>
-noremap s4 :execute 4 . 'wincmd w'<cr>
-noremap s5 :execute 5 . 'wincmd w'<cr>
-noremap s6 :execute 6 . 'wincmd w'<cr>
-noremap s7 :execute 7 . 'wincmd w'<cr>
-noremap s8 :execute 8 . 'wincmd w'<cr>
-" noremap s9 :execute 9 . 'wincmd w'<cr>
-" win_gotoid(win_getid(${num}))
-
 
 " === カーソル移動 ===
 noremap  <C-a> 0
@@ -164,13 +161,6 @@ if executable('rg')
 endif
 
 
-
-" === text ===
-
-vnoremap <TAB> >gv
-vnoremap <S-TAB> <gv
-nnoremap <TAB> >>
-nnoremap <S-TAB> <<
 
 if exists('$TMUX')
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
