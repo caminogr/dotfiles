@@ -25,7 +25,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
-on_ft = ['html', 'css', 'scss', 'javascript', 'vue', 'php', 'jsx', 'tsx']
+on_ft = ['html', 'css', 'scss', 'javascript', 'vue', 'php', 'jsx', 'tsx', 'markdown']
 hook_source = '''
   source ~/.vim/rc/plugins/emmet-vim.vim
 '''
