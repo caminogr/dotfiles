@@ -69,13 +69,19 @@ hook_add = '''
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 
+# [[plugins]]
+# repo = 'SirVer/ultisnips'
+# hook_add = '''
+#   let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
+#   let g:UltiSnipsJumpForwardTrigger="<tab>"
+# '''
+
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
 
-# カーソル位置のコンテキストに合わせてftを切り替える
-# [[plugins]]
-# repo = 'osyo-manga/vim-precious'
-# depends = ['context_filetype.vim']
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+depends = ['context_filetype.vim']
 
 # # # https://muunyblue.github.io/520bae6649b42ff5a3c8c58b7fcfc5a9.html
 # [[plugins]]
@@ -85,23 +91,15 @@ repo = 'Shougo/context_filetype.vim'
 # build = 'bash install.sh'
 # # on_ft = ['vue', 'cpp']
 
-[[plugins]]
-repo = 'codota/tabnine-vim'
+# [[plugins]]
+# repo = 'codota/tabnine-vim'
 
 [[plugins]]
 repo = 'rizzatti/dash.vim'
 hook_add = 'nmap <silent> <Leader><Leader>d <Plug>DashSearch'
 
-# lsp
 [[plugins]]
-repo = 'prabirshrestha/vim-lsp'
-build = 'npm install -g  typescript-language-server'
-
-[[plugins]]
-repo = 'mattn/vim-lsp-settings'
-
-#[[plugins]]
-#repo = 'thinca/vim-quickrun'
+repo = 'thinca/vim-quickrun'
 
 [[plugins]]
 repo = 'Lokaltog/vim-easymotion'
@@ -109,25 +107,12 @@ repo = 'Lokaltog/vim-easymotion'
 [[plugins]]
 repo = 'prabirshrestha/async.vim'
 
-# cpp
-[[plugins]]
-repo = 'vim-jp/vim-cpp'
-
-[[plugins]]
-repo = 'digitaltoad/vim-pug'
-
-[[plugins]]
-repo = 'pangloss/vim-javascript'
-
 # highlight ts syntax
 [[plugins]]
 repo = 'leafgarland/typescript-vim'
 
 [[plugins]]
 repo = 'othree/html5.vim'
-
-[[plugins]]
-repo = 'cespare/vim-toml'
 
 [[plugins]]
 repo='kshenoy/vim-signature'
@@ -220,3 +205,16 @@ autocmd FileType defx call s:defx_my_settings()
 
 [[plugins]]
 repo = 'tpope/vim-commentary'
+
+# lazy load is unavailable
+[[plugins]]
+repo = 'tikhomirov/vim-glsl'
+
+[[plugins]]
+repo = 'ianks/vim-tsx'
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+
+[[plugins]]
+repo = 'vim-jp/vim-cpp'

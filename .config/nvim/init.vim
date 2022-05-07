@@ -9,27 +9,22 @@ source ~/.vim/rc/plugins/dein.vim
 
 runtime macros/matchit.vim
 
-source ~/.vim/rc/plugins/ale.vim
 source ~/.vim/rc/plugins/emmet-vim.vim
 " source ~/.vim/rc/plugins/filer.vim
 source ~/.vim/rc/plugins/fzf.vim
-source ~/.vim/rc/plugins/nerdcommenter.vim
-source ~/.vim/rc/plugins/neosnippet.vim
+" source ~/.vim/rc/plugins/nerdcommenter.vim
 source ~/.vim/rc/plugins/sonictemplate-vim.vim
 source ~/.vim/rc/plugins/vim-easymotion.vim
 source ~/.vim/rc/plugins/vim-closetag.vim
 source ~/.vim/rc/plugins/vim-indent-guide.vim
-source ~/.vim/rc/plugins/vim-lsp.vim
-source ~/.vim/rc/plugins/vim-javascript.vim
+" source ~/.vim/rc/plugins/vim-lsp.vim
+" source ~/.vim/rc/plugins/vim-javascript.vim
 " source ~/.vim/rc/plugins/vim-precious.vim
 " source ~/.vim/rc/plugins/vim-quickrun.vim
 source ~/.vim/rc/set.vim
 
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf_openframeworks.py'
-
 filetype plugin indent on
 syntax enable
-
 
 """"""""""""""""""""""""""""""""""""""
 " mapping 
@@ -52,6 +47,8 @@ noremap! <C-d> <DEL>
 " nnoremap D "_d
 " delete line except indetataion
 inoremap <C-U> <C-G>u<C-U>
+
+
 " noremap  <C-u> d0
 inoremap <C-u> <C-o>d0
 cnoremap <C-u> <C-w>
@@ -261,6 +258,7 @@ endif
 " so undefine the mapping there.
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
+autocmd BufNewFile,BufRead *.vs,*.fs,*.vert,*.frag set ft=glsl
 
 
 " Comment out if you want to get log

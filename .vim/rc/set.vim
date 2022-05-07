@@ -10,7 +10,6 @@ set backspace=indent,eol,start
 
 " Jump file 
 set path=src,node_modules
-set path=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/*
 
 set suffixesadd=.js,.jsx,.ts,.tsx,.vim
 
