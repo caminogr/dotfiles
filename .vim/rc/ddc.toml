@@ -124,6 +124,31 @@ repo = 'Shougo/ddc-around'
 on_source = 'ddc.vim'
 
 [[plugins]]
+repo='vim-skk/denops-skkeleton.vim'
+on_source = 'ddc.vim'
+hook_add = '''
+  imap <C-]> <Plug>(skkeleton-toggle)
+  " cmap <C-j> <Plug>(skkeleton-toggle)
+  " call skkeleton#config({
+  " \'eggLikeNewline': v:true,
+  " \'globalJisyo': '~/.config/eskk/SKK-JISYO.L',
+  " \})
+    function! s:skkeleton_init() abort
+call skkeleton#config({
+  \ 'eggLikeNewline': v:true
+  \'globalJisyo': '~/.config/eskk/SKK-JISYO.L',
+  \ })
+call skkeleton#register_kanatable('rom', {
+  \ "z\<Space>": ["\u3000", ''],
+  \ })
+endfunction
+augroup skkeleton-initialize-pre
+autocmd!
+autocmd User skkeleton-initialize-pre call s:skkeleton_init()
+augroup END
+'''
+
+[[plugins]]
 repo = 'tani/ddc-fuzzy'
 on_source = 'ddc.vim'
 

@@ -3,6 +3,7 @@ call ddc#custom#patch_global('sources', [
     \ 'vsnip',
     \ 'file',
     \ 'around',
+    \ 'skkeleton',
   \ ],
   \ )
 
@@ -36,6 +37,11 @@ call ddc#custom#patch_global('sourceOptions', {
   \ 'necovim': 'neco',
   \ 'cmdline': 'cmdline',
   \ 'cmdline-history': 'history',
+  \ 'skkeleton': {
+  \   'mark': 'skkeleton',
+  \   'matchers': ['skkeleton'],
+  \   'sorters': []
+  \ },
   \ })
 
 call ddc#custom#patch_global('sourceParams', {
