@@ -1,5 +1,6 @@
-nmap <Leader>c <Plug>NERDCommenterToggle
-vmap <Leader>c <Plug>NERDCommenterToggle
+autocmd FileType vue nmap <buffer><Leader>c <Plug>NERDCommenterToggle
+autocmd FileType vue vmap <buffer><Leader>c <Plug>NERDCommenterToggle
+
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 let g:NERDTrimTrailingWhitespace = 1
