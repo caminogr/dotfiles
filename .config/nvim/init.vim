@@ -79,6 +79,10 @@ nnoremap <script> <SID>gj gj<SID>g
 nnoremap <script> <SID>gk gk<SID>g
 nmap <SID>g <Nop>
 
+" join lines
+nmap gJ gJ<SID>g
+nnoremap <script> <SID>gJ gJ<SID>g
+nmap <SID>g <Nop>
 
 " yank
 xnoremap p "_dP
