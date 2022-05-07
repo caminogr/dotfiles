@@ -26,10 +26,7 @@ source ~/.vim/rc/set.vim
 filetype plugin indent on
 syntax enable
 
-""""""""""""""""""""""""""""""""""""""
 " mapping 
-"""""""""""""""""""""""""""""""""""""""
-
 nnoremap s <nop>
 " nnoremap o <nop>
 nnoremap x <nop>
@@ -71,11 +68,6 @@ noremap sL <C-w>L
 noremap sK <C-w>K
 noremap sJ <C-w>J
 
-
-" nnoremap s] <C-w>+
-" nnoremap s[ <C-w>-
-" nnoremap s0 <C-w>>
-" nnoremap s9 <C-w><
 nnoremap = <C-w>10+
 nnoremap - <C-w>10-
 nnoremap + <C-w>10>
@@ -89,16 +81,14 @@ nnoremap <script> <SID>gk gk<SID>g
 nmap <SID>g <Nop>
 
 
-
 " yank
- 
 xnoremap p "_dP
 nnoremap [p :pu<CR>
 nnoremap [P :pu!<CR>
 nnoremap p ]p
 nnoremap P ]P
 
-" === カーソル移動 ===
+" motion.
 noremap  <C-a> 0
 inoremap <C-a> <C-o>0
 cnoremap <C-a> <C-b>
@@ -121,9 +111,7 @@ tnoremap <silent> <C-k> <nop>
 tnoremap <silent> <C-l> <nop>
 
 
-"--------------------------------------------------------
-" keybind for insert new line
-"--------------------------------------------------------
+" inserting
 " binding CTRL+i to F12 by karabiner elements
 noremap <F12> <C-i>
 nnoremap <F12> o
@@ -131,24 +119,16 @@ nnoremap <F12> o
 inoremap <F12> <C-o>o
 " inoremap <C-o> <C-o>O
 
-
-" === tab関連 ===
-
+" tab
 noremap <silent> tt    :tablast <bar> tabnew<CR>
 noremap <silent> <D-w> :tabclose<CR>
 noremap <silent> tn    :tabnext<CR>
 noremap <silent> tp    :tabprevious<CR>
 
-
-""""""""""""""""""""""""""""""""""""""
-" 検索設定
-""""""""""""""""""""""""""""""""""""""
-
+" search
 nnoremap <silent><ESC><ESC> :noh<Return>
 
-
-" nnoremap <silent> <leader>g :<C-u>Unite grep:. -resume -buffer-name=search-buffer<CR>
-" nnoremap <silent> <leader>g :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
+" grep
 if executable('rg')
   let g:unite_source_grep_command = 'rg'
   let g:unite_source_grep_default_opts = '--no-heading --hidden'
@@ -158,27 +138,16 @@ if executable('rg')
 endif
 
 
-
-if exists('$TMUX')
-  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-else
-  let &t_SI = "\e]50;CursorShape=1\x7"
-  let &t_EI = "\e]50;CursorShape=0\x7"
-endif
-
-
 " Show current path
 noremap >1 :echo expand("%:p") <CR>
 " Copy current path
 noremap >2 :let @+ = expand("%:p") <CR>
 
+" Don't use Ex mode, use Q for formatting
+map Q gq
 
 
-"--------------------------------------------------------
-" setting for markdown
-"--------------------------------------------------------
-
+" markdown
 nnoremap <Leader>mp :Typora<CR>
 if has('mac')
   function! OpenTypora()
@@ -193,72 +162,20 @@ endif
 
 
 
-
-" prompt
-" For Win31 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
-
-" Don't use Ex mode, use Q for formatting
-" map Q gq
-
-
-" In many terminal emulators the mouse works just fine, thus enable it.
-
-
-"--------------------------------------------------------
-" Color & Highlight
-"--------------------------------------------------------
-
-" augroup color-and-highlight
-  " autocmd!
-  " autocmd ColorScheme * highlight LineNr ctermfg=244
-  " autocmd ColorScheme * highlight Search ctermfg=238 ctermbg=231
-  " autocmd ColorScheme * highlight ideographicSpace term=underline ctermbg=darkgreen
-  " autocmd vimenter,winenter * match ideographicSpace /　/
-" augroup END
-
-
-" if has("autocmd")
-"   filetype plugin indent on
-"
-"   " Put these in an autocmd group, so that we can delete them easily.
-"   augroup vimrcEx
-"   au!
-"
-"   " For all text files set 'textwidth' to 77 characters.
-"   autocmd FileType text setlocal textwidth=77
-"
-"   " When editing a file, always jump to the last known cursor position.
-"   " Don't do it when the position is invalid or when inside an event handler
-"   " (happens when dropping a file on gvim).
-"   " Also don't do it when the mark is in the first line, that is the default
-"   " position when opening a file.
-"   autocmd BufReadPost *
-"   \ if line("'\"") > 0 && line("'\"") <= line("$") |
-"   \   exe "normal! g`\"" |
-"   \ endif
-"
-"   augroup END
-"
-" else
-"
-" endif " has("autocmd")
-
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-" if !exists(":DiffOrig")
-"   command DiffOrig vert new | set bt=nofile | r # | -1d_ | diffthis
-" 	  \ | wincmd p | diffthis
-" endif
- 
-
-
 " In the quickfix window, <CR> is used to jump to the error under the cursor,
 " so undefine the mapping there.
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 autocmd BufNewFile,BufRead *.vs,*.fs,*.vert,*.frag set ft=glsl
+
+" tmux
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\e]50;CursorShape=1\x7"
+  let &t_EI = "\e]50;CursorShape=0\x7"
+endif
 
 
 " Comment out if you want to get log

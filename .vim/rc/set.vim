@@ -29,14 +29,14 @@ set ruler		" show the cursor position all the time
 set hlsearch
 syntax on
 
-" === window, buffer === 
+" window, buffer
 " タイトルをウィンドウ枠に表示する
 set title
 set number
 set splitbelow
 set splitright
 
-" === status line ===
+" status line
 "ステータス行を表示
 set laststatus=2
 " ステータスラインの色
@@ -45,7 +45,7 @@ set laststatus=2
 set showcmd
 set statusline=<%{winnr()}>\%f%r%h%w\%=[POS=%04v,%04l][%p%%]\ [LEN=%L]
 
-" === その他 ===
+" others
 " swapをファイル作らない
 set noswapfile
 
