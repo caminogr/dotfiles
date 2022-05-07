@@ -66,15 +66,6 @@ hook_add = '''
   endfunction
 '''
 
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-
-# [[plugins]]
-# repo = 'SirVer/ultisnips'
-# hook_add = '''
-#   let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
-#   let g:UltiSnipsJumpForwardTrigger="<tab>"
-# '''
 
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
@@ -83,16 +74,6 @@ repo = 'Shougo/context_filetype.vim'
 repo = 'osyo-manga/vim-precious'
 depends = ['context_filetype.vim']
 
-# # # https://muunyblue.github.io/520bae6649b42ff5a3c8c58b7fcfc5a9.html
-# [[plugins]]
-# repo = 'autozimu/LanguageClient-neovim'
-# rev = 'next'
-# # depends = ['deoplete.nvim']
-# build = 'bash install.sh'
-# # on_ft = ['vue', 'cpp']
-
-# [[plugins]]
-# repo = 'codota/tabnine-vim'
 
 [[plugins]]
 repo = 'rizzatti/dash.vim'
@@ -103,9 +84,6 @@ repo = 'thinca/vim-quickrun'
 
 [[plugins]]
 repo = 'Lokaltog/vim-easymotion'
-
-[[plugins]]
-repo = 'prabirshrestha/async.vim'
 
 # highlight ts syntax
 [[plugins]]
