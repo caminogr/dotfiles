@@ -9,7 +9,6 @@ source ~/.vim/rc/plugins/dein.vim
 
 runtime macros/matchit.vim
 
-source ~/.vim/rc/plugins/emmet-vim.vim
 " source ~/.vim/rc/plugins/filer.vim
 source ~/.vim/rc/plugins/fzf.vim
 " source ~/.vim/rc/plugins/nerdcommenter.vim

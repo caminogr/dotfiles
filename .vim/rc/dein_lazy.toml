@@ -26,6 +26,9 @@ hook_add = '''
 [[plugins]]
 repo = 'mattn/emmet-vim'
 on_ft = ['html', 'css', 'scss', 'javascript', 'vue', 'php', 'jsx', 'tsx']
+hook_source = '''
+  source ~/.vim/rc/plugins/emmet-vim.vim
+'''
 
 [[plugins]]
 repo = 'dense-analysis/ale' 
