@@ -1,3 +1,6 @@
+packadd termdebug 
+let g:termdebug_wide = 163
+
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -32,7 +35,11 @@ syntax on
 " window, buffer
 " タイトルをウィンドウ枠に表示する
 set title
-set number
+
+:set relativenumber
+:set number
+:set number relativenumber
+
 set splitbelow
 set splitright
 
@@ -75,9 +82,7 @@ set backupdir=$HOME/.vimbackup
 " insert tab as an en space
 set expandtab
 
-if has('mouse')
-  set mouse=a
-endif
+set mouse=a
 
 augroup fileTypeIndent
     autocmd!

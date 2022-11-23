@@ -34,7 +34,7 @@ hook_source = '''
 repo = 'dense-analysis/ale' 
 on_cmd = ['ALEFix', 'ALEFixSuggest', 'ALELint', 'ALEToggle', 'ALEEnable', 'ALEToggleBuffer', 'ALEEnableBuffer', 'ALENextWrap', 'ALEPreviousWrap']
 # on_func = 'ale#completion#OmniFunc'
-on_ft = ['typescript', 'vue', 'cpp']
+on_ft = ['typescript', 'vue', 'cpp', 'rb']
 hook_source = 'source ~/.vim/rc/plugins/ale.vim'
 
 [[plugins]]
@@ -65,13 +65,13 @@ on_ft = ['styl', 'vue']
 
 [[plugins]]
 repo = 'prabirshrestha/asyncomplete-lsp.vim'
-on_ft = ['typescript', 'vue', 'cpp']
+on_ft = ['typescript', 'vue', 'cpp', 'rb']
 
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
 on_ft = ['markdown']
 hook_add = '''
-  let g:vim_markdown_folding_disabled = 0
+  let g:vim_markdown_folding_disabled = 1
   let g:vim_markdown_new_list_item_indent = -1
 '''
 

@@ -1,3 +1,40 @@
+local servers = {
+  -- 'ansiblels',
+  -- 'bashls',
+  'clangd',
+  'cssls',
+  'cssmodules_ls',
+  -- 'dockerls',
+  -- 'html',
+  -- 'intelephense',
+  -- 'jsonls',
+  -- 'pyright',
+  'rust_analyzer',
+  'solargraph',
+  'tailwindcss',
+  -- 'terraformls',
+  -- 'tflint',
+  'gopls',
+  'tsserver',
+  'vimls',
+  -- 'vuels',
+}
+
+-- nvim-lsp-installer
+local lsp_installer = require("nvim-lsp-installer")
+lsp_installer.setup({
+    ensure_installed = servers,
+    automatic_installation = true,
+    ui = {
+        icons = {
+            server_installed = "✓",
+            server_pending = "➜",
+            server_uninstalled = "✗"
+        }
+    }
+})
+
+-- nvim-lspconfig
 local nvim_lsp = require('lspconfig')
 local util = nvim_lsp.util
 
@@ -6,7 +43,6 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
   local opts = { noremap = true, silent = true }
   buf_set_keymap('n', '<Leader>lh', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
@@ -15,45 +51,30 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<Leader>ln', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_set_keymap('n', '<Leader>lr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   buf_set_keymap('n', '<Leader>lf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-  buf_set_keymap('n', '<Leader>le', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-  
-
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  -- buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  -- buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-  -- buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-  -- buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-  -- buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  -- buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  -- buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-  -- buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  -- buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  -- buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-  -- buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  buf_set_keymap('n', '<Leader>le', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 end
 
-local servers = {
-  -- 'ansiblels',
-  -- 'bashls',
-  -- 'clangd',
-  -- 'cssls',
-  -- 'dockerls',
-  -- 'html',
-  -- 'intelephense',
-  -- 'jsonls',
-  -- 'pyright',
-  -- 'rust_analyzer',
-  -- 'sourcekit',
-  -- 'tailwindcss',
-  -- 'terraformls',
-  -- 'tflint',
-  'tsserver',
-  'vimls',
-  -- 'vuels',
-}
 
 -- Language servers
 -- https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
+
+-- Golang
+-- https://github.com/golang/tools/blob/master/gopls/doc/vim.md
+ require'lspconfig'.gopls.setup {
+    cmd = {"gopls", "serve"},
+    filetypes = {"go", "gomod"},
+    root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+    settings = {
+      gopls = {
+        analyses = {
+          unusedparams = true,
+        },
+        staticcheck = true,
+      },
+    },
+    on_attach = on_attach,
+    capabilities = capabilities,
+  }
 
 -- Ansible
 -- https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#ansiblels
@@ -96,41 +117,107 @@ local servers = {
 -- C/C++
 -- https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#clangd
 -- https://clangd.llvm.org/installation.html
--- require'lspconfig'.clangd.setup{
---   cmd = { "clangd", "--background-index" },
---   filetypes = { "c", "cpp", "objc", "objcpp" },
---   root_dir = nvim_lsp.util.root_pattern("compile_commands.json", "compile_flags.txt", ".git") or dirname,
--- }
+require'lspconfig'.clangd.setup{
+  cmd = { "clangd", "--background-index" },
+  filetypes = { "c", "cpp", "objc", "objcpp" },
+  root_dir = nvim_lsp.util.root_pattern("compile_commands.json", "compile_flags.txt", ".git") or dirname,
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
 -- https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#cmake
 -- https://github.com/regen100/cmake-language-server
--- require'lspconfig'.cmake.setup{
---   cmd = { "cmake-language-server" },
---   filetypes = { "cmake" },
---   init_options = {
---     buildDirectory = "build",
---   },
---   root_dir = nvim_lsp.util.root_pattern(".git", "compile_commands.json", "build") or dirname,
--- }
+require'lspconfig'.cmake.setup{
+  cmd = { "cmake-language-server" },
+  filetypes = { "cmake" },
+  init_options = {
+    buildDirectory = "build",
+  },
+  root_dir = nvim_lsp.util.root_pattern(".git", "compile_commands.json", "build") or dirname,
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
 
 -- CSS
 -- https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#cssls
 -- https://github.com/hrsh7th/vscode-langservers-extracted
--- require'lspconfig'.cssls.setup{
---   cmd = { "vscode-css-language-server", "--stdio" },
---   filetypes = { "css", "scss", "less" },
---   root_dir = nvim_lsp.util.root_pattern("package.json"),
---   settings = {
---     css = {
---       validate = true,
---     },
---     less = {
---       validate = true,
---     },
---     scss = {
---       validate = true,
---     },
---   }
--- }
+require'lspconfig'.cssls.setup{
+  cmd = { "vscode-css-language-server", "--stdio" },
+  filetypes = { "css", "scss", "less" },
+  root_dir = nvim_lsp.util.root_pattern("package.json"),
+  settings = {
+    css = {
+      validate = true,
+    },
+    less = {
+      validate = true,
+    },
+    scss = {
+      validate = true,
+    },
+  },
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+require'lspconfig'.cssmodules_ls.setup {
+  on_attach = function(client, bufnr)
+    -- client.server_capabilities.definitionProvider = false
+    on_attach(client, bufnr)
+
+
+
+
+
+
+
+
+
+
+local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+function dump(o)
+ if type(o) == 'table' then
+    local s = '{ '
+    for k,v in pairs(o) do
+       if type(k) ~= 'number' then k = '"'..k..'"' end
+       s = s .. '['..k..'] = ' .. dump(v) .. ','
+    end
+    return s .. '} '
+ else
+    return tostring(o)
+ end
+end
+-- print( 'variable:', dump(vim.lsp.get_active_clients()))
+local clients = vim.lsp.get_active_clients()
+print( 'hooo!!!!!!!!!!!!!:')
+-- for c in pairs(clients) do
+--   print('c:', dump(c))
+--   -- local name = c["name"]
+--   -- print('name', name)
+-- end
+
+local opts = { noremap = true, silent = true }
+buf_set_keymap('n', '<Leader>lh', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+buf_set_keymap('n', '<Leader>ld', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+buf_set_keymap('n', '<Leader>li', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+buf_set_keymap('n', '<Leader>ln', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+buf_set_keymap('n', '<Leader>lr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+buf_set_keymap('n', '<Leader>lf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+buf_set_keymap('n', '<Leader>le', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+
+
+
+
+
+
+
+
+  end,
+  capabilities = capabilities,
+    -- optionally
+-- init_options = {
+--     camelCase = 'dashes',
+-- },
+}
 
 -- Docker
 -- https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#dockerls
@@ -213,69 +300,75 @@ nvim_lsp.pyright.setup{
     },
   },
   capabilities = capabilities,
+  on_attach = on_attach,
 }
 
 -- Rust
 -- https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#rust_analyzer
 -- https://github.com/rust-analyzer/rust-analyzer
--- require'lspconfig'.rust_analyzer.setup{
---   cmd = { "rust-analyzer" },
---   filetypes = { "rust" },
---   root_dir = nvim_lsp.util.root_pattern("Cargo.toml", "rust-project.json"),
---   settings = {
---     ["rust-analyzer"] = {},
---   }
--- }
+require'lspconfig'.rust_analyzer.setup{
+  cmd = { "rust-analyzer" },
+  filetypes = { "rust" },
+  root_dir = nvim_lsp.util.root_pattern("Cargo.toml", "rust-project.json"),
+  settings = {
+    ["rust-analyzer"] = {},
+  },
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
 
--- SourceKit
--- https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#sourcekit
--- https://github.com/apple/sourcekit-lsp
--- require'lspconfig'.sourcekit.setup{
---   cmd = { "sourcekit-lsp" },
---   filetypes = { "swift", "c", "cpp", "objective-c", "objective-cpp" },
---   root_dir = nvim_lsp.util.root_pattern("Package.swift", ".git"),
--- }
+-- Ruby
+-- Assuming docker is started with 
+require'lspconfig'.solargraph.setup{
+  cmd = {'nc', '127.0.0.1', "7658"},
+  init_options = { formatting = true },
+  filetypes = { "ruby" },
+  root_dir = util.root_pattern('Gemfile', '.git'),
+  settings = {
+    solargraph = {
+      diagnostics = true,
+    },
+  },
+  -- docs = {
+  --   description = [[
+-- https://solargraph.org/
+-- solargraph, a language server for Ruby
+-- You can install solargraph via gem install.
+-- ```sh
+-- gem install --user-install solargraph
+-- ```
+  --   ]],
+  --   default_config = {
+  --     root_dir = [[root_pattern("Gemfile", ".git")]],
+  --   },
+  -- },
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
 
 -- TailwindCSS
--- https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#tailwindcss
 -- https://github.com/tailwindlabs/tailwindcss-intellisense
--- require'lspconfig'.tailwindcss.setup{
---   cmd = { "tailwindcss-language-server", "--stdio" },
---   filetypes = { "aspnetcorerazor", "astro", "astro-markdown", "blade", "django-html", "edge", "eelixir", "ejs", "erb", "eruby", "gohtml", "haml", "handlebars", "hbs", "html", "html-eex", "jade", "leaf", "liquid", "markdown", "mdx", "mustache", "njk", "nunjucks", "php", "razor", "slim", "twig", "css", "less", "postcss", "sass", "scss", "stylus", "sugarss", "javascript", "javascriptreact", "reason", "rescript", "typescript", "typescriptreact", "vue", "svelte" },
---   init_options = {
---     userLanguages = {
---       eelixir = "html-eex",
---       eruby = "erb",
---     },
---   },
---   on_new_config = function(new_config)
---         if not new_config.settings then
---           new_config.settings = {}
---         end
---         if not new_config.settings.editor then
---           new_config.settings.editor = {}
---         end
---         if not new_config.settings.editor.tabSize then
---           -- set tab size for hover
---           new_config.settings.editor.tabSize = vim.lsp.util.get_effective_tabstop()
---         end
---       end,
---   root_dir = nvim_lsp.util.root_pattern('tailwind.config.js', 'tailwind.config.ts', 'postcss.config.js', 'postcss.config.ts', 'package.json', 'node_modules', '.git'),
---   settings = {
---     tailwindCSS = {
---       lint = {
---         cssConflict = "warning",
---         invalidApply = "error",
---         invalidConfigPath = "error",
---         invalidScreen = "error",
---         invalidTailwindDirective = "error",
---         invalidVariant = "error",
---         recommendedVariantOrder = "warning"
---       },
---       validate = true,
---     },
---   },
--- }
+require'lspconfig'.tailwindcss.setup{
+    -- cmd = { "/Users/kamino/setup/tailwindcss-intellisense", "--stdio" },
+    cmd = { "tailwindcss-language-server", "--stdio" },
+
+--  cmd = { 
+        -- "node", "/Users/kamino/.vscode/extensions/bradlc.vscode-tailwindcss-0.9.1/dist/tailwindServer.js",
+        -- "/Users/kamino/setup/tailwindcss-intellisense",
+        -- -- "node", "/Users/kamino/setup/tailwindcss-intellisense",
+        -- "--stdio"
+    -- },
+    filetypes = { "html", "css", "sass", "scss", "javascriptreact", "typescriptreact", "typescript.tsx", "vue", "svelte" },
+    root_dir = require('lspconfig/util').root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git"),
+    handlers = {
+        ["tailwindcss/getConfiguration"] = function(_, _, params, _, bufnr, _)
+            -- tailwindcss lang server waits for this repsonse before providing hover
+            vim.lsp.buf_notify(bufnr, "tailwindcss/getConfigurationResponse", {_id = params._id})
+        end
+    },
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
 
 -- Terraform
 -- https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#terraformls
@@ -305,9 +398,6 @@ nvim_lsp.tsserver.setup{
   root_dir = nvim_lsp.util.root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git"),
   on_attach = on_attach,
   capabilities = capabilities,
-  flags = {
-    debounce_text_changes = 150,
-  },
 }
 
 local vimls_default_options = {
@@ -340,50 +430,3 @@ nvim_lsp.vimls.setup{
     debounce_text_changes = 150,
   },
 }
-
--- Vue
--- https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#vuels
--- https://github.com/vuejs/vetur/tree/master/server
--- require'lspconfig'.vuels.setup{
---   cmd = { "vls" },
---   filetypes = { "vue" },
---   init_options = {
---     config = {
---       css = {},
---       emmet = {},
---       html = {
---         suggest = {},
---       },
---       javascript = {
---         format = {}
---       },
---       stylusSupremacy = {},
---       typescript = {
---         format = {},
---       },
---       vetur = {
---         completion = {
---           autoImport = false,
---           tagCasing = "kebab",
---           useScaffoldSnippets = false,
---         },
---         format = {
---           defaultFormatter = {
---             js = "none",
---             ts = "none",
---           },
---           defaultFormatterOptions = {},
---           scriptInitialIndent = false,
---           styleInitialIndent = false,
---         },
---         useWorkspaceDependencies = false,
---         validation = {
---           script = true,
---           style = true,
---           template = true,
---         },
---       },
---     },
---   },
---   root_dir = nvim_lsp.util.root_pattern("package.json", "vue.config.js"),
--- }

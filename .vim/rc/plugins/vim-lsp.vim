@@ -49,24 +49,24 @@ if executable('typescript-language-server')
   augroup end
 endif
 
-" vue
-if executable('vls')
-  augroup LspVls
-    autocmd!
-    autocmd User lsp_setup call lsp#register_server({
-        \ 'name': 'vue-language-server',
-        \ 'cmd': {server_info->['vls']},
-        \ 'whitelist': ['vue'],
-        \ 'initialization_options': {
-        \         'config': {
-        \             'html': {},
-        \              'vetur': {
-        \                  'validation': {}
-        \              }
-        \         }
-        \     }
-        \ })
+" " vue
+" if executable('vls')
+"   augroup LspVls
+"     autocmd!
+"     autocmd User lsp_setup call lsp#register_server({
+"         \ 'name': 'vue-language-server',
+"         \ 'cmd': {server_info->['vls']},
+"         \ 'whitelist': ['vue'],
+"         \ 'initialization_options': {
+"         \         'config': {
+"         \             'html': {},
+"         \              'vetur': {
+"         \                  'validation': {}
+"         \              }
+"         \         }
+"         \     }
+"         \ })
 
-    autocmd FileType vue setlocal omnifunc=lsp#complete
-  augroup end
-endif
+"     autocmd FileType vue setlocal omnifunc=lsp#complete
+"   augroup end
+" endif

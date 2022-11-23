@@ -1,15 +1,36 @@
 [[plugins]]
 repo = 'Shougo/ddc.vim'
-depends = 'denops.vim'
-on_event= ['InsertEnter', 'CmdlineEnter']
+#depends = 'denops.vim'
+#on_event= ['InsertEnter', 'CmdlineEnter']
+hook_add = '''
+function! SourceDDC() abort
+  if (!(dein#is_sourced('ddc.vim') && dein#is_sourced('pum.vim')))
+    call dein#source(['ddc.vim', 'pum.vim'])
+  endif
+endfunction
+
+let s:ignore_ft = ['gitcommit', 'gitrebase']
+augroup ddc_custom
+  autocmd!
+  autocmd ddc_custom InsertEnter *
+  \ ++once if index(s:ignore_ft, &filetype) < 0
+  \ | call SourceDDC()
+  \ | endif
+
+  autocmd ddc_custom CmdlineEnter *
+  \ ++once if index(s:ignore_ft, &filetype) < 0
+  \ | call SourceDDC()
+  \ | endif
+  augroup END
+'''
+
 hook_source = '''
-  " echomsg "hook source ddc vim"
   source ~/.vim/rc/plugins/ddc.vim
 '''
 
 [[plugins]]
 repo = 'Shougo/pum.vim'
-on_event= ['InsertEnter', 'CmdlineEnter']
+#on_event= ['InsertEnter', 'CmdlineEnter']
 hook_add = '''
 nnoremap :       <Cmd>call CommandlinePre()<CR>:
 function! CommandlinePre() abort
@@ -50,20 +71,22 @@ function! CommandlinePost() abort
 endfunction
 '''
 hook_source = '''
-  inoremap <silent><expr> <Up>
-      \ pum#visible() ? '<Cmd>call pum#map#insert_relative(-1)<CR>' : '<Up>'
-  inoremap <silent><expr> <Down>
-        \ pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' : '<Down>'
-  
+  " let g:copilot_hide_during_completion = 0
+
   " vsnip mapping
   nmap        st   <Plug>(vsnip-select-text)
   xmap        st   <Plug>(vsnip-select-text)
   nmap        St   <Plug>(vsnip-cut-text)
   xmap        St   <Plug>(vsnip-cut-text)
+
+  inoremap <expr> <Up>
+      \ pum#visible() ? '<Cmd>call pum#map#insert_relative(-1)<CR>' : '<Up>'
+  inoremap <silent><expr> <Down>
+        \ pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' : '<Down>'
   
-  imap <expr> <TAB>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : ddc#map#pum_visible() ? '<Cmd>call pum#map#confirm()<CR>' : '<TAB>'
+  imap <expr> <TAB>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' : '<TAB>'
   
-  smap <expr> <TAB>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : ddc#map#pum_visible() ? '<Cmd>call pum#map#confirm()<CR>' : '<TAB>'
+  smap <expr> <TAB>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' : '<TAB>'
   
   imap <expr> <S-TAB> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-TAB>'
   smap <expr> <S-TAB> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-TAB>'
@@ -72,6 +95,7 @@ hook_source = '''
   
   
   call ddc#custom#patch_global('completionMenu', 'pum.vim')
+  call ddc#custom#patch_global('ui', 'pum')
   " cmdline settings
   call ddc#custom#patch_global('autoCompleteEvents',
       \ ['InsertEnter', 'TextChangedI', 'TextChangedP', 'CmdlineChanged'])
@@ -120,6 +144,10 @@ repo = 'Shougo/neco-vim'
 on_source = 'ddc.vim'
 
 [[plugins]]
+repo = 'Shougo/ddc-ui-pum'
+on_source = 'ddc.vim'
+
+[[plugins]]
 repo = 'Shougo/ddc-around'
 on_source = 'ddc.vim'
 
@@ -160,12 +188,18 @@ hook_add = '''
   let g:vsnip_filetypes = {}
   let g:vsnip_filetypes.javascriptreact = ['javascript']
   let g:vsnip_filetypes.typescriptreact = ['typescript']
+  let g:vsnip_filetypes['typescript.tsx'] = ['javascript', 'typescript', 'typescriptreact']
 '''
 
  [[plugins]]
 repo = 'hrsh7th/vim-vsnip-integ'
 on_source = 'ddc.vim'
+on_source = 'vim-vsnip'
 
 [[plugins]]
 repo = 'rafamadriz/friendly-snippets'
+on_source = 'vim-vsnip'
+
+[[plugins]]
+repo = 'granola/threejs-snippets'
 on_source = 'vim-vsnip'

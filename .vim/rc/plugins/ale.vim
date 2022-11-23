@@ -8,6 +8,7 @@ let g:ale_fixers = {
 \  'typescript': ['eslint', 'prettier'],
 \  'python': ['autopep8', 'black', 'isort'],
 \ 'cpp': ['clang-format'],
+\  'rust': ['rustfmt'],
 \  }
 
 let g:ale_linters = {
@@ -17,6 +18,7 @@ let g:ale_linters = {
 \  'vue': ['eslint', 'prettier'],
 \  'python': ['flake8'],
 \ 'cpp': ['clang-format'],
+\  'rust': ['rls']
 \ }
 
 let g:ale_fix_on_save = 1
@@ -26,6 +28,7 @@ let g:ale_set_highlights = 0
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = 'X'
 let g:ale_sign_warning = '?'
+let g:ale_rust_rls_toolchain = 'stable'
 
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
