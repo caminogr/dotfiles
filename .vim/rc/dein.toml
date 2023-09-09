@@ -31,6 +31,9 @@ repo = 'nathanaelkane/vim-indent-guides'
 [[plugins]]
 # git diff, log
 repo = 'tpope/vim-fugitive'
+hook_add = '''
+  source ~/.vim/rc/plugins/vim-fugitive.vim
+'''
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
@@ -94,11 +97,11 @@ repo = 'thinca/vim-quickrun'
 repo = 'Lokaltog/vim-easymotion'
 
 # highlight ts syntax
-[[plugins]]
-repo = 'leafgarland/typescript-vim'
+# [[plugins]]
+# repo = 'leafgarland/typescript-vim'
 
-[[plugins]]
-repo = 'othree/html5.vim'
+# [[plugins]]
+# repo = 'othree/html5.vim'
 
 [[plugins]]
 repo='kshenoy/vim-signature'
@@ -169,7 +172,7 @@ autocmd FileType defx call s:defx_my_settings()
     nnoremap <silent><buffer><expr> M defx#do_action('new_multiple_files')
     nnoremap <silent><buffer><expr> C defx#do_action('toggle_columns', 'mark:indent:icon:filename:type:size:time')
     nnoremap <silent><buffer><expr> S defx#do_action('toggle_sort', 'time')
-    nnoremap <silent><buffer><expr> d defx#do_action('remove')
+    nnoremap <silent><buffer><expr> d defx#do_action('remove_trash')
     nnoremap <silent><buffer><expr> r defx#do_action('rename')
     nnoremap <silent><buffer><expr> ! defx#do_action('execute_command')
     nnoremap <silent><buffer><expr> x defx#do_action('execute_system')
@@ -193,8 +196,8 @@ autocmd FileType defx call s:defx_my_settings()
 repo = 'tpope/vim-commentary'
 
 # lazy load is unavailable
-[[plugins]]
-repo = 'tikhomirov/vim-glsl'
+# [[plugins]]
+# repo = 'tikhomirov/vim-glsl'
 
 [[plugins]]
 repo = 'ianks/vim-tsx'
@@ -202,8 +205,8 @@ repo = 'ianks/vim-tsx'
 [[plugins]]
 repo = 'cespare/vim-toml'
 
-[[plugins]]
-repo = 'vim-jp/vim-cpp'
+# [[plugins]]
+# repo = 'vim-jp/vim-cpp'
 
 
 [[plugins]]

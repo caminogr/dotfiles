@@ -2,6 +2,8 @@ scriptencoding utf-8
 
 let mapleader = "\<space>" 
 
+source ~/.vim/rc/env.vim
+
 let g:python_host_prog = expand('~/.pyenv/shims/python')
 let g:python3_host_prog = expand('~/.pyenv/shims/python3')
 
@@ -36,7 +38,6 @@ noremap  ; :
 noremap  ' ;
 vnoremap C U
 vnoremap c u
-noremap  <C-s> <C-d>
 noremap  <C-d> <DEL>
 noremap! <C-d> <DEL>
 " nnoremap DD "_dd
@@ -91,12 +92,31 @@ nnoremap [P :pu!<CR>
 nnoremap p ]p
 nnoremap P ]P
 
+vnoremap <C-m> <C-a>
+vnoremap g<C-m> g<C-a>
 " motion.
 noremap  <C-a> 0
 inoremap <C-a> <C-o>0
 cnoremap <C-a> <C-b>
+
+
+noremap  <C-s> ^
+inoremap <C-s> <C-s>^
+
 noremap  <C-e> $
 inoremap <C-e> <C-o>$
+
+noremap  g<C-a> g0
+noremap  g<C-e> g$
+noremap  g<C-s> g^
+inoremap g<C-a> g<C-o>0
+inoremap g<C-e> g<C-o>$
+inoremap g<C-s> g<C-o>^
+
+
+noremap <Leader>gd gd
+noremap gd :let @/ = expand('<cword>')\|set hlsearch<C-M>
+
 " noremap  m <C-d>
 " noremap  <S-m> <C-u>
 " noremap  <C-g> G
@@ -168,7 +188,8 @@ endif
 " In the quickfix window, <CR> is used to jump to the error under the cursor,
 " so undefine the mapping there.
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
-autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
+autocmd BufNewFile,BufRead *.tsx set filetype=typescriptreact
+autocmd BufNewFile,BufRead *.jsx set filetype=javascriptreact
 autocmd BufNewFile,BufRead *.vs,*.fs,*.vert,*.frag set ft=glsl
 
 " tmux

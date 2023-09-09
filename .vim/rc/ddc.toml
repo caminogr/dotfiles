@@ -9,7 +9,8 @@ function! SourceDDC() abort
   endif
 endfunction
 
-let s:ignore_ft = ['gitcommit', 'gitrebase']
+" let s:ignore_ft = ['gitcommit', 'gitrebase']
+let s:ignore_ft = []
 augroup ddc_custom
   autocmd!
   autocmd ddc_custom InsertEnter *
@@ -94,7 +95,6 @@ hook_source = '''
   autocmd User PumCompleteDone call vsnip_integ#on_complete_done(g:pum#completed_item)
   
   
-  call ddc#custom#patch_global('completionMenu', 'pum.vim')
   call ddc#custom#patch_global('ui', 'pum')
   " cmdline settings
   call ddc#custom#patch_global('autoCompleteEvents',
@@ -151,30 +151,6 @@ on_source = 'ddc.vim'
 repo = 'Shougo/ddc-around'
 on_source = 'ddc.vim'
 
-[[plugins]]
-repo='vim-skk/denops-skkeleton.vim'
-on_source = 'ddc.vim'
-hook_add = '''
-  imap <C-]> <Plug>(skkeleton-toggle)
-  " cmap <C-j> <Plug>(skkeleton-toggle)
-  " call skkeleton#config({
-  " \'eggLikeNewline': v:true,
-  " \'globalJisyo': '~/.config/eskk/SKK-JISYO.L',
-  " \})
-    function! s:skkeleton_init() abort
-call skkeleton#config({
-  \ 'eggLikeNewline': v:true
-  \'globalJisyo': '~/.config/eskk/SKK-JISYO.L',
-  \ })
-call skkeleton#register_kanatable('rom', {
-  \ "z\<Space>": ["\u3000", ''],
-  \ })
-endfunction
-augroup skkeleton-initialize-pre
-autocmd!
-autocmd User skkeleton-initialize-pre call s:skkeleton_init()
-augroup END
-'''
 
 [[plugins]]
 repo = 'tani/ddc-fuzzy'
@@ -187,8 +163,7 @@ hook_add = '''
   let g:vsnip_snippet_dir = expand('~/.vim/snippets')
   let g:vsnip_filetypes = {}
   let g:vsnip_filetypes.javascriptreact = ['javascript']
-  let g:vsnip_filetypes.typescriptreact = ['typescript']
-  let g:vsnip_filetypes['typescript.tsx'] = ['javascript', 'typescript', 'typescriptreact']
+  let g:vsnip_filetypes.typescriptreact = ['javascript', 'typescript', 'typescriptreact']
 '''
 
  [[plugins]]
@@ -203,3 +178,9 @@ on_source = 'vim-vsnip'
 [[plugins]]
 repo = 'granola/threejs-snippets'
 on_source = 'vim-vsnip'
+
+#[[plugins]]
+## repo = 'granola/TouchDesigner-snippets'
+#repo = '~/dotfiles/.vim/dein/repos/github.com/granola/TouchDesigner-snippets'
+#on_source = 'vim-vsnip'
+#on_ft = ['glsl', 'frag', 'vert']

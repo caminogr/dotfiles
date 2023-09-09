@@ -3,17 +3,16 @@ call ddc#custom#patch_global('sources', [
     \ 'vsnip',
     \ 'file',
     \ 'around',
-    \ 'skkeleton',
   \ ],
   \ )
 
 call ddc#custom#patch_global('sourceOptions', {
-  \ '_': {
-  \   'ignoreCase': v:true,
-  \   'matchers': ['matcher_fuzzy'],
-  \   'sorters': ['sorter_fuzzy'],
-  \   'converters': ['converter_fuzzy']
-  \  },
+  \ '_': #{
+  \   ignoreCase: v:true,
+  \   matchers: ['matcher_fuzzy'],
+  \   sorters: ['sorter_fuzzy'],
+  \   converters: ['converter_fuzzy'],
+  \ },
   \ 'nvim-lsp': {
   \   'mark': 'lsp',
   \   'forceCompletionPattern': '\.\w*|:\w*|->\w*',
@@ -34,17 +33,19 @@ call ddc#custom#patch_global('sourceOptions', {
   \   'converters': [],
   \   'dup': v:true,
   \ },
-  \ 'necovim': 'neco',
-  \ 'cmdline': 'cmdline',
-  \ 'cmdline-history': 'history',
-  \ 'skkeleton': {
-  \   'mark': 'skkeleton',
-  \   'matchers': ['skkeleton'],
-  \   'sorters': []
+  \ 'cmdline': {
+  \   'mark': 'cmdline',
+  \ },
+  \ 'necovim': {
+  \   'mark': 'neco',
+  \ },
+  \ 'cmdline-history': {
+  \   'mark': 'history',
   \ },
   \ })
 
 call ddc#custom#patch_global('sourceParams', {
+  \ 'nvim-lsp': #{ kindLabels: #{ Class: 'c' } },
   \ 'around': {'maxSize': 500},
   \ })
 call ddc#enable()

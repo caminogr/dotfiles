@@ -5,23 +5,12 @@ on_event = 'VimEnter'
 # on_func = 'denops#server#start'
 # hook_source = 'call denops#server#start()'
 
-[[plugins]]
-repo = 'neovim/nvim-lspconfig'
-on_event = 'BufEnter'
-depends     = ['nvim-lsp-installer']
-hook_source = 'luafile ~/.vim/rc/plugins/lua/nvim-lspconfig.lua'
-
-[[plugins]]
-repo = 'williamboman/nvim-lsp-installer'
-on_source = 'nvim-lspconfig'
-hook_source = 'luafile ~/.vim/rc/plugins/lua/nvim-lsp-installer.lua'
-
-[[plugins]]
-repo = 'MaxMEllon/vim-jsx-pretty'
-on_ft = ['javascript', 'jsx', 'tsx']
-hook_add = '''
-  let g:vim_jsx_pretty_highlight_close_tag = 0
-'''
+# [[plugins]]
+# repo = 'MaxMEllon/vim-jsx-pretty'
+# on_ft = ['javascript', 'jsx', 'tsx']
+# hook_add = '''
+#   let g:vim_jsx_pretty_highlight_close_tag = 0
+# '''
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
@@ -30,12 +19,13 @@ hook_source = '''
   source ~/.vim/rc/plugins/emmet-vim.vim
 '''
 
-[[plugins]]
-repo = 'dense-analysis/ale' 
-on_cmd = ['ALEFix', 'ALEFixSuggest', 'ALELint', 'ALEToggle', 'ALEEnable', 'ALEToggleBuffer', 'ALEEnableBuffer', 'ALENextWrap', 'ALEPreviousWrap']
-# on_func = 'ale#completion#OmniFunc'
-on_ft = ['typescript', 'vue', 'cpp', 'rb']
-hook_source = 'source ~/.vim/rc/plugins/ale.vim'
+
+# [[plugins]]
+# repo = 'dense-analysis/ale' 
+# on_cmd = ['ALEFix', 'ALEFixSuggest', 'ALELint', 'ALEToggle', 'ALEEnable', 'ALEToggleBuffer', 'ALEEnableBuffer', 'ALENextWrap', 'ALEPreviousWrap']
+# # on_func = 'ale#completion#OmniFunc'
+# on_ft = ['typescript', 'vue', 'cpp', 'rb']
+# hook_source = 'source ~/.vim/rc/plugins/ale.vim'
 
 [[plugins]]
 repo = 'posva/vim-vue'
@@ -83,10 +73,10 @@ on_event = ['InsertEnter']
 repo='mattn/sonictemplate-vim'
 on_event= ['CmdlineEnter']
 
-[[plugins]]
-repo = 'scrooloose/nerdcommenter'
-on_ft = ['vue']
-hook_source = 'source ~/.vim/rc/plugins/nerdcommenter.vim'
+# [[plugins]]
+# repo = 'scrooloose/nerdcommenter'
+# on_ft = ['vue']
+# hook_source = 'source ~/.vim/rc/plugins/nerdcommenter.vim'
 
 [[plugins]]
 repo = 'dart-lang/dart-vim-plugin'
@@ -95,18 +85,21 @@ on_ft = ['dart']
 [[plugins]]
 repo = 'thosakwe/vim-flutter'
 on_ft = ['dart']
-
-[[plugins]]
-repo = "neoclide/coc.nvim"
-rev = "release"
-on_ft = ['dart']
-
-[[plugins]]
-repo = 'pangloss/vim-javascript'
-on_ft = ['javascript']
 hook_add = '''
-  let g:vim_jsx_pretty_highlight_close_tag = 0
+  nnoremap <leader>fa :FlutterRun<cr>
+  nnoremap <leader>fq :FlutterQuit<cr>
+  nnoremap <leader>fh :FlutterHotReload<cr>
+  nnoremap <leader>fR :FlutterHotRestart<cr>
+  nnoremap <leader>fD :FlutterVisualDebug<cr>
 '''
+
+
+# [[plugins]]
+# repo = 'pangloss/vim-javascript'
+# on_ft = ['javascript']
+# hook_add = '''
+#   let g:vim_jsx_pretty_highlight_close_tag = 0
+# '''
 
 [[plugins]]
 repo = 'ferrine/md-img-paste.vim'
@@ -117,3 +110,8 @@ autocmd FileType markdown nmap <buffer><silent> <leader>p :call mdip#MarkdownCli
 let g:mdip_imgdir = 'img'
 let g:mdip_imgname = 'image'
 '''
+
+
+[[plugins]]
+repo = 'jparise/vim-graphql'
+on_ft = ['graphql']
