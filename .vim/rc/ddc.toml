@@ -157,7 +157,7 @@ repo = 'tani/ddc-fuzzy'
 on_source = 'ddc.vim'
 
 [[plugins]]
-repo = 'hrsh7th/vim-vsnip'
+repo = 'uga-rosa/ddc-source-vsnip'
 on_source = 'ddc.vim'
 hook_add = '''
   let g:vsnip_snippet_dir = expand('~/.vim/snippets')
@@ -166,10 +166,6 @@ hook_add = '''
   let g:vsnip_filetypes.typescriptreact = ['javascript', 'typescript', 'typescriptreact']
 '''
 
- [[plugins]]
-repo = 'hrsh7th/vim-vsnip-integ'
-on_source = 'ddc.vim'
-on_source = 'vim-vsnip'
 
 [[plugins]]
 repo = 'rafamadriz/friendly-snippets'
