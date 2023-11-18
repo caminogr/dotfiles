@@ -4,10 +4,10 @@
 
 " let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
 let $FZF_DEFAULT_COMMAND = 'rg -l ""'
-nnoremap <Leader>fb :Buffers<CR>
-nnoremap <Leader>ff :Files<CR>
-nnoremap <Leader>fg :GFiles?<CR>
-nnoremap <Leader>fr :Rg 
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>p :Files<CR>
+nnoremap <Leader>g :GFiles?<CR>
+nnoremap <Leader>r :Rg 
 nnoremap <Leader>ft :Tags<CR>
 nnoremap <Leader>fm :History<CR>
 
