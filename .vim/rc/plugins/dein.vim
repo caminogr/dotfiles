@@ -94,7 +94,6 @@ if dein#min#load_state(s:dein_dir)
      \}) " move cursor parentheses 
 
 
-
     call dein#add('jackMort/ChatGPT.nvim',#{
       \ depends: ['nui.nvim', 'plenary.nvim', 'telescope.nvim'],
       \ lazy: 1,
@@ -102,21 +101,24 @@ if dein#min#load_state(s:dein_dir)
       \ hook_source: 'luafile ~/.vim/rc/plugins/lua/chatgpt.lua'
      \}) " chatgpt
 
-     call dein#add('MunifTanjim/nui.nvim',#{
+    call dein#add('MunifTanjim/nui.nvim',#{
+      \ lazy: 1,
+      \ on_event: "VimEnter",
+     \}) " ui component (installed for chatgpt)
+    call dein#add('nvim-lua/plenary.nvim',#{
+      \ lazy: 1,
+      \ on_event: "VimEnter",
+     \}) " improve job
+    call dein#add('nvim-telescope/telescope.nvim',#{
+      \ lazy: 1,
+      \ on_event: "VimEnter",
+     \})
+
+     call dein#add('github/copilot.vim',#{
        \ lazy: 1,
        \ on_event: "VimEnter",
-      \}) " ui component (installed for chatgpt)
-      call dein#add('nvim-lua/plenary.nvim',#{
-        \ lazy: 1,
-        \ on_event: "VimEnter",
-       \}) " improve job
-       call dein#add('nvim-telescope/telescope.nvim',#{
-         \ lazy: 1,
-         \ on_event: "VimEnter",
-        \}) " improve job
-
-
-
+       \ hook_source: 'luafile ~/.vim/rc/plugins/lua/copilot.lua'
+      \}) "use copilot
   
   call dein#end()
   call dein#save_state()

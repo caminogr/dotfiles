@@ -207,12 +207,3 @@ repo = 'cespare/vim-toml'
 
 # [[plugins]]
 # repo = 'vim-jp/vim-cpp'
-
-
-[[plugins]]
-repo = 'github/copilot.vim'
-
-hook_add = '''
-  let g:copilot_no_tab_map = v:true
-  imap <silent><script><expr> <C-b> copilot#Accept("\<CR>")
-'''
