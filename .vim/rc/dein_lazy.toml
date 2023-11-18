@@ -1,16 +1,6 @@
 [[plugins]]
 repo = 'vim-denops/denops.vim'
 on_event = 'VimEnter'
-# repo = 'vim-denops/denops.vim'
-# on_func = 'denops#server#start'
-# hook_source = 'call denops#server#start()'
-
-# [[plugins]]
-# repo = 'MaxMEllon/vim-jsx-pretty'
-# on_ft = ['javascript', 'jsx', 'tsx']
-# hook_add = '''
-#   let g:vim_jsx_pretty_highlight_close_tag = 0
-# '''
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
@@ -18,44 +8,6 @@ on_ft = ['html', 'css', 'scss', 'javascript', 'vue', 'php', 'jsx', 'tsx', 'markd
 hook_source = '''
   source ~/.vim/rc/plugins/emmet-vim.vim
 '''
-
-
-# [[plugins]]
-# repo = 'dense-analysis/ale' 
-# on_cmd = ['ALEFix', 'ALEFixSuggest', 'ALELint', 'ALEToggle', 'ALEEnable', 'ALEToggleBuffer', 'ALEEnableBuffer', 'ALENextWrap', 'ALEPreviousWrap']
-# # on_func = 'ale#completion#OmniFunc'
-# on_ft = ['typescript', 'vue', 'cpp', 'rb']
-# hook_source = 'source ~/.vim/rc/plugins/ale.vim'
-
-[[plugins]]
-repo = 'posva/vim-vue'
-on_ft = ['vue']
-hook_add = '''
-  set iskeyword+=$
-  set iskeyword+=-
-'''
-
-[[plugins]]
-repo = 'iloginow/vim-stylus'
-on_ft = ['styl', 'vue']
-
-# [[plugins]]
-# repo = 'codota/tabnine-vim'
-## on_ft = ['vue']
-
-# [[plugins]]
-# repo = 'pdavydov107/vim-lsp-cquery'
-# on_ft = ['cpp']
-# hook_add = '''
-# 	autocmd FileType c,cc,cpp,cxx,h,hpp nnoremap <leader>fv :LspCqueryDerived<CR>
-# 	autocmd FileType c,cc,cpp,cxx,h,hpp nnoremap <leader>fc :LspCqueryCallers<CR>
-# 	autocmd FileType c,cc,cpp,cxx,h,hpp nnoremap <leader>fb :LspCqueryBase<CR>
-# 	autocmd FileType c,cc,cpp,cxx,h,hpp nnoremap <leader>fi :LspCqueryVars<CR>
-# '''
-
-[[plugins]]
-repo = 'prabirshrestha/asyncomplete-lsp.vim'
-on_ft = ['typescript', 'vue', 'cpp', 'rb']
 
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
@@ -68,15 +20,6 @@ hook_add = '''
 [[plugins]]
 repo = 'cohama/lexima.vim'
 on_event = ['InsertEnter']
-
-[[plugins]]
-repo='mattn/sonictemplate-vim'
-on_event= ['CmdlineEnter']
-
-# [[plugins]]
-# repo = 'scrooloose/nerdcommenter'
-# on_ft = ['vue']
-# hook_source = 'source ~/.vim/rc/plugins/nerdcommenter.vim'
 
 [[plugins]]
 repo = 'dart-lang/dart-vim-plugin'
@@ -92,14 +35,6 @@ hook_add = '''
   nnoremap <leader>fR :FlutterHotRestart<cr>
   nnoremap <leader>fD :FlutterVisualDebug<cr>
 '''
-
-
-# [[plugins]]
-# repo = 'pangloss/vim-javascript'
-# on_ft = ['javascript']
-# hook_add = '''
-#   let g:vim_jsx_pretty_highlight_close_tag = 0
-# '''
 
 [[plugins]]
 repo = 'ferrine/md-img-paste.vim'
