@@ -11,20 +11,15 @@ source ~/.vim/rc/plugins/dein.vim
 
 runtime macros/matchit.vim
 
-" source ~/.vim/rc/plugins/filer.vim
 source ~/.vim/rc/plugins/fzf.vim
-" source ~/.vim/rc/plugins/nerdcommenter.vim
 source ~/.vim/rc/plugins/sonictemplate-vim.vim
 source ~/.vim/rc/plugins/vim-easymotion.vim
 source ~/.vim/rc/plugins/vim-closetag.vim
 source ~/.vim/rc/plugins/vim-indent-guide.vim
-" source ~/.vim/rc/plugins/vim-lsp.vim
-" source ~/.vim/rc/plugins/vim-javascript.vim
-" source ~/.vim/rc/plugins/vim-precious.vim
-" source ~/.vim/rc/plugins/vim-quickrun.vim
 source ~/.vim/rc/set.vim
 
 filetype plugin indent on
+
 syntax enable
 
 " mapping 
@@ -167,7 +162,7 @@ noremap >1 :echo expand("%:p") <CR>
 noremap >2 :let @+ = expand("%:p") <CR>
 
 " Don't use Ex mode, use Q for formatting
-map Q gq
+" map Q gq
 
 
 " markdown
@@ -183,10 +178,6 @@ if has('mac')
 endif
 
 
-
-
-" In the quickfix window, <CR> is used to jump to the error under the cursor,
-" so undefine the mapping there.
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 autocmd BufNewFile,BufRead *.tsx set filetype=typescriptreact
 autocmd BufNewFile,BufRead *.jsx set filetype=javascriptreact
