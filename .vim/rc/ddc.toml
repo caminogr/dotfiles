@@ -157,7 +157,7 @@ repo = 'tani/ddc-fuzzy'
 on_source = 'ddc.vim'
 
 [[plugins]]
-repo = 'uga-rosa/ddc-source-vsnip'
+repo = 'hrsh7th/vim-vsnip'
 on_source = 'ddc.vim'
 hook_add = '''
   let g:vsnip_snippet_dir = expand('~/.vim/snippets')
@@ -166,6 +166,10 @@ hook_add = '''
   let g:vsnip_filetypes.typescriptreact = ['javascript', 'typescript', 'typescriptreact']
 '''
 
+
+[[plugins]]
+repo = 'uga-rosa/ddc-source-vsnip'
+on_source = 'vim-vsnip'
 
 [[plugins]]
 repo = 'rafamadriz/friendly-snippets'
@@ -178,5 +182,5 @@ on_source = 'vim-vsnip'
 #[[plugins]]
 ## repo = 'granola/TouchDesigner-snippets'
 #repo = '~/dotfiles/.vim/dein/repos/github.com/granola/TouchDesigner-snippets'
-#on_source = 'vim-vsnip'
+on_source = 'ddc-source-vsnip'
 #on_ft = ['glsl', 'frag', 'vert']
