@@ -38,6 +38,9 @@ null_ls.setup({
     -- js/ts
     null_ls.builtins.diagnostics.eslint.with({ 
       prefer_local = "node_modules/.bin",
+       condition = function(utils)
+          return utils.root_has_file(".eslintrc.js")
+        end,
     }),
     null_ls.builtins.formatting.prettier,
 

@@ -54,7 +54,7 @@ if dein#min#load_state(s:dein_dir)
      \ hook_source: 'luafile ~/.vim/rc/plugins/lua/nvim-treesitter.lua'
     \}) "  easy way to use the interface of tree-sitter
 
-   call dein#add('p00f/nvim-ts-rainbow',#{
+   call dein#add('HiPhish/rainbow-delimiters.nvim',#{
      \ lazy: 1,
      \ depends: ['nvim-treesitter'],
      \ on_event: 'VimEnter',
