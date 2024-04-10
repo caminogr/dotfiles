@@ -27,6 +27,6 @@
 [push]
   default = current
 [github]
-  user = kaminora
+  user = camionogr
 [commit]
   template = ~/.git_commit_template
