@@ -2,9 +2,18 @@ export LANG=ja_JP.UTF-8
 
 setopt nonomatch
 
+determine_unpushed() {
+  if [[ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ]]; then
+    local _head=$(git rev-parse --verify -q HEAD 2>/dev/null)
+    local _remote=$(git rev-parse --verify -q origin/$(git rev-parse --abbrev-ref HEAD) 2>/dev/null)
+    if [[ -n "$_head" && -n "$_remote" && "$_head" != "$_remote" ]]; then
+      echo -n "⚡"
+    fi
+  fi
+}
+
 ## prompt
-PROMPT="%{${fg[blue]}%}$%{${reset_color}%} "
-export PROMPT="%B[%{$fg[default]%}%/]%{$fg[cyan]%} $%b"
+PROMPT='%B[%{$fg[default]%}%/]%{$fg[cyan]%} $(determine_unpushed)$%b '
 
 
 ## vcs_info
