@@ -1,5 +1,5 @@
 call ddc#custom#patch_global('sources', [
-    \ 'nvim-lsp',
+    \ 'lsp',
     \ 'vsnip',
     \ 'file',
     \ 'around',
@@ -13,7 +13,7 @@ call ddc#custom#patch_global('sourceOptions', {
   \   sorters: ['sorter_fuzzy'],
   \   converters: ['converter_fuzzy'],
   \ },
-  \ 'nvim-lsp': {
+  \ 'lsp': {
   \   'mark': 'lsp',
   \   'forceCompletionPattern': '\.\w*|:\w*|->\w*',
   \  },
@@ -44,8 +44,17 @@ call ddc#custom#patch_global('sourceOptions', {
   \ },
   \ })
 
-call ddc#custom#patch_global('sourceParams', {
-  \ 'nvim-lsp': #{ kindLabels: #{ Class: 'c' } },
-  \ 'around': {'maxSize': 500},
+call ddc#custom#patch_global('sourceParams', #{
+  \   lsp: #{
+  \     snippetEngine: denops#callback#register({
+  \           body -> vsnip#anonymous(body)
+  \     }),
+  \     enableResolveItem: v:true,
+  \     enableAdditionalTextEdit: v:true,
+  \   },
+  \   around: #{
+  \     maxSize: 500
+  \   },
   \ })
+
 call ddc#enable()
