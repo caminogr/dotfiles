@@ -29,6 +29,92 @@ hook_source = '''
   source ~/.vim/rc/plugins/ddc.vim
 '''
 
+
+# UI framework for neovim/Vim
+[[plugins]]
+repo = 'Shougo/ddu.vim'
+depends = ['denops.vim']
+hook_source = '''
+call ddu#custom#patch_global(#{
+    \   ui: 'filer',
+    \   uiParams: #{
+    \     filer: #{
+    \       split: 'floating',
+    \       winHeight: '&lines - 8',
+    \       winWidth: '&columns / 2 - 2',
+    \       winRow: 1,
+    \       winCol: 1,
+    \       previewFloating: v:true,
+    \       previewHeight: '&lines - 8',
+    \       previewWidth: '&columns / 2 - 2',
+    \       previewRow: 1,
+    \       previewCol: '&columns / 2 + 1',
+    \     }
+    \   },
+    \   sources: [{'name': 'file', 'params': {}}],
+    \   sourceOptions: #{
+    \     _: #{
+    \       columns: ['filename'],
+    \     },
+    \   },
+    \   kindOptions: #{
+    \     file: #{
+    \       defaultAction: 'open',
+    \     },
+    \   },
+    \ })
+'''
+
+hook_add = '''
+nnoremap <silent> <C-t> <Cmd>call ddu#start({
+\   'name': 'filer',
+\   'searchPath': expand('%:p'),
+\   'resume': v:true,
+\ })<CR>
+'''
+
+# filer
+[[plugins]]
+repo = 'Shougo/ddu-ui-filer'
+on_source = 'ddu.vim'
+hook_add = '''
+autocmd FileType ddu-filer call s:ddu_my_settings()
+function! s:ddu_my_settings() abort
+  nnoremap <buffer><silent> <CR>
+        \ <Cmd>call ddu#ui#do_action('itemAction')<CR>
+  nnoremap <buffer><silent> <Space>
+        \ <Cmd>call ddu#ui#do_action('toggleSelectItem')<CR>
+  nnoremap <buffer> o
+        \ <Cmd>call ddu#ui#do_action('expandItem',
+        \ {'mode': 'toggle'})<CR>
+
+  nnoremap <buffer><silent> q <Cmd>call ddu#ui#do_action('quit')<CR>
+  nnoremap <buffer><silent> <Esc> <Cmd>call ddu#ui#do_action('quit')<CR>
+  nnoremap <buffer><silent> c <Cmd>call ddu#ui#do_action('itemAction', {'name': 'copy'})<CR>
+  nnoremap <buffer><silent> p <Cmd>call ddu#ui#do_action('itemAction', {'name': 'paste'})<CR>
+  nnoremap <buffer><silent> d <Cmd>call ddu#ui#do_action('itemAction', {'name': 'delete'})<CR>
+  nnoremap <buffer><silent> r <Cmd>call ddu#ui#do_action('itemAction', {'name': 'rename'})<CR>
+  nnoremap <buffer><silent> mv <Cmd>call ddu#ui#do_action('itemAction', {'name': 'move'})<CR>
+  nnoremap <buffer><silent> N <Cmd>call ddu#ui#do_action('itemAction', {'name': 'newFile'})<CR>
+  nnoremap <buffer><silent> K <Cmd>call ddu#ui#do_action('itemAction', {'name': 'newDirectory'})<CR>
+  nnoremap <buffer><silent> yy <Cmd>call ddu#ui#do_action('itemAction', {'name': 'yank'})<CR>
+endfunction
+'''
+
+
+[[plugins]]
+repo = 'Shougo/ddu-source-file'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'Shougo/ddu-kind-file'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'Shougo/ddu-column-filename'
+on_source = 'ddu.vim'
+
+
 [[plugins]]
 repo = 'Shougo/pum.vim'
 #on_event= ['InsertEnter', 'CmdlineEnter']
