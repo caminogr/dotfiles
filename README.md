@@ -1,4 +1,14 @@
 # dotfiles
+## Setup API KEY
+
+Set API KEY to .vim/rc/env.vim
+```
+let $GITHUB_TOKEN=
+let $OPENAI_API_KEY=
+```
+
+## Install deno
+
 
 ## symlink
 

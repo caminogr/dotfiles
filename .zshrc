@@ -304,8 +304,4 @@ fancy-ctrl-z () {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/kaminoura/sdk/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/kaminoura/sdk/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/kaminoura/sdk/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/kaminoura/sdk/google-cloud-sdk/completion.zsh.inc'; fi
+. "$HOME/.asdf/asdf.sh"
