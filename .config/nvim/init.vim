@@ -29,7 +29,6 @@ nnoremap x <nop>
 vnoremap U <nop>
 vnoremap u <nop>
 vnoremap x <nop>
-noremap  ; :
 noremap  ' ;
 vnoremap C U
 vnoremap c u
