@@ -24,6 +24,7 @@
   hard = !git reset --hard HEAD^
   rebase1= !git rebase -i HEAD~
   see  = !hub browse -- pull/$(git symbolic-ref --short HEAD)
+  ac = !git add -A && aicommits -a
 [push]
   default = current
 [github]

@@ -17,7 +17,7 @@ require("chatgpt").setup(
       loading_text = "Loading, please wait ...",
       question_sign = "", -- 🙂
       answer_sign = "ﮧ", -- 🤖
-      max_line_length = 420,
+      max_line_length = 200,
       sessions_window = {
         border = {
           style = "rounded",
@@ -94,7 +94,7 @@ require("chatgpt").setup(
       model = "gpt-4-1106-preview",
       frequency_penalty = 0,
       presence_penalty = 0,
-      max_tokens = 300,
+      max_tokens = 800,
       temperature = 0,
       top_p = 1,
       n = 1,

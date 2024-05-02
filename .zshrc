@@ -92,6 +92,7 @@ alias vi='nvim'
 alias vim='nvim'
 alias vv='nvim ~/.config/nvim/init.vim'
 alias vz='nvim ~/.zshrc'
+alias vif='vim $(fzf)'
 
 ### git
 alias g='git'
@@ -113,9 +114,11 @@ alias gg='git grep -i'
 alias glo='git log --oneline'
 alias gpf='git push --force-with-lease'
 alias ghl='cd "$( ghq list --full-path | peco)"'
+alias ghco='gh copilot'
 alias grbauto='git rebase -i --autosquash'
+alias gbp='git branch -a --sort=-authordate | cut -b 3- | perl -pe '\''s#^remotes/origin/###'\'' | perl -nlE '\''say if !$c{$_}++'\'' | grep -v -- "->" | peco | xargs git checkout'
+alias gbpm='git branch --sort=-authordate | cut -b 3- | perl -pe '\''s#^remotes/origin/###'\'' | perl -nlE '\''say if !$c{$_}++'\'' | grep -v -- "->" | peco | xargs git checkout'
 
-alias hc='hub clone'
 alias ts='tig status'
 alias tnm='tig --no-merges'
 
