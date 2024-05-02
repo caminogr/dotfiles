@@ -178,7 +178,7 @@ hook_source = '''
   imap <expr> <S-TAB> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-TAB>'
   smap <expr> <S-TAB> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-TAB>'
   
-  autocmd User PumCompleteDone call vsnip_integ#on_complete_done(g:pum#completed_item)
+  " autocmd User PumCompleteDone call vsnip_integ#on_complete_done(g:pum#completed_item)
   
   
   call ddc#custom#patch_global('ui', 'pum')
