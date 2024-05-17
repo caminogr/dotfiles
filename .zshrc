@@ -92,7 +92,7 @@ alias vi='nvim'
 alias vim='nvim'
 alias vv='nvim ~/.config/nvim/init.vim'
 alias vz='nvim ~/.zshrc'
-alias vif='vim $(fzf)'
+alias vif='vim $(rg --files | fzf)'
 
 ### git
 alias g='git'

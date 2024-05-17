@@ -7,7 +7,11 @@ let $GITHUB_TOKEN=
 let $OPENAI_API_KEY=
 ```
 
-## Install deno
+## Install
+- deno
+- fzf
+- ripgrep
+- bat
 
 
 ## symlink

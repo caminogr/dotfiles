@@ -11,9 +11,11 @@ nnoremap <Leader>r :Rg
 nnoremap <Leader>ft :Tags<CR>
 nnoremap <Leader>fm :History<CR>
 
-" preview file with :Files
-command! -bang -nargs=? -complete=dir Files
- \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+command! -bang -nargs=* Files
+    \ call fzf#run(fzf#wrap({
+    \   'source': 'rg --files --hidden --follow --glob "!.git/*"',
+    \   'options': '--multi --preview "bat  --style=numbers --color=always --line-range :500 {}"'
+    \ }), <bang>0)
 
 run ripgrep with :Rg
 command! -bang -nargs=* Rg
