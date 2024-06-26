@@ -97,3 +97,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'tpope/vim-commentary'
+
+[[plugins]]
+repo = 'tikhomirov/vim-glsl'
+on_ft = ['glsl', 'vert', 'frag']

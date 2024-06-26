@@ -4,7 +4,7 @@ on_event = 'VimEnter'
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
-on_ft = ['html', 'css', 'scss', 'javascript', 'vue', 'php', 'jsx', 'tsx', 'markdown']
+on_ft = ['html', 'css', 'scss', 'javascript', 'vue', 'php', 'javascriptreact', 'typescriptreact', 'markdown']
 hook_source = '''
   source ~/.vim/rc/plugins/emmet-vim.vim
 '''
