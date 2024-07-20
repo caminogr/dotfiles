@@ -145,6 +145,10 @@ noremap <silent> tp    :tabprevious<CR>
 " search
 nnoremap <silent><ESC><ESC> :noh<Return>
 
+if exists('$WSLENV')
+  nmap <M-v> <C-v>
+endif
+
 " grep
 if executable('rg')
   let g:unite_source_grep_command = 'rg'
