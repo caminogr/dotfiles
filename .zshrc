@@ -77,6 +77,14 @@ alias be='bundle exec'
 alias xcode='open -a /Applications/Xcode.app'
 alias ls='ls -G'
 
+function openwin() {
+  if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
+    explorer.exe .
+  else
+    echo "This function is only for use in WSL."
+  fi
+}
+
 mkcd() {
   \mkdir $* && cd $_
 }

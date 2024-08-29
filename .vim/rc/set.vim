@@ -67,8 +67,16 @@ augroup END
 set vb t_vb=
 set ttimeoutlen=4
 
-" クリップボード連携
-set clipboard=unnamed
+set clipboard=unnamedplus
+let s:clip = 'iconv -f utf-8 -t utf-16le | clip.exe'
+
+if executable('clip.exe')
+    set clipboard=unnamedplus
+    augroup WSLYank
+        autocmd!
+        autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
+    augroup END
+endif
 
 set autoindent
 
