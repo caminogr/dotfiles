@@ -68,9 +68,9 @@ set vb t_vb=
 set ttimeoutlen=4
 
 set clipboard=unnamedplus
-let s:clip = 'iconv -f utf-8 -t utf-16le | clip.exe'
+let s:clip = 'win32yank.exe -i'
 
-if executable('clip.exe')
+if executable('win32yank.exe')
     set clipboard=unnamedplus
     augroup WSLYank
         autocmd!
