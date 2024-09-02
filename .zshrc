@@ -316,3 +316,11 @@ zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
 . "$HOME/.asdf/asdf.sh"
+
+# tools
+# atuin (history)
+source $HOME/.atuin/bin/env
+export ATUIN_NOBIND="true"
+eval "$(atuin init zsh)"
+bindkey '^R' _atuin_search_widget
+
